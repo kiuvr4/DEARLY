@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -31,14 +32,15 @@
                     fontFamily: {
                         serif: ['"Fraunces"', '"Cormorant Garamond"', 'Georgia', 'serif'],
                         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        hand: ['"Caveat"', 'cursive']
+                        hand: ['"Caveat"', 'cursive'],
+                        mono: ['"JetBrains Mono"', 'monospace']
                     }
                 }
             }
         }
     </script>
     <!-- Google Fonts & Phosphor Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Indie+Flower&family=JetBrains+Mono:wght@400;500&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         :root {
@@ -102,9 +104,9 @@
             opacity: 0.22;
         }
 
-        /* Rich Text Editor & Formatted Content Styling */
+        /* Rich Text Editor & Natural Marker Highlight Styling */
         .dearly-rich-editor {
-            min-height: 185px;
+            min-height: 165px;
             outline: none;
             overflow-y: auto;
         }
@@ -140,12 +142,29 @@
             padding-left: 1.35rem;
             margin: 0.35rem 0;
         }
+        /* Natural Hand-Drawn Marker Underline Highlight */
         .dearly-rich-content mark,
         .dearly-rich-editor mark {
-            padding: 0.08rem 0.32rem;
-            border-radius: 0.4rem;
-            color: #23201E;
+            --hl-color: #F7DDE0;
+            background: linear-gradient(104deg, transparent 0.9%, var(--hl-color) 2.4%, var(--hl-color) 96%, transparent 98.5%) no-repeat 0 88% / 100% 38% !important;
+            background-color: transparent !important;
+            padding: 0 3px;
+            margin: 0 -1px;
+            border-radius: 3px 6px 4px 2px;
+            color: inherit !important;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
         }
+
+        /* Custom Font Classes for Editors & Saved Cards */
+        .dearly-font-sans { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+        .dearly-font-serif { font-family: 'Fraunces', Georgia, serif !important; }
+        .dearly-font-hand { font-family: 'Caveat', cursive !important; font-size: 1.28em; line-height: 1.45; }
+        .dearly-font-patrick { font-family: 'Patrick Hand', cursive !important; font-size: 1.18em; line-height: 1.48; }
+        .dearly-font-indie { font-family: 'Indie Flower', cursive !important; font-size: 1.15em; line-height: 1.48; }
+        .dearly-font-script { font-family: 'Dancing Script', cursive !important; font-size: 1.28em; line-height: 1.45; }
+        .dearly-font-mono { font-family: 'JetBrains Mono', monospace !important; font-size: 0.92em; }
+        .dearly-font-dynamic { font-size: 1.14em; line-height: 1.52; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -384,15 +403,6 @@
             animation: progressShimmer 2.1s ease-in-out infinite;
         }
 
-        @keyframes sproutWiggle {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(8deg); }
-        }
-        .animate-sprout {
-            transform-origin: 55px 28px;
-            animation: sproutWiggle 2.6s ease-in-out infinite;
-        }
-
         /* Jelly Button Tactile Press */
         .dearly-jelly-btn {
             transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
@@ -559,7 +569,7 @@
                     <span class="font-serif text-4xl font-semibold tracking-tight text-charcoal">Dearly</span>
                     <span class="text-dusty text-lg">✦</span>
                 </div>
-                <p class="text-[11px] uppercase tracking-[0.24em] text-dusty font-semibold">Your Little Space</p>
+                <p class="text-[11px] uppercase tracking-[0.24em] text-dusty font-semibold">Ruang Kecil Pribadimu</p>
                 <p class="font-serif italic text-sm text-muted pt-1">Menyiapkan ruang tenang untukmu...</p>
             </div>
             <div class="w-40 h-1.5 bg-cream/90 border border-borderwarm rounded-full overflow-hidden mx-auto">
@@ -584,16 +594,16 @@
                         <span class="font-serif text-xl font-semibold tracking-tight text-charcoal leading-none">Dearly</span>
                         <span class="text-dusty text-xs">✦</span>
                     </div>
-                    <span class="text-[9px] uppercase tracking-[0.2em] text-softgray font-semibold block mt-0.5">Your Little Space</span>
+                    <span class="text-[9px] uppercase tracking-[0.2em] text-softgray font-semibold block mt-0.5">Ruang Kecilmu</span>
                 </div>
             </button>
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-1 bg-cream p-1 rounded-full border border-borderwarm text-xs font-medium">
-                <button onclick="app.navigate('home')" data-nav="home" class="nav-btn px-4 py-1.5 rounded-full transition-all">Home</button>
-                <button onclick="app.navigate('notes')" data-nav="notes" class="nav-btn px-4 py-1.5 rounded-full transition-all">Catatan</button>
-                <button onclick="app.navigate('activities')" data-nav="activities" class="nav-btn px-4 py-1.5 rounded-full transition-all">Aktivitas</button>
-                <button onclick="app.navigate('all')" data-nav="all" class="nav-btn px-4 py-1.5 rounded-full transition-all">Semua Ruang</button>
+                <button onclick="app.navigate('home')" data-nav="home" class="nav-btn px-4 py-1.5 rounded-full transition-all">Beranda</button>
+                <button onclick="app.navigate('notes')" data-nav="notes" class="nav-btn px-4 py-1.5 rounded-full transition-all">Notes & Ideas</button>
+                <button onclick="app.navigate('activities')" data-nav="activities" class="nav-btn px-4 py-1.5 rounded-full transition-all">Activity List</button>
+                <button onclick="app.navigate('all')" data-nav="all" class="nav-btn px-4 py-1.5 rounded-full transition-all">Jelajahi Ruang</button>
             </nav>
 
             <!-- Right Actions -->
@@ -610,7 +620,7 @@
                 </button>
                 <button onclick="app.openQuickCapture()" class="px-3.5 sm:px-4 py-2 rounded-full bg-dusty hover:opacity-90 text-white text-xs font-semibold shadow-md flex items-center gap-1.5 transition-all active:scale-95">
                     <i class="ph-bold ph-plus text-xs"></i>
-                    <span class="hidden sm:inline">Quick Capture</span>
+                    <span class="hidden sm:inline">Catat Cepat</span>
                 </button>
                 <button onclick="app.openProfileModal()" title="Profil & Cloud Sync" class="w-9 h-9 rounded-full bg-cream hover:opacity-85 border border-borderwarm flex items-center justify-center text-charcoal transition-colors">
                     <i class="ph ph-user text-base text-muted"></i>
@@ -670,19 +680,19 @@
         <div class="max-w-md mx-auto dearly-pill rounded-full px-3 py-2.5 flex items-center justify-around">
             <button onclick="app.navigate('home')" data-nav-mobile="home" class="mobile-nav-btn flex flex-col items-center gap-0.5 px-3.5 py-1.5 rounded-full text-[11px] font-medium transition-all">
                 <i class="ph ph-house text-lg"></i>
-                <span>Home</span>
+                <span>Beranda</span>
             </button>
             <button onclick="app.navigate('notes')" data-nav-mobile="notes" class="mobile-nav-btn flex flex-col items-center gap-0.5 px-3.5 py-1.5 rounded-full text-[11px] font-medium transition-all">
                 <i class="ph ph-note-pencil text-lg"></i>
-                <span>Catatan</span>
+                <span>Notes</span>
             </button>
             <button onclick="app.navigate('activities')" data-nav-mobile="activities" class="mobile-nav-btn flex flex-col items-center gap-0.5 px-3.5 py-1.5 rounded-full text-[11px] font-medium transition-all">
                 <i class="ph ph-sparkle text-lg"></i>
-                <span>Aktivitas</span>
+                <span>Activity</span>
             </button>
             <button onclick="app.navigate('all')" data-nav-mobile="all" class="mobile-nav-btn flex flex-col items-center gap-0.5 px-3.5 py-1.5 rounded-full text-[11px] font-medium transition-all">
                 <i class="ph ph-squares-four text-lg"></i>
-                <span>Semua</span>
+                <span>Jelajahi</span>
             </button>
         </div>
     </nav>
@@ -698,70 +708,109 @@
     </div>
 
     <script>
-        // =====================================================================
-        // DEARLY DESIGN SYSTEM: MASCOT COMPANIONS & UNIFIED ICON FAMILY
-        // =====================================================================
         const DEARLY_ILLUSTRATIONS = {
-            companionSage: `<svg viewBox="0 0 110 110" fill="none" class="w-20 h-20 animate-companion">
+            companionPuff: `<svg viewBox="0 0 110 110" fill="none" class="w-24 h-24 animate-companion">
                 <defs>
-                    <linearGradient id="starPuffGrad" x1="22" y1="18" x2="88" y2="90" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#FFF0C7"/>
-                        <stop offset="52%" stop-color="#F7DDE0"/>
-                        <stop offset="100%" stop-color="#E9E3F5"/>
-                    </linearGradient>
-                    <radialGradient id="starPuffGlow" cx="45" cy="34" r="30" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.82"/>
-                        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-                    </radialGradient>
-                </defs>
-                <!-- Soft Lineless Chubby 5-Point Star Puff -->
-                <path d="M55 15 C61 15 65 30 70 33 C75 36 90 35 92 41 C94 47 82 56 81 62 C80 68 89 81 84 86 C79 90 66 81 55 81 C44 81 31 90 26 86 C21 81 30 68 29 62 C28 56 16 47 18 41 C20 35 35 36 40 33 C45 30 49 15 55 15 Z" fill="url(#starPuffGrad)"/>
-                <path d="M55 15 C61 15 65 30 70 33 C75 36 90 35 92 41 C94 47 82 56 81 62 C80 68 89 81 84 86 C79 90 66 81 55 81 C44 81 31 90 26 86 C21 81 30 68 29 62 C28 56 16 47 18 41 C20 35 35 36 40 33 C45 30 49 15 55 15 Z" fill="url(#starPuffGlow)"/>
-                <!-- Tiny Pastel Hairpin Sparkle -->
-                <circle cx="42" cy="33" r="3.5" fill="#C9D9F0"/>
-                <!-- Matching Round Eyes & Highlights -->
-                <circle cx="46" cy="54" r="3" fill="#23201E"/>
-                <circle cx="64" cy="54" r="3" fill="#23201E"/>
-                <circle cx="47" cy="52.8" r="1" fill="#FFFFFF"/>
-                <circle cx="65" cy="52.8" r="1" fill="#FFFFFF"/>
-                <!-- Rosy Cheeks -->
-                <ellipse cx="40" cy="60" rx="3.5" ry="2" fill="#E89BA3" opacity="0.8"/>
-                <ellipse cx="70" cy="60" rx="3.5" ry="2" fill="#E89BA3" opacity="0.8"/>
-                <!-- Soft Smile -->
-                <path d="M51 60 Q55 64 59 60" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
-            </svg>`,
-
-            companionPuff: `<svg viewBox="0 0 110 110" fill="none" class="w-20 h-20 animate-companion">
-                <defs>
-                    <linearGradient id="puffGrad" x1="25" y1="22" x2="85" y2="86" gradientUnits="userSpaceOnUse">
+                    <linearGradient id="puffBodyGrad" x1="25" y1="22" x2="85" y2="86" gradientUnits="userSpaceOnUse">
                         <stop offset="0%" stop-color="#F7DDE0"/>
                         <stop offset="52%" stop-color="#E9E3F5"/>
                         <stop offset="100%" stop-color="#C9D9F0"/>
                     </linearGradient>
-                    <linearGradient id="pomGrad" x1="50" y1="15" x2="60" y2="25" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#FFF0C7"/>
-                        <stop offset="100%" stop-color="#F2B8C0"/>
-                    </linearGradient>
-                    <radialGradient id="puffHighlight" cx="44" cy="36" r="28" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75"/>
-                        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-                    </radialGradient>
                 </defs>
-                <circle cx="55" cy="54" r="32" fill="url(#puffGrad)"/>
-                <circle cx="55" cy="54" r="32" fill="url(#puffHighlight)"/>
-                <circle cx="55" cy="20" r="5.5" fill="url(#pomGrad)"/>
+                <circle cx="55" cy="54" r="32" fill="url(#puffBodyGrad)"/>
+                <circle cx="55" cy="20" r="5.5" fill="#FFF0C7"/>
                 <circle cx="46" cy="51" r="3" fill="#23201E"/>
                 <circle cx="64" cy="51" r="3" fill="#23201E"/>
                 <circle cx="47" cy="49.8" r="1" fill="#FFFFFF"/>
                 <circle cx="65" cy="49.8" r="1" fill="#FFFFFF"/>
-                <ellipse cx="40" cy="57" rx="3.5" ry="2" fill="#E89BA3" opacity="0.8"/>
-                <ellipse cx="70" cy="57" rx="3.5" ry="2" fill="#E89BA3" opacity="0.8"/>
+                <ellipse cx="40" cy="57" rx="3.5" ry="2" fill="#E89BA3" opacity="0.85"/>
+                <ellipse cx="70" cy="57" rx="3.5" ry="2" fill="#E89BA3" opacity="0.85"/>
                 <path d="M51 57 Q55 61 59 57" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
-                <path d="M47 85 V93" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
-                <path d="M63 85 V93" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
             </svg>`,
+            companionSage: `<svg viewBox="0 0 110 110" fill="none" class="w-24 h-24 animate-companion">
+                <defs>
+                    <linearGradient id="starPuffGrad" x1="20" y1="20" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#FFF0C7"/>
+                        <stop offset="52%" stop-color="#F7DDE0"/>
+                        <stop offset="100%" stop-color="#E9E3F5"/>
+                    </linearGradient>
+                </defs>
+                <path d="M55 18 C61 18 64 33 69 36 C74 39 89 37 91 43 C93 49 81 58 81 64 C81 70 90 82 85 86 C80 90 67 82 61 83 C55 84 44 93 39 89 C34 85 41 72 39 66 C37 60 23 53 25 47 C27 41 42 41 46 36 C50 31 49 18 55 18 Z" fill="url(#starPuffGrad)"/>
+                <circle cx="48" cy="55" r="2.8" fill="#23201E"/>
+                <circle cx="64" cy="55" r="2.8" fill="#23201E"/>
+                <circle cx="48.9" cy="53.9" r="0.95" fill="#FFFFFF"/>
+                <circle cx="64.9" cy="53.9" r="0.95" fill="#FFFFFF"/>
+                <ellipse cx="42.5" cy="60.5" rx="3.2" ry="1.8" fill="#E89BA3" opacity="0.85"/>
+                <ellipse cx="69.5" cy="60.5" rx="3.2" ry="1.8" fill="#E89BA3" opacity="0.85"/>
+                <path d="M53 60.5 Q56 64 59 60.5" stroke="#23201E" stroke-width="1.9" stroke-linecap="round"/>
+            </svg>`,
+            sparkleMark: `<svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M12 2L14.2 9.2L21.5 11.5L14.2 13.8L12 21L9.8 13.8L2.5 11.5L9.8 9.2L12 2Z" fill="currentColor"/></svg>`,
 
-            sparkleMark: `<svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M12 2L14.2 9.2L21.5 11.5L14.2 13.8L12 21L9.8 13.8L2.5 11.5L9.8 9.2L12 2Z" fill="currentColor"/></svg>`
+            moodMascots: {
+                'Tenang': `<svg viewBox="0 0 80 80" fill="none" class="w-11 h-11">
+                    <defs><linearGradient id="mCalm" x1="15" y1="15" x2="65" y2="65" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E2EEF8"/><stop offset="100%" stop-color="#E9E3F5"/></linearGradient></defs>
+                    <circle cx="40" cy="41" r="24" fill="url(#mCalm)"/>
+                    <circle cx="40" cy="15" r="4" fill="#FFF0C7"/>
+                    <path d="M30 39 Q33 42 36 39" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M44 39 Q47 42 50 39" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
+                    <ellipse cx="28" cy="44" rx="2.8" ry="1.6" fill="#E89BA3" opacity="0.7"/>
+                    <ellipse cx="52" cy="44" rx="2.8" ry="1.6" fill="#E89BA3" opacity="0.7"/>
+                    <path d="M37 45 Q40 47.5 43 45" stroke="#23201E" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>`,
+                'Bahagia': `<svg viewBox="0 0 80 80" fill="none" class="w-11 h-11">
+                    <defs><linearGradient id="mHappy" x1="15" y1="15" x2="65" y2="65" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFF0C7"/><stop offset="100%" stop-color="#F7DDE0"/></linearGradient></defs>
+                    <circle cx="40" cy="41" r="24" fill="url(#mHappy)"/>
+                    <circle cx="40" cy="15" r="4" fill="#F2B8C0"/>
+                    <path d="M30 40 Q33 35.5 36 40" stroke="#23201E" stroke-width="2.1" stroke-linecap="round"/>
+                    <path d="M44 40 Q47 35.5 50 40" stroke="#23201E" stroke-width="2.1" stroke-linecap="round"/>
+                    <ellipse cx="27.5" cy="44" rx="3.2" ry="1.8" fill="#E89BA3" opacity="0.85"/>
+                    <ellipse cx="52.5" cy="44" rx="3.2" ry="1.8" fill="#E89BA3" opacity="0.85"/>
+                    <path d="M35.5 44 C36.5 49.5 43.5 49.5 44.5 44 Z" fill="#E89BA3"/>
+                </svg>`,
+                'Bersyukur': `<svg viewBox="0 0 80 80" fill="none" class="w-11 h-11">
+                    <defs><linearGradient id="mGrateful" x1="15" y1="15" x2="65" y2="65" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E4EFD9"/><stop offset="100%" stop-color="#FFF0C7"/></linearGradient></defs>
+                    <circle cx="40" cy="41" r="24" fill="url(#mGrateful)"/>
+                    <path d="M40 11 L41.5 14.5 L45 16 L41.5 17.5 L40 21 L38.5 17.5 L35 16 L38.5 14.5 Z" fill="#C98288"/>
+                    <circle cx="33" cy="39" r="2.5" fill="#23201E"/>
+                    <circle cx="47" cy="39" r="2.5" fill="#23201E"/>
+                    <circle cx="33.8" cy="38" r="0.9" fill="#FFFFFF"/>
+                    <circle cx="47.8" cy="38" r="0.9" fill="#FFFFFF"/>
+                    <ellipse cx="28" cy="44" rx="3" ry="1.7" fill="#E89BA3" opacity="0.85"/>
+                    <ellipse cx="52" cy="44" rx="3" ry="1.7" fill="#E89BA3" opacity="0.85"/>
+                    <path d="M36 44 Q38 46.5 40 44.5 Q42 46.5 44 44" stroke="#23201E" stroke-width="1.9" stroke-linecap="round"/>
+                </svg>`,
+                'Melankolis': `<svg viewBox="0 0 80 80" fill="none" class="w-11 h-11">
+                    <defs><linearGradient id="mMelancholy" x1="15" y1="15" x2="65" y2="65" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E9E3F5"/><stop offset="100%" stop-color="#C9D9F0"/></linearGradient></defs>
+                    <circle cx="40" cy="41" r="24" fill="url(#mMelancholy)"/>
+                    <circle cx="40" cy="15" r="4" fill="#E2EEF8"/>
+                    <circle cx="33" cy="40" r="2.4" fill="#23201E"/>
+                    <circle cx="47" cy="40" r="2.4" fill="#23201E"/>
+                    <path d="M29.5 36.5 L35.5 35" stroke="#23201E" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M50.5 36.5 L44.5 35" stroke="#23201E" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M52 43 C52 43 54.5 46.5 52 48.2 C49.5 46.5 52 43 52 43 Z" fill="#89B4D8"/>
+                    <path d="M37 47 Q40 44.5 43 47" stroke="#23201E" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>`,
+                'Lelah': `<svg viewBox="0 0 80 80" fill="none" class="w-11 h-11">
+                    <defs><linearGradient id="mTired" x1="15" y1="15" x2="65" y2="65" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F7DDE0"/><stop offset="100%" stop-color="#E9E3F5"/></linearGradient></defs>
+                    <circle cx="40" cy="42" r="24" fill="url(#mTired)"/>
+                    <circle cx="40" cy="16" r="4" fill="#FFF0C7"/>
+                    <path d="M30 41 H36" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M44 41 H50" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
+                    <ellipse cx="28" cy="45" rx="2.6" ry="1.5" fill="#E89BA3" opacity="0.65"/>
+                    <ellipse cx="52" cy="45" rx="2.6" ry="1.5" fill="#E89BA3" opacity="0.65"/>
+                    <ellipse cx="40" cy="47.5" rx="2.2" ry="2.8" fill="#C98288"/>
+                </svg>`,
+                'Bersemangat': `<svg viewBox="0 0 80 80" fill="none" class="w-11 h-11">
+                    <defs><linearGradient id="mInspired" x1="15" y1="15" x2="65" y2="65" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFF0C7"/><stop offset="50%" stop-color="#F7DDE0"/><stop offset="100%" stop-color="#E2EEF8"/></linearGradient></defs>
+                    <circle cx="40" cy="41" r="24" fill="url(#mInspired)"/>
+                    <circle cx="40" cy="15" r="4.2" fill="#FFF0C7"/>
+                    <path d="M33 35.5 L34.2 38.2 L37 39 L34.2 39.8 L33 42.5 L31.8 39.8 L29 39 L31.8 38.2 Z" fill="#23201E"/>
+                    <path d="M47 35.5 L48.2 38.2 L51 39 L48.2 39.8 L47 42.5 L45.8 39.8 L43 39 L45.8 38.2 Z" fill="#23201E"/>
+                    <ellipse cx="27.5" cy="44" rx="3.2" ry="1.8" fill="#E89BA3" opacity="0.88"/>
+                    <ellipse cx="52.5" cy="44" rx="3.2" ry="1.8" fill="#E89BA3" opacity="0.88"/>
+                    <path d="M36 44.5 Q40 49.5 44 44.5" stroke="#23201E" stroke-width="2" stroke-linecap="round"/>
+                </svg>`
+            }
         };
 
         const SPACE_ICONS = {
@@ -779,17 +828,17 @@
         };
 
         const DEARLY_FEATURES = [
-            { id: 'journal', title: 'Jurnal Harian', short: 'Jurnal', icon: SPACE_ICONS.journal, pastel: '#F7DDE0', desc: 'Tuangkan cerita, perasaan, dan momen keseharian.' },
-            { id: 'memories', title: 'Kotak Kenangan', short: 'Kenangan', icon: SPACE_ICONS.memories, pastel: '#E9E3F5', desc: 'Simpan potret berharga & cerita di baliknya.' },
-            { id: 'letter', title: 'Surat Masa Depan', short: 'Surat Nanti', icon: SPACE_ICONS.letter, pastel: '#F7DDE0', desc: 'Kapsul waktu terkunci untuk dirimu kelak.' },
-            { id: 'habits', title: 'Pelacak Kebiasaan', short: 'Kebiasaan', icon: SPACE_ICONS.habits, pastel: '#E4EFD9', desc: 'Bangun rutinitas lembut yang konsisten.' },
-            { id: 'goals', title: 'Pelacak Target Pribadi', short: 'Target', icon: SPACE_ICONS.goals, pastel: '#FFF0C7', desc: 'Rencanakan impian dan pantau langkah pencapaiannya.' },
-            { id: 'finance', title: 'Keuangan & Tabungan', short: 'Keuangan', icon: SPACE_ICONS.finance, pastel: '#E4EFD9', desc: 'Catat pemasukan, pengeluaran, dan impian tabungan.' },
-            { id: 'watchlist', title: 'Daftar Tontonan', short: 'Tontonan', icon: SPACE_ICONS.watchlist, pastel: '#E2EEF8', desc: 'K-Drama, film, anime, dan ulasan pribadimu.' },
-            { id: 'wishlist', title: 'Daftar Keinginan', short: 'Wishlist', icon: SPACE_ICONS.wishlist, pastel: '#F7DDE0', desc: 'Barang impian yang ingin kamu miliki suatu hari.' },
-            { id: 'recipes', title: 'Kumpulan Resep', short: 'Resep', icon: SPACE_ICONS.recipes, pastel: '#FFF0C7', desc: 'Buku resep rumahan favorit dan catatan dapur.' },
-            { id: 'activities', title: 'Daftar Kegiatan', short: 'Kegiatan', icon: SPACE_ICONS.activities, pastel: '#FFF0C7', desc: 'Ide aktivitas seru & hal baru untuk dicoba.' },
-            { id: 'notes', title: 'Catatan & Ide', short: 'Catatan', icon: SPACE_ICONS.notes, pastel: '#E2EEF8', desc: 'Catatan cepat, daftar ringkas, dan percikan ide.' }
+            { id: 'journal', title: 'Daily Journal', short: 'Daily Journal', icon: SPACE_ICONS.journal, pastel: '#F7DDE0', desc: 'Tuangkan cerita, perasaan, dan momen keseharian.' },
+            { id: 'memories', title: 'Memory Box', short: 'Memory Box', icon: SPACE_ICONS.memories, pastel: '#E9E3F5', desc: 'Simpan potret berharga & cerita di baliknya.' },
+            { id: 'letter', title: 'Future Letter', short: 'Future Letter', icon: SPACE_ICONS.letter, pastel: '#F7DDE0', desc: 'Kapsul waktu terkunci untuk dirimu kelak.' },
+            { id: 'habits', title: 'Habit Tracker', short: 'Habit Tracker', icon: SPACE_ICONS.habits, pastel: '#E4EFD9', desc: 'Bangun rutinitas lembut yang konsisten.' },
+            { id: 'goals', title: 'Personal Goals', short: 'Personal Goals', icon: SPACE_ICONS.goals, pastel: '#FFF0C7', desc: 'Rencanakan impian dan pantau langkah pencapaiannya.' },
+            { id: 'finance', title: 'Finance & Savings', short: 'Finance & Savings', icon: SPACE_ICONS.finance, pastel: '#E4EFD9', desc: 'Catat pemasukan, pengeluaran, dan impian tabungan.' },
+            { id: 'watchlist', title: 'Watchlist', short: 'Watchlist', icon: SPACE_ICONS.watchlist, pastel: '#E2EEF8', desc: 'K-Drama, film, anime, dan ulasan pribadimu.' },
+            { id: 'wishlist', title: 'Wishlist', short: 'Wishlist', icon: SPACE_ICONS.wishlist, pastel: '#F7DDE0', desc: 'Barang impian yang ingin kamu miliki suatu hari.' },
+            { id: 'recipes', title: 'Recipe Book', short: 'Recipe Book', icon: SPACE_ICONS.recipes, pastel: '#FFF0C7', desc: 'Buku resep rumahan favorit dan catatan dapur.' },
+            { id: 'activities', title: 'Activity List', short: 'Activity List', icon: SPACE_ICONS.activities, pastel: '#FFF0C7', desc: 'Ide aktivitas seru & hal baru untuk dicoba.' },
+            { id: 'notes', title: 'Notes & Ideas', short: 'Notes & Ideas', icon: SPACE_ICONS.notes, pastel: '#E2EEF8', desc: 'Catatan cepat, daftar ringkas, dan percikan ide.' }
         ];
 
         const WATCHLIST_GENRES = [
@@ -831,13 +880,14 @@
 
         function createDefaultState() {
             return {
-                profile: { userName: 'Sahabat', subtitle: 'Take a little moment for yourself.' },
+                profile: { userName: 'Sahabat', subtitle: 'Ambil waktu sejenak untuk dirimu sendiri.' },
                 security: { pinEnabled: false, pinCode: '' },
                 theme: TEMPLATE_PRESETS[0],
                 candlelightMode: false,
                 homeConfig: {
                     shortcuts: ['journal', 'notes', 'memories', 'habits']
                 },
+                savedGoogleFonts: [],
                 reflectionIndex: 0,
                 whisperIndex: 0,
                 updatedAt: new Date().toISOString(),
@@ -915,6 +965,8 @@
                 this.isFocusMode = false;
                 this.focusEditorFont = 'serif';
                 this.focusPaperStyle = 'blank';
+                this.activeEditorFonts = {};
+                this.activeEditorPapers = {};
                 this.pinBuffer = '';
                 this.envelopeAnimating = false;
                 this.applyThemeVariables();
@@ -1049,6 +1101,7 @@
                     profile: { ...def.profile, ...(parsed.profile || {}) },
                     theme: parsed.theme || def.theme,
                     homeConfig: { ...def.homeConfig, ...(parsed.homeConfig || {}) },
+                    savedGoogleFonts: Array.isArray(parsed.savedGoogleFonts) ? parsed.savedGoogleFonts : [],
                     data: { ...def.data, ...(parsed.data || {}) }
                 };
             }
@@ -1195,14 +1248,13 @@
                                 const text = document.createTextNode(child.textContent || '');
                                 node.replaceChild(text, child);
                             } else {
+                                const hlVar = child.style && child.style.getPropertyValue('--hl-color') ? child.style.getPropertyValue('--hl-color').trim() : '';
                                 const bg = child.style && child.style.backgroundColor ? child.style.backgroundColor : '';
                                 const fg = child.style && child.style.color ? child.style.color : '';
                                 Array.from(child.attributes).forEach(attr => child.removeAttribute(attr.name));
-                                if (bg && (child.tagName === 'MARK' || child.tagName === 'SPAN')) {
-                                    child.style.backgroundColor = bg;
-                                    child.style.color = '#23201E';
-                                    child.style.padding = '1px 5px';
-                                    child.style.borderRadius = '6px';
+                                if ((hlVar || bg) && (child.tagName === 'MARK' || child.tagName === 'SPAN')) {
+                                    const chosenHl = hlVar || bg;
+                                    child.style.setProperty('--hl-color', chosenHl);
                                 } else if (fg && child.tagName === 'SPAN') {
                                     child.style.color = fg;
                                 }
@@ -1215,13 +1267,165 @@
                 return doc.body.innerHTML;
             }
 
-            renderRichToolbar(editorId) {
+            getFontClass(fontKey) {
+                if (fontKey === 'serif') return 'dearly-font-serif';
+                if (fontKey === 'hand') return 'dearly-font-hand';
+                if (fontKey === 'patrick') return 'dearly-font-patrick';
+                if (fontKey === 'indie') return 'dearly-font-indie';
+                if (fontKey === 'script') return 'dearly-font-script';
+                if (fontKey === 'mono') return 'dearly-font-mono';
+                if (fontKey && fontKey !== 'sans') return 'dearly-font-dynamic';
+                return 'dearly-font-sans';
+            }
+
+            ensureGoogleFontLoaded(fontName) {
+                if (!fontName || ['sans', 'serif', 'hand', 'patrick', 'indie', 'script', 'mono'].includes(fontName)) return;
+                const cleanName = String(fontName).trim();
+                if (!cleanName) return;
+                const slug = 'gf-' + cleanName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                if (!document.getElementById(slug)) {
+                    const link = document.createElement('link');
+                    link.id = slug;
+                    link.rel = 'stylesheet';
+                    link.href = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(cleanName).replace(/%20/g, '+')}:ital,wght@0,400;0,600;0,700;1,400&display=swap`;
+                    document.head.appendChild(link);
+                }
+            }
+
+            getDynamicFontStyleAttr(fontKey) {
+                if (!fontKey || ['sans', 'serif', 'hand', 'patrick', 'indie', 'script', 'mono'].includes(fontKey)) return '';
+                this.ensureGoogleFontLoaded(fontKey);
+                const safeFont = String(fontKey).replace(/['"<>]/g, '');
+                return `font-family: '${safeFont}', cursive, sans-serif !important;`;
+            }
+
+            setEditorFont(editorId, fontKey) {
+                const chosen = (fontKey || 'sans').trim();
+                this.activeEditorFonts[editorId] = chosen;
+                const el = document.getElementById(editorId);
+                if (el) {
+                    el.classList.remove('dearly-font-sans', 'dearly-font-serif', 'dearly-font-hand', 'dearly-font-patrick', 'dearly-font-indie', 'dearly-font-script', 'dearly-font-mono', 'dearly-font-dynamic');
+                    el.classList.add(this.getFontClass(chosen));
+                    if (['sans', 'serif', 'hand', 'patrick', 'indie', 'script', 'mono'].includes(chosen)) {
+                        el.style.fontFamily = '';
+                    } else {
+                        this.ensureGoogleFontLoaded(chosen);
+                        el.style.fontFamily = `'${chosen.replace(/['"<>]/g, '')}', cursive, sans-serif`;
+                    }
+                }
+                const selectEl = document.getElementById(`${editorId}-font-select`);
+                if (selectEl && Array.from(selectEl.options).some(o => o.value === chosen)) {
+                    selectEl.value = chosen;
+                }
+                const customInputEl = document.getElementById(`${editorId}-custom-font`);
+                if (customInputEl && !['sans', 'serif', 'hand', 'patrick', 'indie', 'script', 'mono'].includes(chosen)) {
+                    customInputEl.value = chosen;
+                }
+            }
+
+            applyCustomGoogleFont(editorId) {
+                const inp = document.getElementById(`${editorId}-custom-font`);
+                if (!inp) return;
+                const raw = inp.value.trim();
+                if (!raw) {
+                    this.toast('Ketik nama font dari Google Fonts terlebih dahulu.', 'error');
+                    return;
+                }
+                const formatted = raw.split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                inp.value = formatted;
+                this.setEditorFont(editorId, formatted);
+                this.toast(`Font Google "${formatted}" diterapkan ✦`);
+            }
+
+            saveFavoriteGoogleFont(editorId) {
+                const inp = document.getElementById(`${editorId}-custom-font`);
+                const raw = (inp && inp.value.trim()) ? inp.value.trim() : (this.activeEditorFonts[editorId] || '');
+                if (!raw || ['sans', 'serif', 'hand', 'patrick', 'indie', 'script', 'mono'].includes(raw)) {
+                    this.toast('Ketik atau pilih nama font Google terlebih dahulu untuk disimpan.', 'error');
+                    return;
+                }
+                const formatted = raw.split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                if (!Array.isArray(this.state.savedGoogleFonts)) {
+                    this.state.savedGoogleFonts = [];
+                }
+                if (!this.state.savedGoogleFonts.some(f => f.toLowerCase() === formatted.toLowerCase())) {
+                    this.state.savedGoogleFonts.push(formatted);
+                    this.saveState();
+                }
+                if (inp) inp.value = formatted;
+                this.setEditorFont(editorId, formatted);
+                const selectEl = document.getElementById(`${editorId}-font-select`);
+                if (selectEl) {
+                    let favGroup = selectEl.querySelector('optgroup[label="★ Font Favorit Tersimpan"]');
+                    if (!favGroup) {
+                        favGroup = document.createElement('optgroup');
+                        favGroup.label = '★ Font Favorit Tersimpan';
+                        selectEl.insertBefore(favGroup, selectEl.firstChild);
+                    }
+                    if (!Array.from(favGroup.options).some(o => o.value.toLowerCase() === formatted.toLowerCase())) {
+                        const opt = document.createElement('option');
+                        opt.value = formatted;
+                        opt.textContent = `★ ${formatted}`;
+                        favGroup.appendChild(opt);
+                    }
+                    selectEl.value = formatted;
+                }
+                this.toast(`Font "${formatted}" disimpan ke daftar favoritmu ✦`);
+            }
+
+            cycleEditorPaper(editorId, btnId) {
+                const el = document.getElementById(editorId);
+                const btn = document.getElementById(btnId);
+                if (!el || !btn) return;
+                const current = this.activeEditorPapers[editorId] || 'blank';
+                const order = ['blank', 'dotted', 'lined'];
+                const labels = { blank: 'Kertas: Polos', dotted: 'Kertas: Titik', lined: 'Kertas: Bergaris' };
+                const next = order[(order.indexOf(current) + 1) % order.length];
+                this.activeEditorPapers[editorId] = next;
+                if (editorId === 'j-content') this.focusPaperStyle = next;
+                el.classList.remove('paper-style-dotted', 'paper-style-lined');
+                if (next === 'dotted') el.classList.add('paper-style-dotted');
+                if (next === 'lined') el.classList.add('paper-style-lined');
+                btn.textContent = labels[next];
+            }
+
+            insertKaomoji(editorId, kaomoji) {
+                const el = document.getElementById(editorId);
+                if (!el) return;
+                el.focus();
+                document.execCommand('insertText', false, ' ' + kaomoji + ' ');
+                this.closeToolbarPopovers(editorId);
+            }
+
+            toggleToolbarPopover(editorId, panelName) {
+                const panels = ['color', 'highlight', 'font', 'kaomoji'];
+                panels.forEach(p => {
+                    const panelEl = document.getElementById(`${editorId}-panel-${p}`);
+                    if (!panelEl) return;
+                    if (p === panelName) {
+                        panelEl.classList.toggle('hidden');
+                    } else {
+                        panelEl.classList.add('hidden');
+                    }
+                });
+            }
+
+            closeToolbarPopovers(editorId) {
+                ['color', 'highlight', 'font', 'kaomoji'].forEach(p => {
+                    const panelEl = document.getElementById(`${editorId}-panel-${p}`);
+                    if (panelEl) panelEl.classList.add('hidden');
+                });
+            }
+
+            renderRichToolbar(editorId, initialFont = 'sans') {
+                this.activeEditorFonts[editorId] = initialFont;
+                this.ensureGoogleFontLoaded(initialFont);
                 const highlightPalette = [
-                    { name: 'Blush', color: '#F7DDE0' },
-                    { name: 'Lavender', color: '#E9E3F5' },
-                    { name: 'Sage', color: '#E4EFD9' },
-                    { name: 'Butter', color: '#FFF0C7' },
-                    { name: 'Powder', color: '#E2EEF8' }
+                    { name: 'Blush', color: '#F5BCC4' },
+                    { name: 'Lavender', color: '#D7C9F2' },
+                    { name: 'Sage', color: '#CBE2B8' },
+                    { name: 'Butter', color: '#FBE094' },
+                    { name: 'Powder', color: '#BDD9F2' }
                 ];
                 const textPalette = [
                     { name: 'Dusty Rose', color: '#C98288' },
@@ -1230,27 +1434,162 @@
                     { name: 'Warm Honey', color: '#B5892E' },
                     { name: 'Misty Blue', color: '#5A82A6' }
                 ];
+                const googleFontGroups = [
+                    {
+                        group: 'Bawaan Dearly',
+                        items: [
+                            { key: 'sans', label: 'Plus Jakarta Sans (Modern)' },
+                            { key: 'serif', label: 'Fraunces (Editorial)' },
+                            { key: 'hand', label: 'Caveat (Handwriting)' },
+                            { key: 'patrick', label: 'Patrick Hand (Diary)' },
+                            { key: 'indie', label: 'Indie Flower (Sketch)' },
+                            { key: 'script', label: 'Dancing Script (Calligraphy)' },
+                            { key: 'mono', label: 'JetBrains Mono (Typewriter)' }
+                        ]
+                    },
+                    {
+                        group: 'Google Fonts — Cute & Handwriting',
+                        items: [
+                            { key: 'Gochi Hand', label: 'Gochi Hand' },
+                            { key: 'Mali', label: 'Mali' },
+                            { key: 'Single Day', label: 'Single Day' },
+                            { key: 'Shadows Into Light', label: 'Shadows Into Light' },
+                            { key: 'Reenie Beanie', label: 'Reenie Beanie' },
+                            { key: 'Kalam', label: 'Kalam' },
+                            { key: 'Architects Daughter', label: 'Architects Daughter' },
+                            { key: 'Homemade Apple', label: 'Homemade Apple' },
+                            { key: 'Nothing You Could Do', label: 'Nothing You Could Do' },
+                            { key: 'Gloria Hallelujah', label: 'Gloria Hallelujah' },
+                            { key: 'Covered By Your Grace', label: 'Covered By Your Grace' }
+                        ]
+                    },
+                    {
+                        group: 'Google Fonts — Romantic Script',
+                        items: [
+                            { key: 'Sacramento', label: 'Sacramento' },
+                            { key: 'Great Vibes', label: 'Great Vibes' },
+                            { key: 'Satisfy', label: 'Satisfy' },
+                            { key: 'Pacifico', label: 'Pacifico' },
+                            { key: 'Alex Brush', label: 'Alex Brush' },
+                            { key: 'Allura', label: 'Allura' }
+                        ]
+                    },
+                    {
+                        group: 'Google Fonts — Aesthetic Serif & Typewriter',
+                        items: [
+                            { key: 'Cormorant Garamond', label: 'Cormorant Garamond' },
+                            { key: 'Playfair Display', label: 'Playfair Display' },
+                            { key: 'Lora', label: 'Lora' },
+                            { key: 'Merriweather', label: 'Merriweather' },
+                            { key: 'Courier Prime', label: 'Courier Prime' },
+                            { key: 'Special Elite', label: 'Special Elite' }
+                        ]
+                    }
+                ];
+                const savedFonts = Array.isArray(this.state.savedGoogleFonts) ? this.state.savedGoogleFonts : [];
+                savedFonts.forEach(sf => this.ensureGoogleFontLoaded(sf));
+                if (savedFonts.length > 0) {
+                    googleFontGroups.unshift({
+                        group: '★ Font Favorit Tersimpan',
+                        items: savedFonts.map(sf => ({ key: sf, label: `★ ${sf}` }))
+                    });
+                }
+                const isCustomFont = initialFont && !['sans', 'serif', 'hand', 'patrick', 'indie', 'script', 'mono'].includes(initialFont);
+                const kaomojiList = [
+                    '(｡•ᴗ•｡)♡', '(˶ᵔ ᵕ ᵔ˶)', '( ˘ ³˘)♥', '(っ˘ω˘ς )', '( ˶ˆ꒳ˆ˵ )',
+                    '(｡•́︿•̀｡)', '(っ´ཀ`)っ', '✦', '♡', '✿', '☾', '☕'
+                ];
                 return `
-                <div class="flex flex-wrap items-center gap-1 p-1.5 rounded-2xl bg-cream border border-borderwarm mb-1.5">
-                    <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'formatBlock', 'H2')" title="Heading Besar (H1)" class="px-2.5 py-1 rounded-xl hover:bg-ivory text-xs font-serif font-bold text-charcoal">H1</button>
-                    <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'formatBlock', 'H3')" title="Sub-Heading (H2)" class="px-2.5 py-1 rounded-xl hover:bg-ivory text-xs font-serif font-semibold text-charcoal">H2</button>
-                    <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'formatBlock', 'P')" title="Paragraf Normal" class="px-2 py-1 rounded-xl hover:bg-ivory text-[11px] font-medium text-muted">Normal</button>
-                    <span class="w-px h-4 bg-borderwarm mx-0.5"></span>
-                    <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'bold')" title="Tebal (Bold)" class="w-7 h-7 rounded-xl hover:bg-ivory text-xs font-bold text-charcoal flex items-center justify-center">B</button>
-                    <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'italic')" title="Miring (Italic)" class="w-7 h-7 rounded-xl hover:bg-ivory text-xs italic font-serif text-charcoal flex items-center justify-center">I</button>
-                    <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'insertUnorderedList')" title="Daftar Poin" class="w-7 h-7 rounded-xl hover:bg-ivory text-xs text-charcoal flex items-center justify-center"><i class="ph ph-list-bullets"></i></button>
-                    <span class="w-px h-4 bg-borderwarm mx-0.5"></span>
-                    <span class="text-[10px] font-semibold text-softgray px-1">Teks:</span>
-                    ${textPalette.map(p => `
-                        <button type="button" onmousedown="event.preventDefault(); app.applyTextColor('${editorId}', '${p.color}')" title="Warna Teks ${p.name}" class="w-5 h-5 rounded-full border border-borderwarm bg-ivory text-[11px] font-bold flex items-center justify-center transition-transform hover:scale-115" style="color:${p.color}">A</button>
-                    `).join('')}
-                    <button type="button" onmousedown="event.preventDefault(); app.applyTextColor('${editorId}', 'default')" title="Warna Teks Default" class="w-5 h-5 rounded-full border border-borderwarm bg-ivory text-[10px] text-softgray flex items-center justify-center hover:text-charcoal">×</button>
-                    <span class="w-px h-4 bg-borderwarm mx-0.5"></span>
-                    <span class="text-[10px] font-semibold text-softgray px-1">Highlight:</span>
-                    ${highlightPalette.map(p => `
-                        <button type="button" onmousedown="event.preventDefault(); app.applyPastelHighlight('${editorId}', '${p.color}')" title="Highlight ${p.name}" class="w-5 h-5 rounded-full border border-charcoal/15 transition-transform hover:scale-115 shadow-2xs" style="background-color:${p.color}"></button>
-                    `).join('')}
-                    <button type="button" onmousedown="event.preventDefault(); app.applyPastelHighlight('${editorId}', 'transparent')" title="Hapus Highlight" class="w-5 h-5 rounded-full border border-borderwarm bg-ivory text-[10px] text-softgray flex items-center justify-center hover:text-charcoal">×</button>
+                <div class="relative p-1.5 rounded-2xl bg-cream border border-borderwarm mb-1.5">
+                    <div class="flex flex-wrap items-center gap-1">
+                        <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'formatBlock', 'H2')" title="Heading Besar (H1)" class="px-2 py-1 rounded-xl hover:bg-ivory text-xs font-serif font-bold text-charcoal">H1</button>
+                        <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'formatBlock', 'H3')" title="Sub-Heading (H2)" class="px-2 py-1 rounded-xl hover:bg-ivory text-xs font-serif font-semibold text-charcoal">H2</button>
+                        <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'formatBlock', 'P')" title="Paragraf Normal" class="px-2 py-1 rounded-xl hover:bg-ivory text-[11px] font-medium text-muted">Normal</button>
+                        <span class="w-px h-4 bg-borderwarm mx-0.5"></span>
+                        <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'bold')" title="Tebal (Bold)" class="w-7 h-7 rounded-xl hover:bg-ivory text-xs font-bold text-charcoal flex items-center justify-center">B</button>
+                        <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'italic')" title="Miring (Italic)" class="w-7 h-7 rounded-xl hover:bg-ivory text-xs italic font-serif text-charcoal flex items-center justify-center">I</button>
+                        <button type="button" onmousedown="event.preventDefault(); app.execRichFormat('${editorId}', 'insertUnorderedList')" title="Daftar Poin" class="w-7 h-7 rounded-xl hover:bg-ivory text-xs text-charcoal flex items-center justify-center"><i class="ph ph-list-bullets"></i></button>
+                        <span class="w-px h-4 bg-borderwarm mx-0.5"></span>
+                        <button type="button" onmousedown="event.preventDefault(); app.toggleToolbarPopover('${editorId}', 'color')" title="Pilih Warna Teks" class="px-2.5 py-1 rounded-xl bg-ivory hover:bg-blush/50 border border-borderwarm/70 text-[11px] font-semibold text-charcoal inline-flex items-center gap-1">
+                            <span class="font-serif font-bold text-dusty">A</span>
+                            <span>Warna</span>
+                        </button>
+                        <button type="button" onmousedown="event.preventDefault(); app.toggleToolbarPopover('${editorId}', 'highlight')" title="Pilih Stabilo Garis" class="px-2.5 py-1 rounded-xl bg-ivory hover:bg-blush/50 border border-borderwarm/70 text-[11px] font-semibold text-charcoal inline-flex items-center gap-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blush border border-dusty/40"></span>
+                            <span>Stabilo</span>
+                        </button>
+                        <button type="button" onmousedown="event.preventDefault(); app.toggleToolbarPopover('${editorId}', 'font')" title="Pilih Gaya Font" class="px-2.5 py-1 rounded-xl bg-ivory hover:bg-blush/50 border border-borderwarm/70 text-[11px] font-semibold text-charcoal inline-flex items-center gap-1">
+                            <i class="ph ph-text-aa text-dusty"></i>
+                            <span>Font</span>
+                        </button>
+                        <button type="button" onmousedown="event.preventDefault(); app.toggleToolbarPopover('${editorId}', 'kaomoji')" title="Sisipkan Kaomoji" class="px-2.5 py-1 rounded-xl bg-ivory hover:bg-blush/50 border border-borderwarm/70 text-[11px] font-semibold text-charcoal inline-flex items-center gap-1">
+                            <span>(｡•ᴗ•｡)</span>
+                        </button>
+                    </div>
+
+                    <!-- Popover: Warna Teks -->
+                    <div id="${editorId}-panel-color" class="hidden mt-1.5 p-2.5 rounded-xl bg-ivory border border-borderwarm shadow-md flex flex-wrap items-center justify-between gap-2 animate-enter">
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-semibold text-muted">Warna Teks:</span>
+                            ${textPalette.map(p => `
+                                <button type="button" onmousedown="event.preventDefault(); app.applyTextColor('${editorId}', '${p.color}'); app.closeToolbarPopovers('${editorId}')" title="${p.name}" class="w-6 h-6 rounded-full border border-borderwarm bg-cream text-xs font-bold flex items-center justify-center transition-transform hover:scale-115" style="color:${p.color}">A</button>
+                            `).join('')}
+                            <button type="button" onmousedown="event.preventDefault(); app.applyTextColor('${editorId}', 'default'); app.closeToolbarPopovers('${editorId}')" title="Reset Warna" class="px-2 py-1 rounded-lg bg-cream border border-borderwarm text-[10px] font-medium text-muted hover:text-charcoal">Reset</button>
+                        </div>
+                        <button type="button" onmousedown="event.preventDefault(); app.closeToolbarPopovers('${editorId}')" class="text-softgray hover:text-charcoal text-xs p-1"><i class="ph ph-x"></i></button>
+                    </div>
+
+                    <!-- Popover: Stabilo -->
+                    <div id="${editorId}-panel-highlight" class="hidden mt-1.5 p-2.5 rounded-xl bg-ivory border border-borderwarm shadow-md flex flex-wrap items-center justify-between gap-2 animate-enter">
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-semibold text-muted">Stabilo Garis:</span>
+                            ${highlightPalette.map(p => `
+                                <button type="button" onmousedown="event.preventDefault(); app.applyPastelHighlight('${editorId}', '${p.color}'); app.closeToolbarPopovers('${editorId}')" title="${p.name}" class="w-6 h-6 rounded-full border border-charcoal/15 bg-cream flex flex-col items-center justify-end pb-1.5 transition-transform hover:scale-115">
+                                    <span class="w-3.5 h-1.5 rounded-full" style="background-color:${p.color}"></span>
+                                </button>
+                            `).join('')}
+                            <button type="button" onmousedown="event.preventDefault(); app.applyPastelHighlight('${editorId}', 'transparent'); app.closeToolbarPopovers('${editorId}')" title="Hapus Stabilo" class="px-2 py-1 rounded-lg bg-cream border border-borderwarm text-[10px] font-medium text-muted hover:text-charcoal">Hapus</button>
+                        </div>
+                        <button type="button" onmousedown="event.preventDefault(); app.closeToolbarPopovers('${editorId}')" class="text-softgray hover:text-charcoal text-xs p-1"><i class="ph ph-x"></i></button>
+                    </div>
+
+                    <!-- Popover: Font -->
+                    <div id="${editorId}-panel-font" class="hidden mt-1.5 p-2.5 rounded-xl bg-ivory border border-borderwarm shadow-md space-y-2 animate-enter">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="text-[11px] font-semibold text-muted">Pilih Gaya Font:</span>
+                            <div class="flex items-center gap-2">
+                                <a href="https://fonts.google.com" target="_blank" rel="noopener" class="text-[10px] text-dusty hover:underline font-semibold">Katalog Google Fonts ↗</a>
+                                <button type="button" onmousedown="event.preventDefault(); app.closeToolbarPopovers('${editorId}')" class="text-softgray hover:text-charcoal text-xs p-0.5"><i class="ph ph-x"></i></button>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-1.5">
+                            <select id="${editorId}-font-select" onchange="app.setEditorFont('${editorId}', this.value)" class="px-2.5 py-1.5 rounded-xl bg-cream border border-borderwarm text-xs font-medium text-charcoal focus:outline-none focus:border-dusty flex-1 min-w-[170px]">
+                                ${googleFontGroups.map(g => `
+                                    <optgroup label="${g.group}">
+                                        ${g.items.map(f => `<option value="${f.key}" ${f.key === initialFont ? 'selected' : ''}>${f.label}</option>`).join('')}
+                                    </optgroup>
+                                `).join('')}
+                            </select>
+                            <div class="flex items-center gap-1 flex-1 min-w-[190px]">
+                                <input id="${editorId}-custom-font" type="text" value="${isCustomFont ? this.escapeHtml(initialFont) : ''}" onkeydown="if(event.key==='Enter'){event.preventDefault(); app.applyCustomGoogleFont('${editorId}');}" placeholder="Ketik nama Google Font..." class="w-full px-2.5 py-1.5 rounded-xl bg-cream border border-borderwarm text-xs text-charcoal focus:outline-none focus:border-dusty">
+                                <button type="button" onclick="app.applyCustomGoogleFont('${editorId}')" class="px-2.5 py-1.5 rounded-xl bg-cream border border-borderwarm text-charcoal text-[11px] font-semibold shrink-0 hover:bg-blush/50">Pakai</button>
+                                <button type="button" onclick="app.saveFavoriteGoogleFont('${editorId}')" title="Simpan ke favorit" class="px-2.5 py-1.5 rounded-xl bg-dusty text-white text-[11px] font-semibold shrink-0 hover:opacity-90">★ Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popover: Kaomoji -->
+                    <div id="${editorId}-panel-kaomoji" class="hidden mt-1.5 p-2.5 rounded-xl bg-ivory border border-borderwarm shadow-md space-y-1.5 animate-enter">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-muted">Pilih Kaomoji & Simbol:</span>
+                            <button type="button" onmousedown="event.preventDefault(); app.closeToolbarPopovers('${editorId}')" class="text-softgray hover:text-charcoal text-xs p-0.5"><i class="ph ph-x"></i></button>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-1.5">
+                            ${kaomojiList.map(k => `
+                                <button type="button" onmousedown="event.preventDefault(); app.insertKaomoji('${editorId}', '${k}')" class="px-2.5 py-1 rounded-xl bg-cream hover:bg-blush/60 border border-borderwarm text-xs text-charcoal transition-transform active:scale-95">${k}</button>
+                            `).join('')}
+                        </div>
+                    </div>
                 </div>`;
             }
 
@@ -1293,7 +1632,7 @@
                 el.focus();
                 const sel = window.getSelection();
                 if (!sel || sel.rangeCount === 0 || sel.isCollapsed) {
-                    this.toast('Blok/pilih dulu teks yang ingin diberi warna highlight.');
+                    this.toast('Blok/pilih dulu teks yang ingin diberi garis stabilo.');
                     return;
                 }
                 if (hexColor === 'transparent') {
@@ -1302,10 +1641,7 @@
                 }
                 const range = sel.getRangeAt(0);
                 const mark = document.createElement('mark');
-                mark.style.backgroundColor = hexColor;
-                mark.style.color = '#23201E';
-                mark.style.padding = '1px 5px';
-                mark.style.borderRadius = '6px';
+                mark.style.setProperty('--hl-color', hexColor);
                 try {
                     const extracted = range.extractContents();
                     mark.appendChild(extracted);
@@ -1735,7 +2071,7 @@
             }
 
             // =================================================================
-            // HOME SCREEN
+            // BERANDA
             // =================================================================
             nextReflectionPrompt() {
                 this.state.reflectionIndex = ((this.state.reflectionIndex || 0) + 1) % DAILY_REFLECTIONS.length;
@@ -1766,7 +2102,7 @@
             renderHomeView() {
                 const now = new Date();
                 const userName = this.state.profile.userName;
-                const formattedDate = now.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long' });
+                const formattedDate = now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' });
                 const currentPrompt = DAILY_REFLECTIONS[(this.state.reflectionIndex || 0) % DAILY_REFLECTIONS.length];
                 const currentWhisper = DAILY_WHISPERS[(this.state.whisperIndex || 0) % DAILY_WHISPERS.length];
                 const moodData = this.getWeeklyMoodData();
@@ -1789,7 +2125,7 @@
                         <div class="space-y-1.5">
                             <p class="text-xs font-semibold uppercase tracking-[0.15em] text-softgray">${formattedDate}</p>
                             <h1 class="font-serif text-4xl sm:text-5xl font-medium text-charcoal tracking-tight leading-tight">
-                                Hello, <span class="italic text-dusty">${this.escapeHtml(userName)}</span>
+                                Halo, <span class="italic text-dusty">${this.escapeHtml(userName)}</span>
                             </h1>
                             <p class="text-sm text-muted pt-0.5">${this.escapeHtml(this.state.profile.subtitle)}</p>
                         </div>
@@ -1803,13 +2139,13 @@
                         </div>
                     </section>
 
-                    <!-- Primary Visual Element: TODAY'S REFLECTION + DAILY WHISPER -->
+                    <!-- Primary Visual Element: REFLEKSI HARI INI + BISIKAN HARIAN -->
                     <section class="grid grid-cols-1 lg:grid-cols-3 gap-5">
                         <div class="lg:col-span-2 dearly-card p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between gap-5">
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blush/70 text-[10px] font-bold uppercase tracking-[0.16em] text-charcoal">
-                                        <span class="text-dusty">✦</span> TODAY'S REFLECTION
+                                        <span class="text-dusty">✦</span> REFLEKSI HARI INI
                                     </span>
                                     <button onclick="app.nextReflectionPrompt()" class="text-xs font-medium text-softgray hover:text-dusty transition-colors flex items-center gap-1">
                                         <i class="ph ph-arrows-clockwise"></i> Ganti pertanyaan
@@ -1821,7 +2157,7 @@
                             </div>
                             <div class="flex items-center justify-between gap-4 pt-1">
                                 <button onclick="app.openJournalForm()" class="px-5 py-2.5 rounded-full bg-dusty hover:opacity-90 text-white text-xs sm:text-sm font-semibold shadow-md transition-all active:scale-95 inline-flex items-center gap-2">
-                                    <span>Jawab di Jurnal</span>
+                                    <span>Jawab di Daily Journal</span>
                                     <span>→</span>
                                 </button>
                                 <div class="hidden sm:flex items-center gap-2 text-xs text-muted">
@@ -1834,7 +2170,7 @@
                         <!-- Daily Affirmation / Whisper Card -->
                         <div class="dearly-card p-6 flex flex-col justify-between gap-4 bg-cream/60">
                             <div class="flex items-center justify-between">
-                                <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-dusty">DAILY WHISPER</span>
+                                <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-dusty">BISIKAN HARIAN</span>
                                 <button onclick="app.nextWhisperQuote()" title="Kutipan Baru" class="p-1.5 rounded-full hover:bg-cream text-softgray hover:text-dusty transition-colors">
                                     <i class="ph ph-sparkle"></i>
                                 </button>
@@ -1849,17 +2185,17 @@
                         </div>
                     </section>
 
-                    <!-- Section: Your week at a glance -->
+                    <!-- Section: Minggumu sekilas -->
                     <section class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <h2 class="font-serif text-2xl font-medium text-charcoal">Your week at a glance</h2>
+                            <h2 class="font-serif text-2xl font-medium text-charcoal">Minggumu sekilas</h2>
                             <span class="text-xs text-softgray">Ringkasan personal</span>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div onclick="app.navigate('journal')" class="dearly-card dearly-card-hover p-5 cursor-pointer flex flex-col justify-between gap-4 stagger-item" style="animation-delay:0.04s">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-xs font-semibold text-muted">Mood</span>
+                                    <span class="text-xs font-semibold text-muted">Suasana Hati</span>
                                     <span class="px-2.5 py-0.5 rounded-full bg-powder text-[10px] font-bold uppercase tracking-wider text-charcoal">${moodData.topMood}</span>
                                 </div>
                                 <div class="flex items-end justify-between gap-1.5 h-16 pt-2 px-1">
@@ -1877,13 +2213,13 @@
 
                             <div onclick="app.navigate('habits')" class="dearly-card dearly-card-hover p-5 cursor-pointer flex flex-col justify-between gap-4 stagger-item" style="animation-delay:0.1s">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-xs font-semibold text-muted">Habits</span>
+                                    <span class="text-xs font-semibold text-muted">Kebiasaan Harian</span>
                                     <span class="w-7 h-7 rounded-xl bg-sage flex items-center justify-center text-charcoal text-xs"><i class="ph-bold ph-plant"></i></span>
                                 </div>
                                 <div class="space-y-2">
                                     <div class="flex items-baseline justify-between">
                                         <span class="font-serif text-2xl font-semibold text-charcoal">${doneHabits}/${habits.length}</span>
-                                        <span class="text-xs text-muted">habits completed</span>
+                                        <span class="text-xs text-muted">selesai hari ini</span>
                                     </div>
                                     <div class="w-full bg-cream h-2.5 rounded-full overflow-hidden border border-borderwarm">
                                         <div class="h-full rounded-full transition-all duration-500 progress-shimmer-bar" style="width:${habitPct}%; background-color:#9EC489;"></div>
@@ -1893,7 +2229,7 @@
 
                             <div onclick="app.navigate('finance')" class="dearly-card dearly-card-hover p-5 cursor-pointer flex flex-col justify-between gap-4 stagger-item" style="animation-delay:0.16s">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-xs font-semibold text-muted">Dreams & Savings</span>
+                                    <span class="text-xs font-semibold text-muted">Tabungan Impian</span>
                                     <span class="w-7 h-7 rounded-xl bg-butter flex items-center justify-center text-charcoal text-xs"><i class="ph-bold ph-star"></i></span>
                                 </div>
                                 <div class="space-y-2">
@@ -1912,8 +2248,8 @@
                     <!-- Quick Space Shortcuts -->
                     <section class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <h2 class="font-serif text-2xl font-medium text-charcoal">Ruang Utama</h2>
-                            <button onclick="app.navigate('all')" class="text-xs font-semibold text-dusty hover:underline">Lihat semua 11 ruang →</button>
+                            <h2 class="font-serif text-2xl font-medium text-charcoal">Ruang Pilihan</h2>
+                            <button onclick="app.navigate('all')" class="text-xs font-semibold text-dusty hover:underline">Jelajahi semua 11 ruang →</button>
                         </div>
                         ${this.renderWidgetShortcuts()}
                     </section>
@@ -1922,15 +2258,15 @@
                     <section class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         <div class="dearly-card p-6 flex flex-col justify-between gap-4">
                             <div class="flex items-center justify-between">
-                                <h3 class="font-serif text-xl font-medium text-charcoal">Kenangan Terakhir</h3>
-                                <button onclick="app.navigate('memories')" class="text-xs font-semibold text-dusty hover:underline">Kotak Kenangan</button>
+                                <h3 class="font-serif text-xl font-medium text-charcoal">Kenangan Terbaru</h3>
+                                <button onclick="app.navigate('memories')" class="text-xs font-semibold text-dusty hover:underline">Buka Memory Box</button>
                             </div>
                             ${this.renderLatestMemoryCard()}
                         </div>
 
                         <div class="dearly-card p-6 flex flex-col justify-between gap-4">
                             <div class="flex items-center justify-between">
-                                <h3 class="font-serif text-xl font-medium text-charcoal">Jejak Hari Ini</h3>
+                                <h3 class="font-serif text-xl font-medium text-charcoal">Jejak Terkini</h3>
                                 <span class="text-[11px] text-softgray">Otomatis</span>
                             </div>
                             ${this.renderWidgetActivity()}
@@ -1945,13 +2281,15 @@
                     return `
                     <div class="p-5 rounded-2xl bg-cream border border-borderwarm flex items-center justify-between gap-4">
                         <div class="space-y-1.5">
-                            <div class="font-serif text-lg font-medium text-charcoal">No memories yet.</div>
-                            <p class="text-xs text-muted leading-relaxed">Maybe today is a good day to save one little moment.</p>
+                            <div class="font-serif text-lg font-medium text-charcoal">Belum ada kenangan.</div>
+                            <p class="text-xs text-muted leading-relaxed">Mungkin hari ini waktu yang tepat untuk menyimpan satu momen kecil.</p>
                             <button onclick="app.openMemoryForm()" class="mt-2 px-4 py-1.5 rounded-full bg-dusty text-white text-xs font-semibold">+ Simpan Kenangan</button>
                         </div>
                         <div class="shrink-0">${DEARLY_ILLUSTRATIONS.companionPuff}</div>
                     </div>`;
                 }
+                const fClass = this.getFontClass(mem.fontStyle || 'sans');
+                const fStyle = this.getDynamicFontStyleAttr(mem.fontStyle);
                 return `
                 <div onclick="app.navigate('memories')" class="cursor-pointer rounded-2xl bg-cream hover:opacity-90 border border-borderwarm p-4 flex items-center gap-4 transition-all">
                     ${mem.photo
@@ -1960,7 +2298,7 @@
                     <div class="min-w-0 space-y-1">
                         <span class="font-hand text-base text-dusty">${this.formatDate(mem.date)}</span>
                         <h4 class="font-serif text-lg font-semibold text-charcoal truncate">${this.escapeHtml(mem.title)}</h4>
-                        <p class="text-xs text-muted line-clamp-2 leading-relaxed">${this.escapeHtml(mem.story)}</p>
+                        <div class="dearly-rich-content ${fClass} text-xs text-muted line-clamp-2 leading-relaxed" style="${fStyle}">${this.sanitizeRichHtml(mem.story)}</div>
                     </div>
                 </div>`;
             }
@@ -1977,7 +2315,7 @@
                             </div>
                             <div>
                                 <div class="font-semibold text-sm text-charcoal group-hover:text-dusty transition-colors">${item.short}</div>
-                                <div class="text-[11px] text-softgray line-clamp-1 mt-0.5">${item.title}</div>
+                                <div class="text-[11px] text-softgray line-clamp-1 mt-0.5">${item.desc}</div>
                             </div>
                         </button>
                     `).join('')}
@@ -2015,14 +2353,14 @@
             }
 
             // =================================================================
-            // ALL SPACES ("SEMUA RUANG PRIBADI")
+            // JELAJAHI SEMUA RUANG
             // =================================================================
             renderAllFeaturesView() {
                 return `
                 <div class="space-y-7 animate-enter">
                     <div class="space-y-1.5 border-b border-borderwarm pb-6">
-                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-dusty">SEMUA RUANG PRIBADI</span>
-                        <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Jelajahi Dearly</h1>
+                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-dusty">RUANG PRIBADIMU</span>
+                        <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Jelajahi Semua Ruang</h1>
                         <p class="text-sm text-muted">11 ruang untuk merawat cerita, kenangan, kebiasaan, dan impianmu.</p>
                     </div>
 
@@ -2074,10 +2412,10 @@
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-borderwarm pb-6">
                         <div>
                             <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-dusty">PERSONALISASI</span>
-                            <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal mt-1">Nuansa Kertas Dearly</h1>
+                            <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal mt-1">Nuansa Kertas</h1>
                             <p class="text-sm text-muted mt-1">Pilih warna latar kertas yang paling nyaman untuk menemanimu menulis.</p>
                         </div>
-                        <button onclick="app.navigate('home')" class="px-5 py-2.5 rounded-full bg-dusty text-white text-xs font-semibold shadow-md">Kembali ke Home</button>
+                        <button onclick="app.navigate('home')" class="px-5 py-2.5 rounded-full bg-dusty text-white text-xs font-semibold shadow-md">Kembali ke Beranda</button>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2119,10 +2457,10 @@
                 this.openModal(`
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <h3 class="font-serif text-2xl font-medium text-charcoal">Atur Ruang Utama Home</h3>
+                            <h3 class="font-serif text-2xl font-medium text-charcoal">Atur Ruang Pilihan Beranda</h3>
                             <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
                         </div>
-                        <p class="text-xs text-muted leading-relaxed">Pilih maksimal 4 ruang yang tampil langsung di beranda utama.</p>
+                        <p class="text-xs text-muted leading-relaxed">Pilih maksimal 4 ruang yang tampil langsung di halaman utama.</p>
                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-h-64 overflow-y-auto p-1">
                             ${DEARLY_FEATURES.map(f => {
                                 const selected = this.state.homeConfig.shortcuts.includes(f.id);
@@ -2170,11 +2508,11 @@
                 this.applyThemeVariables();
                 this.closeModal();
                 this.render();
-                this.toast('Pengaturan Home dikembalikan ke awal.');
+                this.toast('Pengaturan Beranda dikembalikan ke awal.');
             }
 
             // =================================================================
-            // 6A. JURNAL HARIAN (WITH PAPER TEXTURES: BLANK, DOTTED, LINED)
+            // 6A. DAILY JOURNAL
             // =================================================================
             renderJournalView() {
                 const q = (this.routeParams.search || '').toLowerCase();
@@ -2190,7 +2528,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-blush flex items-center justify-center shrink-0">${SPACE_ICONS.journal}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Jurnal Harian</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Daily Journal</h1>
                                 <p class="text-sm text-muted">Ruang tenang untuk merekam cerita dan perasaan setiap harinya.</p>
                             </div>
                         </div>
@@ -2204,23 +2542,26 @@
                         <input type="text" value="${this.escapeHtml(this.routeParams.search || '')}" oninput="app.routeParams.search=this.value; app.render()" placeholder="Cari judul, isi tulisan, atau tag jurnal..." class="w-full bg-transparent text-sm focus:outline-none">
                     </div>
 
-                    ${items.length === 0 ? this.renderEmptyState('No journal entries yet.', 'Take a little moment for yourself and write down what is on your mind today.', 'Tulis Jurnal Pertama', 'app.openJournalForm()') : `
+                    ${items.length === 0 ? this.renderEmptyState('Belum ada lembar jurnal.', 'Ambil waktu sejenak untuk dirimu sendiri dan tuliskan apa yang sedang ada di pikiranmu hari ini.', 'Tulis Jurnal Pertama', 'app.openJournalForm()') : `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         ${items.map((j, idx) => {
                             const pClass = j.paperStyle === 'dotted' ? 'paper-style-dotted' : (j.paperStyle === 'lined' ? 'paper-style-lined' : '');
+                            const fClass = this.getFontClass(j.fontStyle || 'serif');
+                            const fStyle = this.getDynamicFontStyleAttr(j.fontStyle);
+                            const moodMascot = j.mood && DEARLY_ILLUSTRATIONS.moodMascots[j.mood] ? DEARLY_ILLUSTRATIONS.moodMascots[j.mood] : '';
                             return `
                             <article class="dearly-card dearly-card-hover ${pClass} p-6 flex flex-col justify-between gap-4 stagger-item" style="animation-delay:${idx * 0.04}s">
                                 <div class="space-y-2.5">
                                     <div class="flex items-center justify-between text-xs text-softgray">
                                         <span>${this.formatDate(j.date)}</span>
-                                        <div class="flex items-center gap-1.5">
-                                            ${j.mood ? `<span class="px-2.5 py-0.5 rounded-full bg-blush/80 text-charcoal font-medium">✦ ${this.escapeHtml(j.mood)}</span>` : ''}
+                                        <div class="flex items-center gap-2">
+                                            ${j.mood ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blush/85 text-charcoal font-semibold shadow-2xs">${moodMascot ? `<span class="w-8 h-8 -my-1 inline-flex items-center justify-center [&>svg]:w-8 [&>svg]:h-8">${moodMascot}</span>` : '✦'} <span>${this.escapeHtml(j.mood)}</span></span>` : ''}
                                             ${j.tag ? `<span class="px-2.5 py-0.5 rounded-full bg-cream border border-borderwarm text-dusty font-medium">#${this.escapeHtml(j.tag)}</span>` : ''}
                                         </div>
                                     </div>
                                     <h3 class="font-serif text-2xl font-medium text-charcoal cursor-pointer hover:text-dusty transition-colors" onclick="app.openJournalDetail('${j.id}')">${this.escapeHtml(j.title)}</h3>
                                     ${j.photo ? `<img src="${this.escapeHtml(j.photo)}" onerror="this.style.display='none'" alt="Foto Jurnal" class="w-full h-44 object-cover rounded-2xl border border-borderwarm">` : ''}
-                                    <div class="dearly-rich-content text-sm text-muted line-clamp-3 leading-relaxed">${this.sanitizeRichHtml(j.content)}</div>
+                                    <div class="dearly-rich-content ${fClass} text-sm text-muted line-clamp-3 leading-relaxed" style="${fStyle}">${this.sanitizeRichHtml(j.content)}</div>
                                 </div>
                                 <div class="flex items-center justify-between pt-3 border-t border-borderwarm">
                                     <button onclick="app.openJournalDetail('${j.id}')" class="text-xs font-semibold text-dusty hover:underline">Baca selengkapnya →</button>
@@ -2238,8 +2579,10 @@
             openJournalForm(id = null) {
                 const existing = id ? this.state.data.journal.find(x => x.id === id) : null;
                 this.isFocusMode = false;
-                this.focusEditorFont = 'serif';
+                const initialFont = existing && existing.fontStyle ? existing.fontStyle : 'serif';
                 this.focusPaperStyle = existing && existing.paperStyle ? existing.paperStyle : 'blank';
+                this.activeEditorPapers['j-content'] = this.focusPaperStyle;
+                const initialMood = existing && existing.mood ? existing.mood : '';
 
                 const pLabels = { blank: 'Kertas: Polos', dotted: 'Kertas: Titik', lined: 'Kertas: Bergaris' };
                 const initialPaperClass = this.focusPaperStyle === 'dotted' ? 'paper-style-dotted' : (this.focusPaperStyle === 'lined' ? 'paper-style-lined' : '');
@@ -2247,13 +2590,10 @@
                 this.openModal(`
                     <div id="journal-editor-shell" class="space-y-4 transition-all">
                         <div class="flex flex-wrap items-center justify-between gap-2">
-                            <h3 class="font-serif text-2xl font-medium text-charcoal">${existing ? 'Edit Jurnal' : 'Tulis Jurnal Harian'}</h3>
+                            <h3 class="font-serif text-2xl font-medium text-charcoal">${existing ? 'Edit Daily Journal' : 'Tulis Daily Journal'}</h3>
                             <div class="flex flex-wrap items-center gap-1.5">
-                                <button type="button" onclick="app.cycleJournalPaper()" id="j-paper-btn" class="px-3 py-1 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal">
+                                <button type="button" onclick="app.cycleEditorPaper('j-content', 'j-paper-btn')" id="j-paper-btn" class="px-3 py-1 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal">
                                     ${pLabels[this.focusPaperStyle]}
-                                </button>
-                                <button type="button" onclick="app.toggleJournalFont()" id="j-font-btn" class="px-3 py-1 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal">
-                                    Huruf: Editorial
                                 </button>
                                 <button type="button" onclick="app.toggleJournalFocusMode()" id="j-focus-btn" class="px-3 py-1 rounded-full bg-blush/70 text-xs font-semibold text-charcoal flex items-center gap-1">
                                     <i class="ph ph-arrows-out-simple"></i> Fokus
@@ -2264,13 +2604,20 @@
                             <label class="text-xs font-semibold text-muted block mb-1">Judul Jurnal *</label>
                             <input id="j-title" type="text" value="${existing ? this.escapeHtml(existing.title) : ''}" placeholder="Cerita hari ini..." class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm focus:outline-none focus:border-dusty">
                         </div>
-                        <div id="j-meta-row" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div id="j-meta-row" class="space-y-3">
                             <div>
-                                <label class="text-xs font-semibold text-muted block mb-1">Suasana Hati</label>
-                                <select id="j-mood" class="w-full px-3.5 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm focus:outline-none">
-                                    <option value="">Pilih suasana hati...</option>
-                                    ${MOOD_OPTIONS.map(m => `<option value="${m.display}" ${existing && existing.mood === m.display ? 'selected' : ''}>${m.display}</option>`).join('')}
-                                </select>
+                                <label class="text-xs font-semibold text-muted block mb-1.5">Suasana Hati (Pilih Maskot Mood)</label>
+                                <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                                    ${MOOD_OPTIONS.map(m => {
+                                        const active = initialMood === m.display;
+                                        return `
+                                        <button type="button" onclick="app.selectJournalMood(this, '${m.display}')" class="j-mood-card p-2 rounded-2xl border text-center flex flex-col items-center gap-1 transition-all ${active ? 'bg-blush/70 border-dusty scale-103 shadow-xs' : 'bg-cream border-borderwarm hover:bg-ivory'}">
+                                            ${DEARLY_ILLUSTRATIONS.moodMascots[m.display] || ''}
+                                            <span class="text-[10px] font-semibold text-charcoal">${m.display}</span>
+                                        </button>`;
+                                    }).join('')}
+                                </div>
+                                <input id="j-mood" type="hidden" value="${this.escapeHtml(initialMood)}">
                             </div>
                             <div>
                                 <label class="text-xs font-semibold text-muted block mb-1">Tag</label>
@@ -2291,8 +2638,8 @@
                         </div>
                         <div>
                             <label class="text-xs font-semibold text-muted block mb-1">Isi Tulisan *</label>
-                            ${this.renderRichToolbar('j-content')}
-                            <div id="j-content" contenteditable="true" data-placeholder="Tuliskan apa saja yang ada di hatimu..." class="dearly-rich-editor w-full px-4 py-3 rounded-2xl bg-cream border border-borderwarm font-serif text-lg leading-[28px] focus:outline-none focus:border-dusty ${initialPaperClass}">${existing ? this.sanitizeRichHtml(existing.content) : ''}</div>
+                            ${this.renderRichToolbar('j-content', initialFont)}
+                            <div id="j-content" contenteditable="true" data-placeholder="Tuliskan apa saja yang ada di hatimu..." class="dearly-rich-editor ${this.getFontClass(initialFont)} w-full px-4 py-3 rounded-2xl bg-cream border border-borderwarm text-lg leading-[28px] focus:outline-none focus:border-dusty ${initialPaperClass}" style="${this.getDynamicFontStyleAttr(initialFont)}">${existing ? this.sanitizeRichHtml(existing.content) : ''}</div>
                         </div>
                         <div class="flex justify-end gap-2 pt-2">
                             <button onclick="app.closeModal()" class="px-4 py-2 rounded-full text-xs font-medium bg-cream border border-borderwarm text-charcoal">Batal</button>
@@ -2302,34 +2649,18 @@
                 `, 'max-w-2xl');
             }
 
-            cycleJournalPaper() {
-                const ta = document.getElementById('j-content');
-                const btn = document.getElementById('j-paper-btn');
-                if (!ta || !btn) return;
-                const order = ['blank', 'dotted', 'lined'];
-                const labels = { blank: 'Kertas: Polos', dotted: 'Kertas: Titik', lined: 'Kertas: Bergaris' };
-                const next = order[(order.indexOf(this.focusPaperStyle) + 1) % order.length];
-                this.focusPaperStyle = next;
-                ta.classList.remove('paper-style-dotted', 'paper-style-lined');
-                if (next === 'dotted') ta.classList.add('paper-style-dotted');
-                if (next === 'lined') ta.classList.add('paper-style-lined');
-                btn.textContent = labels[next];
-            }
-
-            toggleJournalFont() {
-                const ta = document.getElementById('j-content');
-                const btn = document.getElementById('j-font-btn');
-                if (!ta || !btn) return;
-                if (this.focusEditorFont === 'serif') {
-                    this.focusEditorFont = 'hand';
-                    ta.classList.remove('font-serif', 'text-lg');
-                    ta.classList.add('font-hand', 'text-2xl');
-                    btn.textContent = 'Huruf: Tulisan Tangan';
+            selectJournalMood(btnEl, moodDisplay) {
+                const hidden = document.getElementById('j-mood');
+                if (!hidden) return;
+                const isSame = hidden.value === moodDisplay;
+                document.querySelectorAll('.j-mood-card').forEach(c => {
+                    c.className = 'j-mood-card p-2 rounded-2xl border text-center flex flex-col items-center gap-1 transition-all bg-cream border-borderwarm hover:bg-ivory';
+                });
+                if (isSame) {
+                    hidden.value = '';
                 } else {
-                    this.focusEditorFont = 'serif';
-                    ta.classList.remove('font-hand', 'text-2xl');
-                    ta.classList.add('font-serif', 'text-lg');
-                    btn.textContent = 'Huruf: Editorial';
+                    hidden.value = moodDisplay;
+                    btnEl.className = 'j-mood-card p-2 rounded-2xl border text-center flex flex-col items-center gap-1 transition-all bg-blush/70 border-dusty scale-103 shadow-xs';
                 }
             }
 
@@ -2354,7 +2685,7 @@
                     modal.classList.add('max-w-2xl');
                     if (meta) meta.classList.remove('hidden');
                     if (photo) photo.classList.remove('hidden');
-                    ta.style.minHeight = '185px';
+                    ta.style.minHeight = '165px';
                     if (btn) btn.innerHTML = '<i class="ph ph-arrows-out-simple"></i> Fokus';
                 }
             }
@@ -2369,6 +2700,7 @@
                 const tag = document.getElementById('j-tag').value.trim();
                 const photo = document.getElementById('j-photo').value;
                 const paperStyle = this.focusPaperStyle || 'blank';
+                const fontStyle = this.activeEditorFonts['j-content'] || 'serif';
 
                 if (!title || !plainText) {
                     this.toast('Judul dan isi jurnal wajib diisi.', 'error');
@@ -2384,6 +2716,7 @@
                         item.tag = tag;
                         item.photo = photo;
                         item.paperStyle = paperStyle;
+                        item.fontStyle = fontStyle;
                         this.logActivity('journal', 'Memperbarui jurnal', title);
                     }
                 } else {
@@ -2395,6 +2728,7 @@
                         tag,
                         photo,
                         paperStyle,
+                        fontStyle,
                         date: new Date().toISOString()
                     });
                     this.logActivity('journal', 'Menulis jurnal baru', title);
@@ -2419,18 +2753,21 @@
                 const j = this.state.data.journal.find(x => x.id === id);
                 if (!j) return;
                 const pClass = j.paperStyle === 'dotted' ? 'paper-style-dotted' : (j.paperStyle === 'lined' ? 'paper-style-lined' : '');
+                const fClass = this.getFontClass(j.fontStyle || 'serif');
+                const fStyle = this.getDynamicFontStyleAttr(j.fontStyle);
+                const moodMascot = j.mood && DEARLY_ILLUSTRATIONS.moodMascots[j.mood] ? DEARLY_ILLUSTRATIONS.moodMascots[j.mood] : '';
                 this.openModal(`
                     <div class="space-y-4 ${pClass} rounded-2xl p-2 animate-page-turn">
                         <div class="flex items-center justify-between text-xs text-softgray">
                             <span>${this.formatDate(j.date)}</span>
-                            <div class="flex items-center gap-1.5">
-                                ${j.mood ? `<span class="px-2.5 py-0.5 rounded-full bg-blush/80 text-charcoal font-medium">✦ ${this.escapeHtml(j.mood)}</span>` : ''}
+                            <div class="flex items-center gap-2">
+                                ${j.mood ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blush/85 text-charcoal font-semibold shadow-2xs">${moodMascot ? `<span class="w-8 h-8 -my-1 inline-flex items-center justify-center [&>svg]:w-8 [&>svg]:h-8">${moodMascot}</span>` : '✦'} <span>${this.escapeHtml(j.mood)}</span></span>` : ''}
                                 ${j.tag ? `<span class="px-2.5 py-0.5 rounded-full bg-cream border border-borderwarm text-dusty font-medium">#${this.escapeHtml(j.tag)}</span>` : ''}
                             </div>
                         </div>
                         <h2 class="font-serif text-3xl font-medium text-charcoal">${this.escapeHtml(j.title)}</h2>
                         ${j.photo ? `<img src="${this.escapeHtml(j.photo)}" class="w-full max-h-72 object-cover rounded-2xl border border-borderwarm">` : ''}
-                        <div class="dearly-rich-content font-serif text-lg leading-[28px] text-charcoal/90 pt-2">${this.sanitizeRichHtml(j.content)}</div>
+                        <div class="dearly-rich-content ${fClass} text-lg leading-[28px] text-charcoal/90 pt-2" style="${fStyle}">${this.sanitizeRichHtml(j.content)}</div>
                         <div class="flex justify-end pt-4 border-t border-borderwarm">
                             <button onclick="app.closeModal()" class="px-5 py-2 rounded-full text-xs font-semibold bg-dusty text-white">Tutup</button>
                         </div>
@@ -2439,14 +2776,14 @@
             }
 
             // =================================================================
-            // 6B. KOTAK KENANGAN (POLAROID & WASHI TAPE GALLERY + TIMELINE)
+            // 6B. MEMORY BOX
             // =================================================================
             renderMemoriesView() {
                 const viewMode = this.routeParams.viewMode || 'gallery';
                 const q = (this.routeParams.search || '').toLowerCase();
                 const items = this.state.data.memories.filter(m =>
                     m.title.toLowerCase().includes(q) ||
-                    (m.story || '').toLowerCase().includes(q) ||
+                    this.stripHtml(m.story || '').toLowerCase().includes(q) ||
                     (m.category || '').toLowerCase().includes(q)
                 );
 
@@ -2456,14 +2793,14 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-lavender flex items-center justify-center shrink-0">${SPACE_ICONS.memories}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Kotak Kenangan</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Memory Box</h1>
                                 <p class="text-sm text-muted">Simpan potret momen berharga dan cerita hangat di baliknya.</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
                             <div class="bg-cream p-1 rounded-full border border-borderwarm flex">
                                 <button onclick="app.routeParams.viewMode='gallery'; app.render()" class="px-3 py-1.5 rounded-full text-xs font-medium ${viewMode === 'gallery' ? 'bg-dusty text-white' : 'text-charcoal'}">Polaroid</button>
-                                <button onclick="app.routeParams.viewMode='timeline'; app.render()" class="px-3 py-1.5 rounded-full text-xs font-medium ${viewMode === 'timeline' ? 'bg-dusty text-white' : 'text-charcoal'}">Timeline</button>
+                                <button onclick="app.routeParams.viewMode='timeline'; app.render()" class="px-3 py-1.5 rounded-full text-xs font-medium ${viewMode === 'timeline' ? 'bg-dusty text-white' : 'text-charcoal'}">Linimasa</button>
                             </div>
                             <button onclick="app.openMemoryForm()" class="dearly-jelly-btn px-4 py-2.5 rounded-full bg-dusty text-white text-xs sm:text-sm font-semibold shadow-md flex items-center gap-1.5">
                                 <i class="ph-bold ph-plus"></i> Simpan Kenangan
@@ -2476,13 +2813,16 @@
                         <input type="text" value="${this.escapeHtml(this.routeParams.search || '')}" oninput="app.routeParams.search=this.value; app.render()" placeholder="Cari kenangan berdasarkan judul, cerita, atau kategori..." class="w-full bg-transparent text-sm focus:outline-none">
                     </div>
 
-                    ${items.length === 0 ? this.renderEmptyState('No memories yet.', 'Maybe today is a good day to save one little moment.', 'Tambah Kenangan Pertama', 'app.openMemoryForm()') : (
+                    ${items.length === 0 ? this.renderEmptyState('Belum ada kenangan tersimpan.', 'Mungkin hari ini adalah waktu yang tepat untuk menyimpan satu momen kecil.', 'Tambah Kenangan Pertama', 'app.openMemoryForm()') : (
                         viewMode === 'gallery' ? `
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
                             ${items.map((m, idx) => {
                                 const tilt = idx % 3 === 0 ? '-rotate-1' : (idx % 3 === 1 ? 'rotate-1' : '-rotate-0.5');
+                                const fClass = this.getFontClass(m.fontStyle || 'hand');
+                                const fStyle = this.getDynamicFontStyleAttr(m.fontStyle);
+                                const pClass = m.paperStyle === 'dotted' ? 'paper-style-dotted' : (m.paperStyle === 'lined' ? 'paper-style-lined' : '');
                                 return `
-                                <div onclick="app.triggerSparkleBurst(event)" class="polaroid-card ${tilt} cursor-pointer flex flex-col justify-between gap-3 stagger-item" style="animation-delay:${idx * 0.04}s">
+                                <div onclick="app.triggerSparkleBurst(event)" class="polaroid-card ${pClass} ${tilt} cursor-pointer flex flex-col justify-between gap-3 stagger-item" style="animation-delay:${idx * 0.04}s">
                                     <div class="washi-tape"></div>
                                     <div class="space-y-3">
                                         <div class="aspect-[4/3] rounded-xl overflow-hidden bg-cream border border-borderwarm flex items-center justify-center">
@@ -2494,30 +2834,34 @@
                                                 ${m.category ? `<span class="text-[10px] px-2.5 py-0.5 rounded-full bg-lavender text-charcoal font-medium">${this.escapeHtml(m.category)}</span>` : ''}
                                             </div>
                                             <h3 class="font-serif text-xl font-medium text-charcoal mt-0.5">${this.escapeHtml(m.title)}</h3>
-                                            <p class="text-xs text-muted mt-1 line-clamp-3 leading-relaxed">${this.escapeHtml(m.story)}</p>
+                                            <div class="dearly-rich-content ${fClass} text-xs text-muted mt-1 line-clamp-3 leading-relaxed" style="${fStyle}">${this.sanitizeRichHtml(m.story)}</div>
                                         </div>
                                     </div>
                                     <div class="flex justify-end gap-1 pt-2 border-t border-borderwarm">
-                                        <button onclick="app.openMemoryForm('${m.id}')" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-pencil-simple"></i></button>
-                                        <button onclick="app.deleteMemory('${m.id}')" class="p-1.5 rounded-full hover:bg-red-50 text-softgray hover:text-red-600"><i class="ph ph-trash"></i></button>
+                                        <button onclick="event.stopPropagation(); app.openMemoryForm('${m.id}')" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-pencil-simple"></i></button>
+                                        <button onclick="event.stopPropagation(); app.deleteMemory('${m.id}')" class="p-1.5 rounded-full hover:bg-red-50 text-softgray hover:text-red-600"><i class="ph ph-trash"></i></button>
                                     </div>
                                 </div>`;
                             }).join('')}
                         </div>` : `
                         <div class="relative pl-6 border-l-2 border-dusty/35 space-y-6 ml-2">
-                            ${items.map(m => `
-                                <div class="dearly-card p-5 relative">
+                            ${items.map(m => {
+                                const fClass = this.getFontClass(m.fontStyle || 'hand');
+                                const fStyle = this.getDynamicFontStyleAttr(m.fontStyle);
+                                const pClass = m.paperStyle === 'dotted' ? 'paper-style-dotted' : (m.paperStyle === 'lined' ? 'paper-style-lined' : '');
+                                return `
+                                <div class="dearly-card ${pClass} p-5 relative">
                                     <span class="w-3.5 h-3.5 rounded-full bg-dusty border-2 border-ivory absolute -left-[31px] top-6"></span>
                                     <div class="flex flex-col sm:flex-row gap-4">
                                         ${m.photo ? `<img src="${this.escapeHtml(m.photo)}" onerror="this.style.display='none'" class="w-full sm:w-44 h-36 object-cover rounded-2xl shrink-0 border border-borderwarm">` : ''}
                                         <div class="flex-1 space-y-1.5">
                                             <div class="font-hand text-lg font-semibold text-dusty">${this.formatDate(m.date)} ${m.category ? '• ' + this.escapeHtml(m.category) : ''}</div>
                                             <h3 class="font-serif text-2xl font-medium text-charcoal">${this.escapeHtml(m.title)}</h3>
-                                            <p class="text-sm text-muted leading-relaxed">${this.escapeHtml(m.story)}</p>
+                                            <div class="dearly-rich-content ${fClass} text-sm text-muted leading-relaxed" style="${fStyle}">${this.sanitizeRichHtml(m.story)}</div>
                                         </div>
                                     </div>
-                                </div>
-                            `).join('')}
+                                </div>`;
+                            }).join('')}
                         </div>`
                     )}
                 </div>`;
@@ -2525,9 +2869,20 @@
 
             openMemoryForm(id = null) {
                 const m = id ? this.state.data.memories.find(x => x.id === id) : null;
+                const initialFont = m && m.fontStyle ? m.fontStyle : 'hand';
+                const initialPaper = m && m.paperStyle ? m.paperStyle : 'lined';
+                this.activeEditorPapers['m-story'] = initialPaper;
+                const pLabels = { blank: 'Kertas: Polos', dotted: 'Kertas: Titik', lined: 'Kertas: Bergaris' };
+                const initialPaperClass = initialPaper === 'dotted' ? 'paper-style-dotted' : (initialPaper === 'lined' ? 'paper-style-lined' : '');
+
                 this.openModal(`
                     <div class="space-y-4">
-                        <h3 class="font-serif text-2xl font-medium text-charcoal">${m ? 'Edit Kenangan' : 'Simpan Kenangan Baru'}</h3>
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="font-serif text-2xl font-medium text-charcoal">${m ? 'Edit Kenangan' : 'Simpan Kenangan Baru'}</h3>
+                            <button type="button" onclick="app.cycleEditorPaper('m-story', 'm-paper-btn')" id="m-paper-btn" class="px-3 py-1 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal">
+                                ${pLabels[initialPaper]}
+                            </button>
+                        </div>
                         <div>
                             <label class="text-xs font-semibold text-muted block mb-1">Judul Momen *</label>
                             <input id="m-title" type="text" value="${m ? this.escapeHtml(m.title) : ''}" placeholder="Sore hujan di kedai kopi..." class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
@@ -2556,14 +2911,15 @@
                         </div>
                         <div>
                             <label class="text-xs font-semibold text-muted block mb-1">Cerita di Balik Momen *</label>
-                            <textarea id="m-story" rows="4" placeholder="Apa yang membuat momen ini begitu berkesan?" class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">${m ? this.escapeHtml(m.story) : ''}</textarea>
+                            ${this.renderRichToolbar('m-story', initialFont)}
+                            <div id="m-story" contenteditable="true" data-placeholder="Apa yang membuat momen ini begitu berkesan?" class="dearly-rich-editor ${this.getFontClass(initialFont)} ${initialPaperClass} w-full px-4 py-3 rounded-2xl bg-cream border border-borderwarm text-lg leading-[28px] focus:outline-none focus:border-dusty" style="min-height:190px; ${this.getDynamicFontStyleAttr(initialFont)}">${m ? this.sanitizeRichHtml(m.story) : ''}</div>
                         </div>
                         <div class="flex justify-end gap-2 pt-2">
                             <button onclick="app.closeModal()" class="px-4 py-2 rounded-full text-xs font-medium bg-cream border border-borderwarm text-charcoal">Batal</button>
                             <button onclick="app.saveMemory('${id || ''}')" class="px-5 py-2.5 rounded-full text-xs font-semibold bg-dusty text-white">Simpan Kenangan</button>
                         </div>
                     </div>
-                `);
+                `, 'max-w-2xl');
             }
 
             saveMemory(id) {
@@ -2571,9 +2927,14 @@
                 const date = document.getElementById('m-date').value;
                 const category = document.getElementById('m-cat').value.trim();
                 const photo = document.getElementById('m-photo').value;
-                const story = document.getElementById('m-story').value.trim();
+                const editorEl = document.getElementById('m-story');
+                const rawHtml = editorEl ? editorEl.innerHTML : '';
+                const plainText = this.stripHtml(rawHtml).trim();
+                const story = this.sanitizeRichHtml(rawHtml);
+                const fontStyle = this.activeEditorFonts['m-story'] || 'hand';
+                const paperStyle = this.activeEditorPapers['m-story'] || 'lined';
 
-                if (!title || !story) {
+                if (!title || !plainText) {
                     this.toast('Judul dan cerita kenangan wajib diisi.', 'error');
                     return;
                 }
@@ -2586,6 +2947,8 @@
                         item.category = category;
                         item.photo = photo;
                         item.story = story;
+                        item.fontStyle = fontStyle;
+                        item.paperStyle = paperStyle;
                         this.logActivity('memories', 'Memperbarui kenangan', title);
                     }
                 } else {
@@ -2595,7 +2958,9 @@
                         date,
                         category,
                         photo,
-                        story
+                        story,
+                        fontStyle,
+                        paperStyle
                     });
                     this.logActivity('memories', 'Menyimpan kenangan baru', title);
                 }
@@ -2617,7 +2982,7 @@
             }
 
             // =================================================================
-            // 6C. SURAT MASA DEPAN (WITH 3D ENVELOPE UNFOLD ANIMATION)
+            // 6C. FUTURE LETTER
             // =================================================================
             unfoldFutureEnvelope() {
                 const env = document.getElementById('future-envelope-box');
@@ -2637,28 +3002,42 @@
                 const todayStr = new Date().toISOString().slice(0, 10);
                 const minDate = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
                 const canOpen = letter && letter.openDate && letter.openDate <= todayStr;
+                const letterFontClass = letter ? this.getFontClass(letter.fontStyle || 'serif') : 'dearly-font-serif';
+                const letterFontStyle = letter ? this.getDynamicFontStyleAttr(letter.fontStyle) : '';
+                const letterPaperClass = letter && letter.paperStyle === 'dotted' ? 'paper-style-dotted' : (letter && letter.paperStyle === 'lined' ? 'paper-style-lined' : '');
+                if (!this.activeEditorPapers['fl-content']) this.activeEditorPapers['fl-content'] = 'lined';
 
                 return `
                 <div class="space-y-6 animate-enter max-w-3xl mx-auto">
                     ${!letter || (!letter.content && !letter.subject) ? `
                     <div class="dearly-card p-7 sm:p-9 space-y-5">
-                        <div class="text-center space-y-2">
-                            <div class="w-14 h-14 rounded-2xl bg-blush flex items-center justify-center mx-auto">${SPACE_ICONS.letter}</div>
-                            <h1 class="font-serif text-3xl font-medium text-charcoal">Surat untuk Diri Sendiri di Masa Depan</h1>
-                            <p class="text-sm text-muted max-w-lg mx-auto">Tuliskan surat penuh makna. Setelah dikunci, isi surat hanya dapat dibaca ketika tanggal pembukaan telah tiba.</p>
-                        </div>
-                        <div class="space-y-4 pt-2">
-                            <div>
-                                <label class="text-xs font-semibold text-muted block mb-1">Judul Surat</label>
-                                <input id="fl-subject" type="text" placeholder="Untuk diriku di tahun depan..." class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-borderwarm pb-5">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-12 h-12 rounded-2xl bg-blush flex items-center justify-center shrink-0">${SPACE_ICONS.letter}</div>
+                                <div>
+                                    <h1 class="font-serif text-3xl font-medium text-charcoal">Future Letter</h1>
+                                    <p class="text-xs sm:text-sm text-muted">Kapsul waktu terkunci untuk dirimu di masa depan.</p>
+                                </div>
                             </div>
-                            <div>
-                                <label class="text-xs font-semibold text-muted block mb-1">Tanggal Pembukaan Surat *</label>
-                                <input id="fl-date" type="date" min="${minDate}" value="${minDate}" class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
+                            <button type="button" onclick="app.cycleEditorPaper('fl-content', 'fl-paper-btn')" id="fl-paper-btn" class="px-3.5 py-1.5 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal self-start sm:self-auto">
+                                Kertas: Bergaris
+                            </button>
+                        </div>
+                        <div class="space-y-4 pt-1">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label class="text-xs font-semibold text-muted block mb-1">Judul Surat</label>
+                                    <input id="fl-subject" type="text" placeholder="Untuk diriku di tahun depan..." class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
+                                </div>
+                                <div>
+                                    <label class="text-xs font-semibold text-muted block mb-1">Tanggal Pembukaan Surat *</label>
+                                    <input id="fl-date" type="date" min="${minDate}" value="${minDate}" class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
+                                </div>
                             </div>
                             <div>
                                 <label class="text-xs font-semibold text-muted block mb-1">Isi Surat *</label>
-                                <textarea id="fl-content" rows="8" placeholder="Apa harapan dan impianmu saat surat ini dibuka nanti?" class="w-full px-4 py-3 rounded-2xl bg-cream border border-borderwarm font-serif text-lg leading-relaxed"></textarea>
+                                ${this.renderRichToolbar('fl-content', 'hand')}
+                                <div id="fl-content" contenteditable="true" data-placeholder="Apa harapan dan impianmu saat surat ini dibuka nanti?" class="dearly-rich-editor dearly-font-hand paper-style-lined w-full px-4 py-3.5 rounded-2xl bg-cream border border-borderwarm text-lg leading-[28px] focus:outline-none focus:border-dusty" style="min-height:240px;"></div>
                             </div>
                             <div class="flex justify-end pt-2">
                                 <button onclick="app.saveFutureLetter()" class="px-6 py-2.5 rounded-full bg-dusty text-white text-xs sm:text-sm font-semibold shadow-md">Kunci Surat Ini</button>
@@ -2679,7 +3058,7 @@
                             </div>
                             <div class="space-y-2">
                                 <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-dusty">${canOpen ? 'WAKTUNYA TELAH TIBA' : 'KAPSUL WAKTU TERKUNCI'}</span>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">${this.escapeHtml(letter.subject || 'Surat Masa Depan')}</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">${this.escapeHtml(letter.subject || 'Future Letter')}</h1>
                                 <p class="text-sm text-muted">${canOpen ? 'Amplop kapsul waktumu sudah siap dibuka!' : 'Surat ini sedang dijaga dengan tenang hingga waktunya tiba.'}</p>
                             </div>
                             ${canOpen ? `
@@ -2696,15 +3075,15 @@
                                 <button onclick="app.resetFutureLetter()" class="text-xs text-softgray hover:text-red-600 underline">Batalkan & Tulis Ulang</button>
                             </div>
                         </div>` : `
-                        <div class="dearly-card p-7 sm:p-9 space-y-6 animate-page-turn">
+                        <div class="dearly-card ${letterPaperClass} p-7 sm:p-9 space-y-6 animate-page-turn">
                             <div class="flex items-center justify-between pb-4 border-b border-borderwarm">
                                 <div>
-                                    <span class="text-[11px] font-bold text-dusty uppercase tracking-wider">SURAT TERBUKA</span>
-                                    <h1 class="font-serif text-3xl font-medium text-charcoal mt-1">${this.escapeHtml(letter.subject || 'Surat Masa Depan')}</h1>
+                                    <span class="text-[11px] font-bold text-dusty uppercase tracking-wider">SURAT MASA DEPAN DIBUKA</span>
+                                    <h1 class="font-serif text-3xl font-medium text-charcoal mt-1">${this.escapeHtml(letter.subject || 'Future Letter')}</h1>
                                 </div>
                                 <button onclick="app.resetFutureLetter()" class="px-4 py-2 rounded-full bg-cream border border-borderwarm text-charcoal text-xs font-semibold hover:opacity-85">Arsipkan & Tulis Baru</button>
                             </div>
-                            <div class="font-serif text-lg leading-relaxed text-charcoal/90 whitespace-pre-line">${this.escapeHtml(letter.content)}</div>
+                            <div class="dearly-rich-content ${letterFontClass} text-lg leading-[28px] text-charcoal/90" style="${letterFontStyle}">${this.sanitizeRichHtml(letter.content)}</div>
                         </div>`
                     )}
                 </div>`;
@@ -2713,20 +3092,27 @@
             saveFutureLetter() {
                 const subject = document.getElementById('fl-subject').value.trim();
                 const openDate = document.getElementById('fl-date').value;
-                const content = document.getElementById('fl-content').value.trim();
+                const editorEl = document.getElementById('fl-content');
+                const rawHtml = editorEl ? editorEl.innerHTML : '';
+                const plainText = this.stripHtml(rawHtml).trim();
+                const content = this.sanitizeRichHtml(rawHtml);
+                const fontStyle = this.activeEditorFonts['fl-content'] || 'hand';
+                const paperStyle = this.activeEditorPapers['fl-content'] || 'lined';
 
-                if (!content || !openDate) {
+                if (!plainText || !openDate) {
                     this.toast('Tanggal pembukaan dan isi surat wajib diisi.', 'error');
                     return;
                 }
 
                 this.state.data.letter = {
-                    subject: subject || 'Surat untuk Diriku',
+                    subject: subject || 'Future Letter',
                     openDate,
                     content,
+                    fontStyle,
+                    paperStyle,
                     isOpened: false
                 };
-                this.logActivity('letter', 'Mengunci surat masa depan', subject || 'Surat Masa Depan');
+                this.logActivity('letter', 'Mengunci surat masa depan', subject || 'Future Letter');
                 this.saveState();
                 this.render();
                 this.toast('Surat berhasil dikunci dalam kapsul waktu.');
@@ -2742,7 +3128,7 @@
             }
 
             // =================================================================
-            // 6D. PELACAK KEBIASAAN (WITH SPARKLE BURST CELEBRATION)
+            // 6D. HABIT TRACKER
             // =================================================================
             renderHabitsView() {
                 const habits = this.state.data.habits;
@@ -2754,7 +3140,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0">${SPACE_ICONS.habits}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Pelacak Kebiasaan</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Habit Tracker</h1>
                                 <p class="text-sm text-muted">Bangun rutinitas lembut yang konsisten setiap harinya.</p>
                             </div>
                         </div>
@@ -2763,7 +3149,7 @@
                         </button>
                     </div>
 
-                    ${habits.length === 0 ? this.renderEmptyState('No habits tracked yet.', 'Start with one gentle daily ritual, like drinking water or reading 10 pages.', 'Tambah Kebiasaan', 'app.openHabitForm()') : `
+                    ${habits.length === 0 ? this.renderEmptyState('Belum ada kebiasaan yang dipantau.', 'Mulai dengan satu rutinitas kecil yang lembut, seperti minum air putih atau membaca 10 halaman.', 'Tambah Kebiasaan', 'app.openHabitForm()') : `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         ${habits.map((h, idx) => {
                             const history = h.history || [];
@@ -2849,7 +3235,7 @@
                     h.history.push(todayStr);
                     this.triggerSparkleBurst(event);
                     this.logActivity('habits', 'Menyelesaikan kebiasaan', h.name);
-                    this.toast('Good job! Satu langkah kecil hari ini.');
+                    this.toast('Hebat! Satu langkah kecil hari ini.');
                 }
                 this.saveState();
                 this.render();
@@ -2865,7 +3251,7 @@
             }
 
             // =================================================================
-            // 6E. PELACAK TARGET PRIBADI
+            // 6E. PERSONAL GOALS
             // =================================================================
             renderGoalsView() {
                 const goals = this.state.data.goals;
@@ -2875,7 +3261,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-butter flex items-center justify-center shrink-0">${SPACE_ICONS.goals}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Pelacak Target Pribadi</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Personal Goals</h1>
                                 <p class="text-sm text-muted">Rencanakan impian jangka panjang dan pantau langkah pencapaiannya.</p>
                             </div>
                         </div>
@@ -2884,7 +3270,7 @@
                         </button>
                     </div>
 
-                    ${goals.length === 0 ? this.renderEmptyState('No personal goals yet.', 'Write down one dream you would love to nurture this season.', 'Buat Target Pertama', 'app.openGoalForm()') : `
+                    ${goals.length === 0 ? this.renderEmptyState('Belum ada target pribadi.', 'Tuliskan satu impian yang ingin kamu wujudkan pelan-pelan.', 'Buat Target Pertama', 'app.openGoalForm()') : `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         ${goals.map(g => `
                             <div class="dearly-card p-6 space-y-4 flex flex-col justify-between">
@@ -2900,7 +3286,7 @@
                                 </div>
                                 <div class="space-y-3 pt-3 border-t border-borderwarm">
                                     <div class="flex items-center justify-between text-xs font-medium text-muted">
-                                        <span>Progress: ${g.progress || 0}%</span>
+                                        <span>Progres: ${g.progress || 0}%</span>
                                         ${g.deadline ? `<span>Tenggat: ${this.formatDate(g.deadline)}</span>` : ''}
                                     </div>
                                     <div class="w-full bg-cream h-2.5 rounded-full overflow-hidden border border-borderwarm">
@@ -2993,7 +3379,7 @@
             }
 
             // =================================================================
-            // 6F. KEUANGAN & TABUNGAN
+            // 6F. FINANCE & SAVINGS
             // =================================================================
             renderFinanceView() {
                 const fin = this.state.data.finance;
@@ -3008,7 +3394,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0">${SPACE_ICONS.finance}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Keuangan & Tabungan</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Finance & Savings</h1>
                                 <p class="text-sm text-muted">Kelola pemasukan, pengeluaran, dan target tabungan impian.</p>
                             </div>
                         </div>
@@ -3245,7 +3631,7 @@
             }
 
             // =================================================================
-            // 6G. DAFTAR TONTONAN
+            // 6G. WATCHLIST
             // =================================================================
             renderWatchlistView() {
                 const items = this.state.data.watchlist;
@@ -3255,7 +3641,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-powder flex items-center justify-center shrink-0">${SPACE_ICONS.watchlist}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Daftar Tontonan</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Watchlist</h1>
                                 <p class="text-sm text-muted">Arsip K-Drama, film, anime, serta rating dan ulasan setelah selesai menonton.</p>
                             </div>
                         </div>
@@ -3432,7 +3818,7 @@
             }
 
             // =================================================================
-            // 6H. DAFTAR KEINGINAN
+            // 6H. WISHLIST
             // =================================================================
             renderWishlistView() {
                 const items = this.state.data.wishlist;
@@ -3442,7 +3828,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-blush flex items-center justify-center shrink-0">${SPACE_ICONS.wishlist}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Daftar Keinginan</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Wishlist</h1>
                                 <p class="text-sm text-muted">Simpan barang-barang manis yang ingin kamu miliki suatu hari nanti.</p>
                             </div>
                         </div>
@@ -3451,7 +3837,7 @@
                         </button>
                     </div>
 
-                    ${items.length === 0 ? this.renderEmptyState('Your wishlist is empty.', 'Keep a gentle list of little things that inspire or comfort you.', 'Tambah Wishlist', 'app.openWishlistForm()') : `
+                    ${items.length === 0 ? this.renderEmptyState('Daftar keinginanmu masih kosong.', 'Simpan daftar barang-barang kecil yang memberi kenyamanan atau inspirasi untukmu.', 'Tambah Wishlist', 'app.openWishlistForm()') : `
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         ${items.map(w => `
                             <div class="dearly-card p-5 flex flex-col justify-between gap-3 ${w.purchased ? 'opacity-70' : ''}">
@@ -3494,7 +3880,7 @@
                 if (!item || !item.price) return;
                 const exists = this.state.data.finance.savingsGoals.some(g => g.name.toLowerCase() === item.name.toLowerCase());
                 if (exists) {
-                    this.toast('Kantong tabungan untuk barang ini sudah ada di Keuangan.', 'error');
+                    this.toast('Kantong tabungan untuk barang ini sudah ada di Finance & Savings.', 'error');
                     return;
                 }
                 this.state.data.finance.savingsGoals.push({
@@ -3505,7 +3891,7 @@
                 });
                 this.logActivity('finance', 'Membuat tabungan dari Wishlist', item.name);
                 this.saveState();
-                this.toast(`Kantong tabungan "${item.name}" dibuat di Keuangan.`);
+                this.toast(`Kantong tabungan "${item.name}" dibuat di Finance & Savings.`);
             }
 
             openWishlistForm() {
@@ -3591,7 +3977,7 @@
             }
 
             // =================================================================
-            // 6I. KUMPULAN RESEP
+            // 6I. RECIPE BOOK
             // =================================================================
             renderRecipesView() {
                 const items = this.state.data.recipes;
@@ -3601,7 +3987,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-butter flex items-center justify-center shrink-0">${SPACE_ICONS.recipes}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Kumpulan Resep</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Recipe Book</h1>
                                 <p class="text-sm text-muted">Buku resep rumahan favorit dan catatan dapur.</p>
                             </div>
                         </div>
@@ -3610,7 +3996,7 @@
                         </button>
                     </div>
 
-                    ${items.length === 0 ? this.renderEmptyState('Your recipe book is waiting.', 'Save warm drink recipes, cozy desserts, or your favorite homemade meals.', 'Tambah Resep Pertama', 'app.openRecipeForm()') : `
+                    ${items.length === 0 ? this.renderEmptyState('Buku resepmu masih menunggu.', 'Simpan resep minuman hangat, camilan manis, atau masakan rumahan favoritmu.', 'Tambah Resep Pertama', 'app.openRecipeForm()') : `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         ${items.map(r => `
                             <div class="dearly-card dearly-card-hover p-6 flex flex-col justify-between gap-4">
@@ -3741,7 +4127,7 @@
             }
 
             // =================================================================
-            // 6J. DAFTAR KEGIATAN
+            // 6J. ACTIVITY LIST
             // =================================================================
             renderActivitiesView() {
                 const items = this.state.data.activities;
@@ -3751,7 +4137,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-butter flex items-center justify-center shrink-0">${SPACE_ICONS.activities}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Daftar Kegiatan</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Activity List</h1>
                                 <p class="text-sm text-muted">Ide-ide aktivitas seru, solo date, dan pengalaman baru yang ingin kamu coba.</p>
                             </div>
                         </div>
@@ -3760,7 +4146,7 @@
                         </button>
                     </div>
 
-                    ${items.length === 0 ? this.renderEmptyState('No activities planned yet.', 'Add a peaceful solo date, a picnic, or a little weekend adventure.', 'Tambah Ide Kegiatan', 'app.openActivityForm()') : `
+                    ${items.length === 0 ? this.renderEmptyState('Belum ada rencana kegiatan.', 'Tambahkan ide solo date santai, piknik di taman, atau petualangan kecil akhir pekan.', 'Tambah Ide Kegiatan', 'app.openActivityForm()') : `
                     <div class="space-y-3">
                         ${items.map(a => `
                             <div class="dearly-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${a.done ? 'opacity-75' : ''}">
@@ -3778,7 +4164,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2 self-end sm:self-auto">
-                                    ${a.done ? `<button onclick="app.convertActivityToMemory('${a.id}')" class="px-3 py-1.5 rounded-full bg-blush hover:opacity-90 text-charcoal text-[11px] font-semibold">Simpan ke Kenangan</button>` : ''}
+                                    ${a.done ? `<button onclick="app.convertActivityToMemory('${a.id}')" class="px-3 py-1.5 rounded-full bg-blush hover:opacity-90 text-charcoal text-[11px] font-semibold">Simpan ke Memory Box</button>` : ''}
                                     <button onclick="app.deleteActivity('${a.id}')" class="p-2 rounded-full hover:bg-red-50 text-softgray hover:text-red-600"><i class="ph ph-trash"></i></button>
                                 </div>
                             </div>
@@ -3865,11 +4251,12 @@
                     date: new Date().toISOString().slice(0, 10),
                     category: act.category || 'Kegiatan',
                     photo: '',
+                    fontStyle: 'sans',
                     story: act.description || `Menyelesaikan rencana kegiatan: ${act.name}.`
                 });
-                this.logActivity('memories', 'Menyimpan momen dari Daftar Kegiatan', act.name);
+                this.logActivity('memories', 'Menyimpan momen dari Activity List', act.name);
                 this.saveState();
-                this.toast(`"${act.name}" disimpan ke Kotak Kenangan.`);
+                this.toast(`"${act.name}" disimpan ke Memory Box.`);
             }
 
             deleteActivity(id) {
@@ -3882,7 +4269,7 @@
             }
 
             // =================================================================
-            // 6K. CATATAN & IDE
+            // 6K. NOTES & IDEAS
             // =================================================================
             renderNotesView() {
                 const q = (this.routeParams.search || '').toLowerCase();
@@ -3898,7 +4285,7 @@
                         <div class="flex items-center gap-3.5">
                             <div class="w-12 h-12 rounded-2xl bg-powder flex items-center justify-center shrink-0">${SPACE_ICONS.notes}</div>
                             <div>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Catatan & Ide</h1>
+                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">Notes & Ideas</h1>
                                 <p class="text-sm text-muted">Ruang cepat untuk menuliskan percikan ide dan catatan harian.</p>
                             </div>
                         </div>
@@ -3912,9 +4299,12 @@
                         <input type="text" value="${this.escapeHtml(this.routeParams.search || '')}" oninput="app.routeParams.search=this.value; app.render()" placeholder="Cari catatan atau tag..." class="w-full bg-transparent text-sm focus:outline-none">
                     </div>
 
-                    ${items.length === 0 ? this.renderEmptyState('No notes here yet.', 'Capture a fleeting thought, a book quote, or a small reminder.', 'Buat Catatan Baru', 'app.openNoteForm()') : `
+                    ${items.length === 0 ? this.renderEmptyState('Belum ada catatan di sini.', 'Simpan ide yang melintas, kutipan buku favorit, atau pengingat kecil.', 'Buat Catatan Baru', 'app.openNoteForm()') : `
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        ${items.map((n, idx) => `
+                        ${items.map((n, idx) => {
+                            const fClass = this.getFontClass(n.fontStyle || 'sans');
+                            const fStyle = this.getDynamicFontStyleAttr(n.fontStyle);
+                            return `
                             <div class="dearly-card dearly-card-hover p-5 flex flex-col justify-between gap-4 stagger-item" style="animation-delay:${idx * 0.04}s">
                                 <div class="space-y-2">
                                     <div class="flex items-center justify-between text-xs text-softgray">
@@ -3922,20 +4312,21 @@
                                         ${n.tag ? `<span class="px-2.5 py-0.5 rounded-full bg-powder text-charcoal font-medium">#${this.escapeHtml(n.tag)}</span>` : ''}
                                     </div>
                                     <h3 class="font-serif text-xl font-medium text-charcoal">${this.escapeHtml(n.title)}</h3>
-                                    <div class="dearly-rich-content text-xs text-muted line-clamp-4 leading-relaxed">${this.sanitizeRichHtml(n.content)}</div>
+                                    <div class="dearly-rich-content ${fClass} text-xs text-muted line-clamp-4 leading-relaxed" style="${fStyle}">${this.sanitizeRichHtml(n.content)}</div>
                                 </div>
                                 <div class="flex items-center justify-between pt-2 border-t border-borderwarm">
                                     <button onclick="app.openNoteForm('${n.id}')" class="text-xs font-semibold text-dusty hover:underline">Edit Catatan</button>
                                     <button onclick="app.deleteNote('${n.id}')" class="text-softgray hover:text-red-600 text-xs p-1"><i class="ph ph-trash"></i></button>
                                 </div>
-                            </div>
-                        `).join('')}
+                            </div>`;
+                        }).join('')}
                     </div>`}
                 </div>`;
             }
 
             openNoteForm(id = null) {
                 const n = id ? this.state.data.notes.find(x => x.id === id) : null;
+                const initialFont = n && n.fontStyle ? n.fontStyle : 'sans';
                 this.openModal(`
                     <div class="space-y-4">
                         <h3 class="font-serif text-2xl font-medium text-charcoal">${n ? 'Edit Catatan' : 'Catatan Baru'}</h3>
@@ -3949,8 +4340,8 @@
                         </div>
                         <div>
                             <label class="text-xs font-semibold text-muted block mb-1">Isi Catatan *</label>
-                            ${this.renderRichToolbar('n-content')}
-                            <div id="n-content" contenteditable="true" data-placeholder="Tulis catatan di sini..." class="dearly-rich-editor w-full px-4 py-3 rounded-2xl bg-cream border border-borderwarm text-sm leading-relaxed">${n ? this.sanitizeRichHtml(n.content) : ''}</div>
+                            ${this.renderRichToolbar('n-content', initialFont)}
+                            <div id="n-content" contenteditable="true" data-placeholder="Tulis catatan di sini..." class="dearly-rich-editor ${this.getFontClass(initialFont)} w-full px-4 py-3 rounded-2xl bg-cream border border-borderwarm text-sm leading-relaxed" style="${this.getDynamicFontStyleAttr(initialFont)}">${n ? this.sanitizeRichHtml(n.content) : ''}</div>
                         </div>
                         <div class="flex justify-end gap-2 pt-2">
                             <button onclick="app.closeModal()" class="px-4 py-2 rounded-full text-xs font-medium bg-cream border border-borderwarm text-charcoal">Batal</button>
@@ -3967,6 +4358,7 @@
                 const rawHtml = editorEl ? editorEl.innerHTML : '';
                 const plainText = this.stripHtml(rawHtml).trim();
                 const content = this.sanitizeRichHtml(rawHtml);
+                const fontStyle = this.activeEditorFonts['n-content'] || 'sans';
 
                 if (!title || !plainText) {
                     this.toast('Judul dan isi catatan wajib diisi.', 'error');
@@ -3979,6 +4371,7 @@
                         item.title = title;
                         item.tag = tag;
                         item.content = content;
+                        item.fontStyle = fontStyle;
                         this.logActivity('notes', 'Memperbarui catatan', title);
                     }
                 } else {
@@ -3987,6 +4380,7 @@
                         title,
                         tag,
                         content,
+                        fontStyle,
                         date: new Date().toISOString()
                     });
                     this.logActivity('notes', 'Membuat catatan baru', title);
@@ -4018,7 +4412,7 @@
                             <input type="text" id="global-search-input" oninput="app.runGlobalSearch(this.value)" placeholder="Cari apa saja di seluruh ruang Dearly..." class="w-full bg-transparent text-sm focus:outline-none" autofocus>
                         </div>
                         <div id="global-search-results" class="space-y-2 max-h-80 overflow-y-auto">
-                            <div class="text-center py-6 text-xs text-softgray">Ketik kata kunci untuk mencari di Jurnal, Kenangan, Catatan, dan Resep.</div>
+                            <div class="text-center py-6 text-xs text-softgray">Ketik kata kunci untuk mencari di Daily Journal, Memory Box, Notes & Ideas, dan Recipe Book.</div>
                         </div>
                     </div>
                 `, 'max-w-xl');
@@ -4036,22 +4430,22 @@
                 const results = [];
                 this.state.data.journal.forEach(j => {
                     if (j.title.toLowerCase().includes(q) || this.stripHtml(j.content).toLowerCase().includes(q)) {
-                        results.push({ type: 'Jurnal', title: j.title, route: 'journal' });
+                        results.push({ type: 'Daily Journal', title: j.title, route: 'journal' });
                     }
                 });
                 this.state.data.notes.forEach(n => {
                     if (n.title.toLowerCase().includes(q) || this.stripHtml(n.content).toLowerCase().includes(q)) {
-                        results.push({ type: 'Catatan', title: n.title, route: 'notes' });
+                        results.push({ type: 'Notes & Ideas', title: n.title, route: 'notes' });
                     }
                 });
                 this.state.data.memories.forEach(m => {
-                    if (m.title.toLowerCase().includes(q) || m.story.toLowerCase().includes(q)) {
-                        results.push({ type: 'Kenangan', title: m.title, route: 'memories' });
+                    if (m.title.toLowerCase().includes(q) || this.stripHtml(m.story || '').toLowerCase().includes(q)) {
+                        results.push({ type: 'Memory Box', title: m.title, route: 'memories' });
                     }
                 });
                 this.state.data.recipes.forEach(r => {
                     if (r.name.toLowerCase().includes(q) || r.ingredients.toLowerCase().includes(q)) {
-                        results.push({ type: 'Resep', title: r.name, route: 'recipes' });
+                        results.push({ type: 'Recipe Book', title: r.name, route: 'recipes' });
                     }
                 });
 
@@ -4075,16 +4469,16 @@
                 this.openModal(`
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <h3 class="font-serif text-2xl font-medium text-charcoal">Quick Capture</h3>
+                            <h3 class="font-serif text-2xl font-medium text-charcoal">Catat Cepat</h3>
                             <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
                         </div>
                         <div>
-                            <label class="text-xs font-semibold text-muted block mb-1.5">Simpan sebagai</label>
+                            <label class="text-xs font-semibold text-muted block mb-1.5">Simpan ke ruangan</label>
                             <select id="qc-type" class="w-full px-3.5 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
-                                <option value="note">Catatan & Ide (Thought / Idea)</option>
-                                <option value="gratitude">Jurnal Rasa Syukur (Gratitude / Mood)</option>
-                                <option value="memory">Kenangan Singkat (Memory)</option>
-                                <option value="task">Rencana Kegiatan (Task)</option>
+                                <option value="note">Notes & Ideas (Catatan / Ide)</option>
+                                <option value="gratitude">Daily Journal (Syukur / Perasaan)</option>
+                                <option value="memory">Memory Box (Momen Singkat)</option>
+                                <option value="task">Activity List (Rencana Kegiatan)</option>
                             </select>
                         </div>
                         <div class="space-y-3">
@@ -4117,9 +4511,10 @@
                         tag: 'syukur',
                         photo: '',
                         paperStyle: 'blank',
+                        fontStyle: 'serif',
                         date: new Date().toISOString()
                     });
-                    this.logActivity('journal', 'Quick Capture jurnal syukur', title);
+                    this.logActivity('journal', 'Catat cepat jurnal syukur', title);
                 } else if (kind === 'memory') {
                     this.state.data.memories.unshift({
                         id: 'm_' + Date.now(),
@@ -4127,9 +4522,10 @@
                         date: new Date().toISOString().slice(0, 10),
                         category: 'Momen Kecil',
                         photo: '',
+                        fontStyle: 'sans',
                         story: content || title
                     });
-                    this.logActivity('memories', 'Quick Capture kenangan', title);
+                    this.logActivity('memories', 'Catat cepat kenangan', title);
                 } else if (kind === 'task') {
                     this.state.data.activities.unshift({
                         id: 'act_' + Date.now(),
@@ -4139,16 +4535,17 @@
                         description: content,
                         done: false
                     });
-                    this.logActivity('activities', 'Quick Capture kegiatan', title);
+                    this.logActivity('activities', 'Catat cepat kegiatan', title);
                 } else {
                     this.state.data.notes.unshift({
                         id: 'n_' + Date.now(),
                         title,
                         tag: 'ide',
                         content: content || title,
+                        fontStyle: 'sans',
                         date: new Date().toISOString()
                     });
-                    this.logActivity('notes', 'Quick Capture catatan', title);
+                    this.logActivity('notes', 'Catat cepat catatan', title);
                 }
 
                 this.saveState();
@@ -4175,7 +4572,7 @@
                                 <input id="prof-name" type="text" value="${this.escapeHtml(this.state.profile.userName)}" class="w-full px-4 py-2 rounded-2xl bg-cream border border-borderwarm text-sm">
                             </div>
                             <div>
-                                <label class="text-xs font-semibold text-muted block mb-1">Kalimat Sambutan Home</label>
+                                <label class="text-xs font-semibold text-muted block mb-1">Kalimat Sambutan Beranda</label>
                                 <input id="prof-sub" type="text" value="${this.escapeHtml(this.state.profile.subtitle)}" class="w-full px-4 py-2 rounded-2xl bg-cream border border-borderwarm text-sm">
                             </div>
                         </div>
@@ -4430,7 +4827,7 @@
                 const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="48" fill="#F7DDE0"/><path d="M96 36L112 80L156 96L112 112L96 156L80 112L36 96L80 80L96 36Z" fill="#C98288"/></svg>`;
                 const iconUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(iconSvg);
                 const manifest = {
-                    name: 'Dearly — Your Little Space',
+                    name: 'Dearly — Ruang Kecilmu',
                     short_name: 'Dearly',
                     start_url: './',
                     display: 'standalone',
@@ -4457,3 +4854,4 @@
     </script>
 </body>
 </html>
+```
