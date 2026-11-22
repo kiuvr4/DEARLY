@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -100,24 +99,16 @@
             opacity: 1;
         }
 
-        html.candlelight-mode .dreamy-orb {
-            opacity: 0.22;
-        }
+        html.candlelight-mode .dreamy-orb { opacity: 0.22; }
 
-        /* Rich Text Editor & Natural Marker Highlight Styling */
-        .dearly-rich-editor {
-            min-height: 165px;
-            outline: none;
-            overflow-y: auto;
-        }
+        .dearly-rich-editor { min-height: 165px; outline: none; overflow-y: auto; }
         .dearly-rich-editor:empty:before {
             content: attr(data-placeholder);
             color: var(--text-tertiary);
             pointer-events: none;
             display: block;
         }
-        .dearly-rich-content h2,
-        .dearly-rich-editor h2 {
+        .dearly-rich-content h2, .dearly-rich-editor h2 {
             font-family: 'Fraunces', serif;
             font-size: 1.45rem;
             font-weight: 600;
@@ -126,8 +117,7 @@
             margin-bottom: 0.3rem;
             color: var(--text-primary);
         }
-        .dearly-rich-content h3,
-        .dearly-rich-editor h3 {
+        .dearly-rich-content h3, .dearly-rich-editor h3 {
             font-family: 'Fraunces', serif;
             font-size: 1.2rem;
             font-weight: 600;
@@ -136,15 +126,12 @@
             margin-bottom: 0.2rem;
             color: var(--text-primary);
         }
-        .dearly-rich-content ul,
-        .dearly-rich-editor ul {
+        .dearly-rich-content ul, .dearly-rich-editor ul {
             list-style-type: disc;
             padding-left: 1.35rem;
             margin: 0.35rem 0;
         }
-        /* Natural Hand-Drawn Marker Underline Highlight */
-        .dearly-rich-content mark,
-        .dearly-rich-editor mark {
+        .dearly-rich-content mark, .dearly-rich-editor mark {
             --hl-color: #F7DDE0;
             background: linear-gradient(104deg, transparent 0.9%, var(--hl-color) 2.4%, var(--hl-color) 96%, transparent 98.5%) no-repeat 0 88% / 100% 38% !important;
             background-color: transparent !important;
@@ -156,7 +143,6 @@
             -webkit-box-decoration-break: clone;
         }
 
-        /* Custom Font Classes for Editors & Saved Cards */
         .dearly-font-sans { font-family: 'Plus Jakarta Sans', sans-serif !important; }
         .dearly-font-serif { font-family: 'Fraunces', Georgia, serif !important; }
         .dearly-font-hand { font-family: 'Caveat', cursive !important; font-size: 1.28em; line-height: 1.45; }
@@ -174,7 +160,6 @@
             transition: background 0.6s ease, color 0.4s ease;
         }
 
-        /* Dreamy Ambient Mesh Background */
         .dearly-dreamy-bg {
             position: fixed;
             inset: 0;
@@ -189,7 +174,6 @@
             transition: all 0.6s ease;
         }
 
-        /* Tactile Cotton Paper Grain Overlay */
         .paper-grain-overlay {
             position: fixed;
             inset: 0;
@@ -215,7 +199,6 @@
             100% { transform: translate(-20px, 18px) scale(0.95); }
         }
 
-        /* Tactile Elevated Cards */
         .dearly-card {
             background-color: var(--card-surface);
             backdrop-filter: blur(20px) saturate(145%);
@@ -237,7 +220,6 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.35);
         }
 
-        /* Deep Floating Elevation for Navigation & Ambient Pill */
         .dearly-pill {
             background-color: var(--pill-surface);
             backdrop-filter: blur(24px) saturate(170%);
@@ -260,7 +242,6 @@
                 inset 0 1.5px 0 rgba(255, 255, 255, 0.45);
         }
 
-        /* Journal Paper Textures */
         .paper-style-dotted {
             background-image: radial-gradient(var(--paper-line) 1.25px, transparent 1.25px);
             background-size: 18px 18px;
@@ -270,7 +251,6 @@
             background-size: 100% 28px;
         }
 
-        /* Polaroid Frame & Washi Tape */
         .polaroid-card {
             background: var(--card-surface);
             padding: 0.85rem 0.85rem 1.25rem 0.85rem;
@@ -299,28 +279,19 @@
             pointer-events: none;
         }
 
-        /* Staggered Entrance & Sparkle Burst */
         @keyframes enter {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-enter {
-            animation: enter 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .stagger-item {
-            opacity: 0;
-            animation: enter 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        .animate-enter { animation: enter 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .stagger-item { opacity: 0; animation: enter 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-        /* Soft Book Page Turn Animation */
         @keyframes pageTurnOpen {
             0% { opacity: 0; transform: perspective(1100px) rotateY(-38deg) translateX(-22px) scale(0.92); transform-origin: left center; }
             60% { opacity: 1; transform: perspective(1100px) rotateY(4deg) translateX(2px) scale(1.01); transform-origin: left center; }
             100% { opacity: 1; transform: perspective(1100px) rotateY(0deg) translateX(0) scale(1); transform-origin: left center; }
         }
-        .animate-page-turn {
-            animation: pageTurnOpen 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
+        .animate-page-turn { animation: pageTurnOpen 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 
         @keyframes gentleIdle {
             0%, 100% { transform: translateY(0px) rotate(-2deg) scale(1); }
@@ -331,9 +302,8 @@
             cursor: pointer;
             transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .animate-companion:hover {
-            transform: scale(1.08) rotate(3deg);
-        }
+        .animate-companion:hover { transform: scale(1.08) rotate(3deg); }
+
         @keyframes companionHop {
             0% { transform: translateY(0) scale(1, 1) rotate(0deg); }
             22% { transform: translateY(6px) scale(1.18, 0.82) rotate(-4deg); }
@@ -341,11 +311,8 @@
             76% { transform: translateY(-4px) scale(1.06, 0.94) rotate(-2deg); }
             100% { transform: translateY(0) scale(1, 1) rotate(0deg); }
         }
-        .companion-hop {
-            animation: companionHop 0.68s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-        }
+        .companion-hop { animation: companionHop 0.68s cubic-bezier(0.34, 1.56, 0.64, 1) !important; }
 
-        /* Companion Speech Bubble */
         @keyframes bubblePopUp {
             0% { opacity: 0; transform: translate(-50%, 8px) scale(0.7); }
             18% { opacity: 1; transform: translate(-50%, -6px) scale(1.05); }
@@ -368,7 +335,6 @@
             animation: bubblePopUp 2.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
-        /* Living Ambient Audio Visualizer Bars & Ripple */
         @keyframes eqDance1 { 0%, 100% { height: 4px; } 50% { height: 15px; } }
         @keyframes eqDance2 { 0%, 100% { height: 14px; } 50% { height: 4px; } }
         @keyframes eqDance3 { 0%, 100% { height: 6px; } 50% { height: 16px; } }
@@ -381,19 +347,13 @@
             70% { box-shadow: 0 0 0 16px rgba(201, 130, 136, 0), 0 28px 58px -8px rgba(25, 20, 18, 0.32); }
             100% { box-shadow: 0 0 0 0 rgba(201, 130, 136, 0), 0 28px 58px -8px rgba(25, 20, 18, 0.32); }
         }
-        .ambient-playing-pulse {
-            animation: ambientRipple 2s infinite;
-        }
+        .ambient-playing-pulse { animation: ambientRipple 2s infinite; }
 
-        /* Progress Bar Shimmer Wave */
         @keyframes progressShimmer {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(220%); }
         }
-        .progress-shimmer-bar {
-            position: relative;
-            overflow: hidden;
-        }
+        .progress-shimmer-bar { position: relative; overflow: hidden; }
         .progress-shimmer-bar::after {
             content: '';
             position: absolute;
@@ -403,34 +363,15 @@
             animation: progressShimmer 2.1s ease-in-out infinite;
         }
 
-        /* Jelly Button Tactile Press */
-        .dearly-jelly-btn {
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
-        }
-        .dearly-jelly-btn:hover {
-            transform: translateY(-2px) scale(1.03);
-        }
-        .dearly-jelly-btn:active {
-            transform: scale(0.93);
-        }
+        .dearly-jelly-btn { transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease; }
+        .dearly-jelly-btn:hover { transform: translateY(-2px) scale(1.03); }
+        .dearly-jelly-btn:active { transform: scale(0.93); }
 
-        /* 3D Envelope Unfold Animation for Future Letter */
-        .envelope-stage {
-            perspective: 900px;
-        }
-        .envelope-flap {
-            transform-origin: top center;
-            transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .envelope-open .envelope-flap {
-            transform: rotateX(180deg);
-        }
-        .envelope-letter-sheet {
-            transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
-        }
-        .envelope-open .envelope-letter-sheet {
-            transform: translateY(-28px);
-        }
+        .envelope-stage { perspective: 900px; }
+        .envelope-flap { transform-origin: top center; transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .envelope-open .envelope-flap { transform: rotateX(180deg); }
+        .envelope-letter-sheet { transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease; }
+        .envelope-open .envelope-letter-sheet { transform: translateY(-28px); }
 
         @keyframes sparklePop {
             0% { opacity: 1; transform: translate(0, 0) scale(0.5); }
@@ -445,7 +386,6 @@
             animation: sparklePop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Dreamy Welcome Splash Screen */
         @keyframes splashFadeOut {
             0% { opacity: 1; transform: scale(1); filter: blur(0px); }
             100% { opacity: 0; transform: scale(1.03); filter: blur(6px); pointer-events: none; visibility: hidden; }
@@ -474,29 +414,16 @@
         #dearly-splash.splash-hidden {
             animation: splashFadeOut 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        .splash-card-inner {
-            animation: splashContentRise 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .splash-progress-fill {
-            animation: splashShimmer 1.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
+        .splash-card-inner { animation: splashContentRise 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .splash-progress-fill { animation: splashShimmer 1.65s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
-        ::-webkit-scrollbar {
-            width: 5px;
-            height: 5px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(201, 130, 136, 0.35);
-            border-radius: 9999px;
-        }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(201, 130, 136, 0.35); border-radius: 9999px; }
     </style>
 </head>
 <body class="antialiased selection:bg-blush selection:text-charcoal pb-28 md:pb-12">
 
-    <!-- Dreamy Ambient Gradient + Tactile Cotton Paper Grain -->
     <div id="ambient-bg" class="dearly-dreamy-bg"></div>
     <div class="paper-grain-overlay"></div>
     <div class="dreamy-orb w-80 h-80 top-12 -left-16" style="background: var(--accent-soft);"></div>
@@ -581,7 +508,6 @@
     <!-- Floating Top Header -->
     <header class="sticky top-0 z-30 px-4 sm:px-6 lg:px-8 pt-4 pb-3 pointer-events-none">
         <div class="max-w-5xl mx-auto dearly-pill rounded-full px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-3 pointer-events-auto">
-            <!-- Brand -->
             <button onclick="app.navigate('home')" class="flex items-center gap-2.5 text-left group focus:outline-none">
                 <div class="w-9 h-9 rounded-2xl bg-blush flex items-center justify-center text-dusty group-hover:scale-105 transition-transform">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
@@ -598,7 +524,6 @@
                 </div>
             </button>
 
-            <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-1 bg-cream p-1 rounded-full border border-borderwarm text-xs font-medium">
                 <button onclick="app.navigate('home')" data-nav="home" class="nav-btn px-4 py-1.5 rounded-full transition-all">Beranda</button>
                 <button onclick="app.navigate('notes')" data-nav="notes" class="nav-btn px-4 py-1.5 rounded-full transition-all">Notes & Ideas</button>
@@ -606,10 +531,12 @@
                 <button onclick="app.navigate('all')" data-nav="all" class="nav-btn px-4 py-1.5 rounded-full transition-all">Jelajahi Ruang</button>
             </nav>
 
-            <!-- Right Actions -->
             <div class="flex items-center gap-1.5 sm:gap-2">
                 <button onclick="app.toggleCandlelightMode()" id="candlelight-toggle-btn" title="Mode Cahaya Lilin (Siang / Malam Hangat)" class="w-9 h-9 rounded-full bg-cream hover:opacity-85 text-charcoal transition-all border border-borderwarm flex items-center justify-center">
                     <i id="candlelight-icon" class="ph ph-moon-stars text-base text-dusty"></i>
+                </button>
+                <button onclick="app.openFullGuideModal()" title="Buku Panduan Dearly & Cara Update" class="w-9 h-9 rounded-full bg-cream hover:opacity-85 text-charcoal transition-colors border border-borderwarm flex items-center justify-center">
+                    <i class="ph ph-book-open-text text-base text-dusty"></i>
                 </button>
                 <button onclick="app.openProfileModal()" id="cloud-status-badge" title="Status Cloud Sync" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream border border-borderwarm text-[11px] font-medium text-muted hover:text-charcoal transition-colors">
                     <span id="cloud-status-dot" class="w-2 h-2 rounded-full bg-softgray/50"></span>
@@ -630,37 +557,89 @@
     </header>
 
     <!-- Main Content Container -->
-    <main id="app-root" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-10">
-        <!-- Rendered by Dearly Engine -->
-    </main>
+    <main id="app-root" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-10"></main>
 
-    <!-- Integrated Ambient Mini-Control ("Suasana") -->
+    <!-- Integrated Ambient Mini-Control ("Suasana") with Personal MP3 Playlist & "How?" Guide -->
     <div class="fixed bottom-24 md:bottom-6 right-4 sm:right-6 z-30 flex flex-col items-end gap-2">
-        <div id="ambient-menu" class="hidden dearly-card p-3 w-64 space-y-1 animate-enter shadow-2xl">
-            <div class="text-[10px] font-bold uppercase tracking-[0.16em] text-softgray px-2.5 py-1.5 flex items-center justify-between">
-                <span>Suasana Latar</span>
-                <button onclick="app.toggleAmbientMenu()" class="text-muted hover:text-charcoal"><i class="ph ph-x"></i></button>
+        <div id="ambient-menu" class="hidden dearly-card p-3.5 w-80 max-w-[92vw] space-y-2.5 animate-enter shadow-2xl">
+            <div class="text-[10px] font-bold uppercase tracking-[0.16em] text-softgray px-1 flex items-center justify-between">
+                <span>Suasana & Musik Pribadi</span>
+                <button onclick="app.toggleAmbientMenu()" class="text-muted hover:text-charcoal p-1"><i class="ph ph-x"></i></button>
             </div>
-            <button onclick="app.selectAmbientTrack('off')" id="track-btn-off" class="w-full text-left px-3 py-2 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
-                <span>Hening (Matikan)</span>
-                <i class="ph ph-speaker-slash text-softgray"></i>
-            </button>
-            <button onclick="app.selectAmbientTrack('rain')" id="track-btn-rain" class="w-full text-left px-3 py-2 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
-                <span>Rintik Hujan Lembut</span>
-                <i class="ph ph-cloud-rain text-dusty"></i>
-            </button>
-            <button onclick="app.selectAmbientTrack('piano')" id="track-btn-piano" class="w-full text-left px-3 py-2 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
-                <span>Felt Piano Tenang</span>
-                <i class="ph ph-piano-keys text-dusty"></i>
-            </button>
-            <button onclick="app.selectAmbientTrack('cafe')" id="track-btn-cafe" class="w-full text-left px-3 py-2 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
-                <span>Suasana Kafe Pagi</span>
-                <i class="ph ph-coffee text-dusty"></i>
-            </button>
-            <button onclick="app.selectAmbientTrack('nature')" id="track-btn-nature" class="w-full text-left px-3 py-2 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
-                <span>Angin & Alam Pagi</span>
-                <i class="ph ph-wind text-dusty"></i>
-            </button>
+
+            <!-- Personal Local MP3 Playlist Section -->
+            <div class="p-3 rounded-2xl bg-cream border border-borderwarm space-y-2.5">
+                <div class="flex items-center justify-between gap-2">
+                    <span class="text-[11px] font-semibold text-charcoal flex items-center gap-1.5">
+                        <i class="ph-fill ph-music-notes text-dusty text-base"></i> Playlist Pribadiku
+                    </span>
+                    <div class="flex items-center gap-1.5">
+                        <button type="button" onclick="app.openMp3GuideModal()" class="px-2.5 py-0.5 rounded-full bg-butter text-charcoal text-[10px] font-bold hover:opacity-85 inline-flex items-center gap-1 shadow-2xs">
+                            <i class="ph-bold ph-book-open-text text-[11px] text-dusty"></i>
+                            <span>How?</span>
+                        </button>
+                        <label class="px-2.5 py-0.5 rounded-full bg-dusty text-white text-[10px] font-semibold cursor-pointer hover:opacity-90 inline-flex items-center gap-1 shadow-2xs">
+                            <i class="ph-bold ph-plus text-[9px]"></i>
+                            <span>Lagu</span>
+                            <input type="file" accept="audio/*" multiple class="hidden" onchange="app.handleMp3Upload(this)">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Now Playing Mini Deck -->
+                <div id="mp3-now-playing" class="p-2.5 rounded-xl bg-ivory border border-borderwarm/80 space-y-2">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="min-w-0 flex-1">
+                            <div id="mp3-current-title" class="text-xs font-semibold text-charcoal truncate">Belum ada lagu diputar</div>
+                            <div id="mp3-current-time" class="text-[10px] text-softgray">00:00 / 00:00</div>
+                        </div>
+                        <button type="button" id="mp3-loop-btn" onclick="app.toggleMp3Loop()" title="Ulangi Playlist" class="p-1.5 rounded-lg bg-blush/70 text-dusty text-xs transition-colors">
+                            <i class="ph-bold ph-repeat"></i>
+                        </button>
+                    </div>
+
+                    <input id="mp3-seek-bar" type="range" min="0" max="100" value="0" oninput="app.seekMp3(this.value)" class="w-full h-1.5 bg-cream rounded-lg appearance-none cursor-pointer accent-[#C98288]">
+
+                    <div class="flex items-center justify-center gap-3 pt-0.5">
+                        <button type="button" onclick="app.prevMp3Track()" title="Lagu Sebelumnya" class="w-8 h-8 rounded-full bg-cream hover:bg-blush/50 text-charcoal flex items-center justify-center transition-transform active:scale-90">
+                            <i class="ph-fill ph-skip-back text-sm"></i>
+                        </button>
+                        <button type="button" id="mp3-play-btn" onclick="app.toggleMp3Play()" title="Putar / Jeda" class="w-9 h-9 rounded-full bg-dusty text-white shadow-sm flex items-center justify-center transition-transform active:scale-90">
+                            <i id="mp3-play-icon" class="ph-fill ph-play text-sm"></i>
+                        </button>
+                        <button type="button" onclick="app.nextMp3Track()" title="Lagu Berikutnya" class="w-8 h-8 rounded-full bg-cream hover:bg-blush/50 text-charcoal flex items-center justify-center transition-transform active:scale-90">
+                            <i class="ph-fill ph-skip-forward text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="mp3-playlist-list" class="max-h-32 overflow-y-auto space-y-1 pr-0.5"></div>
+                <audio id="dearly-mp3-audio" preload="metadata"></audio>
+            </div>
+
+            <div class="border-t border-borderwarm pt-1.5 space-y-0.5">
+                <div class="text-[10px] font-semibold uppercase tracking-wider text-softgray px-2 py-0.5">Suara Alam & Piano</div>
+                <button onclick="app.selectAmbientTrack('off')" id="track-btn-off" class="w-full text-left px-3 py-1.5 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
+                    <span>Hening (Matikan Suara Latar)</span>
+                    <i class="ph ph-speaker-slash text-softgray"></i>
+                </button>
+                <button onclick="app.selectAmbientTrack('rain')" id="track-btn-rain" class="w-full text-left px-3 py-1.5 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
+                    <span>Rintik Hujan Lembut</span>
+                    <i class="ph ph-cloud-rain text-dusty"></i>
+                </button>
+                <button onclick="app.selectAmbientTrack('piano')" id="track-btn-piano" class="w-full text-left px-3 py-1.5 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
+                    <span>Felt Piano Tenang</span>
+                    <i class="ph ph-piano-keys text-dusty"></i>
+                </button>
+                <button onclick="app.selectAmbientTrack('cafe')" id="track-btn-cafe" class="w-full text-left px-3 py-1.5 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
+                    <span>Suasana Kafe Pagi</span>
+                    <i class="ph ph-coffee text-dusty"></i>
+                </button>
+                <button onclick="app.selectAmbientTrack('nature')" id="track-btn-nature" class="w-full text-left px-3 py-1.5 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal">
+                    <span>Angin & Alam Pagi</span>
+                    <i class="ph ph-wind text-dusty"></i>
+                </button>
+            </div>
         </div>
 
         <button id="ambient-sound-btn" onclick="app.toggleAmbientMenu()" title="Pengatur Suasana Audio" class="dearly-pill px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-semibold text-charcoal hover:opacity-95 transition-all">
@@ -697,14 +676,10 @@
         </div>
     </nav>
 
-    <!-- Toast Notifications -->
     <div id="toast-container" class="fixed top-20 right-4 sm:right-8 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- Modal Overlay -->
     <div id="modal-backdrop" class="fixed inset-0 z-50 bg-black/35 backdrop-blur-xs hidden items-center justify-center p-4 overflow-y-auto">
-        <div id="modal-content" class="dearly-card w-full max-w-lg p-6 sm:p-7 shadow-2xl relative animate-enter my-auto">
-            <!-- Dynamic modal template -->
-        </div>
+        <div id="modal-content" class="dearly-card w-full max-w-lg p-6 sm:p-7 shadow-2xl relative animate-enter my-auto"></div>
     </div>
 
     <script>
@@ -896,6 +871,7 @@
                     journal: [],
                     memories: [],
                     letter: null,
+                    miniLetters: [],
                     habits: [],
                     goals: [],
                     finance: { transactions: [], savingsGoals: [] },
@@ -962,6 +938,11 @@
                 this.routeParams = {};
                 this.currentTrack = 'off';
                 this.ambientEngine = null;
+                this.mp3Tracks = [];
+                this.currentMp3Index = -1;
+                this.isMp3Playing = false;
+                this.isMp3Loop = true;
+                this.currentMp3ObjectUrl = null;
                 this.isFocusMode = false;
                 this.focusEditorFont = 'serif';
                 this.focusPaperStyle = 'blank';
@@ -972,7 +953,840 @@
                 this.applyThemeVariables();
                 this.checkPinLockOnStart();
                 this.render();
+                this.initMp3Player();
                 this.initStorageAndCloud();
+            }
+
+            // =================================================================
+            // CUTE SCRAPBOOK PNG IMAGE EXPORT (HTML5 CANVAS)
+            // =================================================================
+            downloadCutePngCard({ badge, title, date, mood, tag, photo, htmlContent, fontStyle, paperStyle }) {
+                this.toast('Sedang merangkai kartu gambar lucu...');
+                const W = 1080;
+                const PAD = 72;
+                const CARD_X = PAD;
+                const CARD_Y = 76;
+                const CARD_W = W - PAD * 2;
+                const INNER_X = CARD_X + 64;
+                const INNER_W = CARD_W - 128;
+
+                // Resolve font family for Canvas
+                let bodyFontFamily = '"Plus Jakarta Sans", sans-serif';
+                let bodyFontSize = 30;
+                let lineHeight = 48;
+                if (fontStyle === 'serif') {
+                    bodyFontFamily = '"Fraunces", Georgia, serif';
+                    bodyFontSize = 32;
+                    lineHeight = 52;
+                } else if (fontStyle === 'hand' || fontStyle === 'patrick' || fontStyle === 'indie' || fontStyle === 'script') {
+                    bodyFontFamily = '"Caveat", cursive';
+                    bodyFontSize = 42;
+                    lineHeight = 56;
+                } else if (fontStyle === 'mono') {
+                    bodyFontFamily = '"JetBrains Mono", monospace';
+                    bodyFontSize = 27;
+                    lineHeight = 46;
+                } else if (fontStyle && fontStyle !== 'sans') {
+                    bodyFontFamily = `"${fontStyle.replace(/["']/g, '')}", "Fraunces", sans-serif`;
+                    bodyFontSize = 34;
+                    lineHeight = 52;
+                }
+
+                // Extract clean paragraphs from HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = this.sanitizeRichHtml(htmlContent)
+                    .replace(/<br\s*\/?>/gi, '\n')
+                    .replace(/<\/(p|div|h2|h3|li)>/gi, '\n');
+                const rawText = (tempDiv.textContent || tempDiv.innerText || '').trim();
+                const paragraphs = rawText.split(/\n+/).map(p => p.trim()).filter(Boolean);
+
+                const measureCanvas = document.createElement('canvas');
+                const mCtx = measureCanvas.getContext('2d');
+
+                const wrapLines = (ctx, text, maxW, fontStr) => {
+                    ctx.font = fontStr;
+                    const words = text.split(/\s+/);
+                    const lines = [];
+                    let cur = '';
+                    for (const w of words) {
+                        const test = cur ? cur + ' ' + w : w;
+                        if (ctx.measureText(test).width > maxW && cur) {
+                            lines.push(cur);
+                            cur = w;
+                        } else {
+                            cur = test;
+                        }
+                    }
+                    if (cur) lines.push(cur);
+                    return lines;
+                };
+
+                const titleLines = wrapLines(mCtx, title, INNER_W, '600 48px "Fraunces", Georgia, serif');
+                const bodyLines = [];
+                paragraphs.forEach((p, pIdx) => {
+                    const wrapped = wrapLines(mCtx, p, INNER_W, `400 ${bodyFontSize}px ${bodyFontFamily}`);
+                    wrapped.forEach(l => bodyLines.push(l));
+                    if (pIdx < paragraphs.length - 1) bodyLines.push('');
+                });
+
+                const renderCanvasAndSave = (loadedImg = null) => {
+                    let photoBlockH = 0;
+                    let drawImgW = 0;
+                    let drawImgH = 0;
+                    if (loadedImg && loadedImg.width && loadedImg.height) {
+                        const maxPhotoW = INNER_W - 36;
+                        const maxPhotoH = 520;
+                        const ratio = Math.min(maxPhotoW / loadedImg.width, maxPhotoH / loadedImg.height, 1);
+                        drawImgW = Math.round(loadedImg.width * ratio);
+                        drawImgH = Math.round(loadedImg.height * ratio);
+                        photoBlockH = drawImgH + 92;
+                    }
+
+                    const headerH = 95;
+                    const titleH = titleLines.length * 62 + 24;
+                    const bodyH = Math.max(120, bodyLines.length * lineHeight) + 36;
+                    const footerH = 96;
+                    const CARD_H = headerH + titleH + photoBlockH + bodyH + footerH + 64;
+                    const H = CARD_H + 152;
+
+                    const canvas = document.createElement('canvas');
+                    canvas.width = W;
+                    canvas.height = H;
+                    const ctx = canvas.getContext('2d');
+
+                    // 1. Dreamy Pastel Gradient Background
+                    const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+                    bgGrad.addColorStop(0, '#FFF7E6');
+                    bgGrad.addColorStop(0.5, '#FDECEF');
+                    bgGrad.addColorStop(1, '#EEF2FA');
+                    ctx.fillStyle = bgGrad;
+                    ctx.fillRect(0, 0, W, H);
+
+                    // Soft decorative pastel circles
+                    ctx.save();
+                    ctx.globalAlpha = 0.38;
+                    ctx.fillStyle = '#F7C8D3';
+                    ctx.beginPath();
+                    ctx.arc(110, 140, 210, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = '#C9D9F0';
+                    ctx.beginPath();
+                    ctx.arc(W - 90, H - 140, 240, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+
+                    // Helper: Rounded Rectangle
+                    const roundRect = (x, y, w, h, r) => {
+                        ctx.beginPath();
+                        ctx.moveTo(x + r, y);
+                        ctx.lineTo(x + w - r, y);
+                        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+                        ctx.lineTo(x + w, y + h - r);
+                        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+                        ctx.lineTo(x + r, y + h);
+                        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+                        ctx.lineTo(x, y + r);
+                        ctx.quadraticCurveTo(x, y, x + r, y);
+                        ctx.closePath();
+                    };
+
+                    // 2. Main Scrapbook Paper Card with Soft Shadow
+                    ctx.save();
+                    ctx.shadowColor = 'rgba(201, 130, 136, 0.22)';
+                    ctx.shadowBlur = 38;
+                    ctx.shadowOffsetY = 16;
+                    roundRect(CARD_X, CARD_Y, CARD_W, CARD_H, 42);
+                    ctx.fillStyle = '#FFFDF9';
+                    ctx.fill();
+                    ctx.restore();
+
+                    roundRect(CARD_X, CARD_Y, CARD_W, CARD_H, 42);
+                    ctx.lineWidth = 3;
+                    ctx.strokeStyle = '#F4D7DC';
+                    ctx.stroke();
+
+                    // Paper texture lines/dots
+                    ctx.save();
+                    roundRect(CARD_X, CARD_Y, CARD_W, CARD_H, 42);
+                    ctx.clip();
+                    if (paperStyle === 'lined') {
+                        ctx.strokeStyle = 'rgba(201, 130, 136, 0.14)';
+                        ctx.lineWidth = 2;
+                        for (let ly = CARD_Y + 180; ly < CARD_Y + CARD_H - 90; ly += 48) {
+                            ctx.beginPath();
+                            ctx.moveTo(CARD_X + 44, ly);
+                            ctx.lineTo(CARD_X + CARD_W - 44, ly);
+                            ctx.stroke();
+                        }
+                    } else if (paperStyle === 'dotted') {
+                        ctx.fillStyle = 'rgba(201, 130, 136, 0.22)';
+                        for (let dx = CARD_X + 54; dx < CARD_X + CARD_W - 44; dx += 32) {
+                            for (let dy = CARD_Y + 160; dy < CARD_Y + CARD_H - 90; dy += 32) {
+                                ctx.beginPath();
+                                ctx.arc(dx, dy, 2, 0, Math.PI * 2);
+                                ctx.fill();
+                            }
+                        }
+                    }
+                    ctx.restore();
+
+                    // 3. Cute Washi Tape at Top Center
+                    ctx.save();
+                    ctx.translate(W / 2, CARD_Y);
+                    ctx.rotate(-0.035);
+                    const tapeGrad = ctx.createLinearGradient(-115, 0, 115, 0);
+                    tapeGrad.addColorStop(0, 'rgba(247, 200, 211, 0.88)');
+                    tapeGrad.addColorStop(1, 'rgba(233, 227, 245, 0.92)');
+                    ctx.fillStyle = tapeGrad;
+                    ctx.fillRect(-115, -18, 230, 36);
+                    ctx.restore();
+
+                    // 4. Header Badge, Mood, Tag & Date
+                    let curY = CARD_Y + 62;
+                    ctx.font = '700 18px "Plus Jakarta Sans", sans-serif';
+                    const badgeLabel = `✦  ${badge.toUpperCase()}`;
+                    const badgeW = ctx.measureText(badgeLabel).width + 36;
+                    roundRect(INNER_X, curY, badgeW, 40, 20);
+                    ctx.fillStyle = '#F7DDE0';
+                    ctx.fill();
+                    ctx.fillStyle = '#23201E';
+                    ctx.fillText(badgeLabel, INNER_X + 18, curY + 26);
+
+                    let pillOffsetX = INNER_X + badgeW + 14;
+                    if (mood) {
+                        const moodLabel = `♡ ${mood}`;
+                        const moodW = ctx.measureText(moodLabel).width + 30;
+                        roundRect(pillOffsetX, curY, moodW, 40, 20);
+                        ctx.fillStyle = '#FFF0C7';
+                        ctx.fill();
+                        ctx.fillStyle = '#23201E';
+                        ctx.fillText(moodLabel, pillOffsetX + 15, curY + 26);
+                    }
+
+                    ctx.font = '600 19px "Plus Jakarta Sans", sans-serif';
+                    ctx.fillStyle = '#8C827D';
+                    const dateW = ctx.measureText(date).width;
+                    ctx.fillText(date, INNER_X + INNER_W - dateW, curY + 26);
+
+                    // Dashed divider
+                    curY += 64;
+                    ctx.save();
+                    ctx.setLineDash([8, 8]);
+                    ctx.strokeStyle = '#EAD5D9';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(INNER_X, curY);
+                    ctx.lineTo(INNER_X + INNER_W, curY);
+                    ctx.stroke();
+                    ctx.restore();
+
+                    // 5. Title
+                    curY += 54;
+                    ctx.font = '600 48px "Fraunces", Georgia, serif';
+                    ctx.fillStyle = '#23201E';
+                    titleLines.forEach(line => {
+                        ctx.fillText(line, INNER_X, curY);
+                        curY += 62;
+                    });
+                    if (tag) {
+                        ctx.font = '600 20px "Plus Jakarta Sans", sans-serif';
+                        ctx.fillStyle = '#C98288';
+                        ctx.fillText('#' + tag, INNER_X, curY - 12);
+                        curY += 20;
+                    }
+
+                    // 6. Polaroid Photo Frame (if available)
+                    if (loadedImg && drawImgW > 0) {
+                        curY += 12;
+                        const frameW = drawImgW + 36;
+                        const frameH = drawImgH + 74;
+                        const frameX = INNER_X + (INNER_W - frameW) / 2;
+
+                        ctx.save();
+                        ctx.shadowColor = 'rgba(35, 32, 30, 0.14)';
+                        ctx.shadowBlur = 22;
+                        ctx.shadowOffsetY = 8;
+                        roundRect(frameX, curY, frameW, frameH, 22);
+                        ctx.fillStyle = '#FFFFFF';
+                        ctx.fill();
+                        ctx.restore();
+
+                        roundRect(frameX, curY, frameW, frameH, 22);
+                        ctx.lineWidth = 2;
+                        ctx.strokeStyle = '#EFECE7';
+                        ctx.stroke();
+
+                        ctx.save();
+                        roundRect(frameX + 18, curY + 18, drawImgW, drawImgH, 12);
+                        ctx.clip();
+                        ctx.drawImage(loadedImg, frameX + 18, curY + 18, drawImgW, drawImgH);
+                        ctx.restore();
+
+                        // Mini Washi Tape on Polaroid
+                        ctx.save();
+                        ctx.translate(W / 2, curY);
+                        ctx.rotate(0.03);
+                        ctx.fillStyle = 'rgba(247, 200, 211, 0.85)';
+                        ctx.fillRect(-65, -10, 130, 20);
+                        ctx.restore();
+
+                        ctx.font = '600 24px "Caveat", cursive';
+                        ctx.fillStyle = '#C98288';
+                        const caption = `✦ ${date}`;
+                        const capW = ctx.measureText(caption).width;
+                        ctx.fillText(caption, W / 2 - capW / 2, curY + drawImgH + 54);
+
+                        curY += frameH + 38;
+                    } else {
+                        curY += 14;
+                    }
+
+                    // 7. Body Paragraphs
+                    ctx.font = `400 ${bodyFontSize}px ${bodyFontFamily}`;
+                    ctx.fillStyle = '#383330';
+                    bodyLines.forEach(line => {
+                        if (line === '') {
+                            curY += Math.round(lineHeight * 0.55);
+                        } else {
+                            ctx.fillText(line, INNER_X, curY);
+                            curY += lineHeight;
+                        }
+                    });
+
+                    // 8. Cute Footer Stamp
+                    const footY = CARD_Y + CARD_H - 44;
+                    ctx.save();
+                    ctx.setLineDash([6, 6]);
+                    ctx.strokeStyle = '#EFECE7';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(INNER_X, footY - 28);
+                    ctx.lineTo(INNER_X + INNER_W, footY - 28);
+                    ctx.stroke();
+                    ctx.restore();
+
+                    ctx.font = '600 20px "Fraunces", Georgia, serif';
+                    ctx.fillStyle = '#C98288';
+                    ctx.fillText('Dearly ✦ Ruang Kecilmu', INNER_X, footY);
+
+                    const authorStamp = `Ditulis oleh ${this.state.profile.userName || 'Sahabat'}`;
+                    ctx.font = '500 18px "Plus Jakarta Sans", sans-serif';
+                    ctx.fillStyle = '#9E9791';
+                    const authW = ctx.measureText(authorStamp).width;
+                    ctx.fillText(authorStamp, INNER_X + INNER_W - authW, footY);
+
+                    // Download / Share / Preview PNG for Mobile & PWA Gallery
+                    canvas.toBlob((blob) => {
+                        if (!blob) {
+                            this.toast('Gagal membuat file gambar PNG.', 'error');
+                            return;
+                        }
+                        const safeSlug = (title || 'dearly-card').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 30);
+                        const fileName = `dearly-${safeSlug}.png`;
+                        const blobUrl = URL.createObjectURL(blob);
+
+                        // Trigger automatic download attempt first
+                        try {
+                            const link = document.createElement('a');
+                            link.download = fileName;
+                            link.href = blobUrl;
+                            document.body.appendChild(link);
+                            link.click();
+                            link.remove();
+                        } catch (e) {}
+
+                        // Show cute PNG preview modal so mobile/PWA users can Share or Long-Press Save to Gallery
+                        this._lastPngBlob = blob;
+                        this._lastPngFileName = fileName;
+                        this._lastPngUrl = blobUrl;
+
+                        this.triggerSparkleBurst();
+                        this.openModal(`
+                            <div class="space-y-4 text-center">
+                                <div class="flex items-center justify-between border-b border-borderwarm pb-2.5">
+                                    <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-dusty">Kartu Gambar PNG Siap ✦</span>
+                                    <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
+                                </div>
+                                <div class="max-h-[55vh] overflow-y-auto rounded-2xl border border-borderwarm bg-cream p-2">
+                                    <img src="${blobUrl}" alt="${this.escapeHtml(fileName)}" class="w-full h-auto rounded-xl shadow-sm mx-auto">
+                                </div>
+                                <p class="text-[11px] text-muted leading-relaxed">
+                                    Jika belum otomatis masuk ke galeri HP, ketuk <strong>Simpan / Bagikan</strong> di bawah atau <strong>tahan gambar di atas → Simpan Foto</strong>.
+                                </p>
+                                <div class="flex flex-wrap items-center justify-center gap-2 pt-1">
+                                    <button type="button" onclick="app.shareOrSaveLastPng()" class="px-5 py-2.5 rounded-full bg-dusty text-white text-xs font-semibold shadow-md inline-flex items-center gap-1.5 hover:opacity-95">
+                                        <i class="ph-bold ph-export"></i> Simpan / Bagikan ke Galeri
+                                    </button>
+                                    <a href="${blobUrl}" download="${this.escapeHtml(fileName)}" class="px-4 py-2.5 rounded-full bg-cream border border-borderwarm text-charcoal text-xs font-semibold inline-flex items-center gap-1.5 hover:opacity-85">
+                                        <i class="ph-bold ph-download-simple text-dusty"></i> Unduh Ulang
+                                    </a>
+                                </div>
+                            </div>
+                        `, 'max-w-md');
+                    }, 'image/png');
+                };
+
+                if (photo) {
+                    const img = new Image();
+                    img.crossOrigin = 'anonymous';
+                    img.onload = () => renderCanvasAndSave(img);
+                    img.onerror = () => renderCanvasAndSave(null);
+                    img.src = photo;
+                } else {
+                    renderCanvasAndSave(null);
+                }
+            }
+
+            async shareOrSaveLastPng() {
+                if (!this._lastPngBlob) return;
+                const file = new File([this._lastPngBlob], this._lastPngFileName || 'dearly-card.png', { type: 'image/png' });
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    try {
+                        await navigator.share({
+                            files: [file],
+                            title: 'Kartu Dearly',
+                            text: 'Disimpan dari Dearly ✦'
+                        });
+                        this.toast('Berhasil dibagikan / disimpan ✦');
+                        return;
+                    } catch (err) {
+                        if (err && err.name === 'AbortError') return;
+                    }
+                }
+                if (this._lastPngUrl) {
+                    const a = document.createElement('a');
+                    a.href = this._lastPngUrl;
+                    a.download = this._lastPngFileName || 'dearly-card.png';
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    this.toast('File PNG diunduh—atau tahan gambar di layar lalu pilih "Simpan Gambar".');
+                }
+            }
+
+            exportJournalPng(id) {
+                const j = this.state.data.journal.find(x => x.id === id);
+                if (!j) return;
+                this.downloadCutePngCard({
+                    badge: 'Daily Journal',
+                    title: j.title,
+                    date: this.formatDate(j.date),
+                    mood: j.mood,
+                    tag: j.tag,
+                    photo: j.photo,
+                    htmlContent: j.content,
+                    fontStyle: j.fontStyle || 'serif',
+                    paperStyle: j.paperStyle || 'blank'
+                });
+            }
+
+            exportMemoryPng(id) {
+                const m = this.state.data.memories.find(x => x.id === id);
+                if (!m) return;
+                this.downloadCutePngCard({
+                    badge: 'Memory Box',
+                    title: m.title,
+                    date: this.formatDate(m.date),
+                    mood: '',
+                    tag: m.category,
+                    photo: m.photo,
+                    htmlContent: m.story,
+                    fontStyle: m.fontStyle || 'hand',
+                    paperStyle: m.paperStyle || 'lined'
+                });
+            }
+
+            exportFutureLetterPng(kind, id = '') {
+                const l = kind === 'main'
+                    ? this.state.data.letter
+                    : (this.state.data.miniLetters || []).find(x => x.id === id);
+                if (!l) return;
+                this.downloadCutePngCard({
+                    badge: kind === 'main' ? 'Surat Utama — Future Letter' : 'Surat Kecil — Future Letter',
+                    title: l.subject || 'Future Letter',
+                    date: 'Dibuka pada ' + this.formatDate(l.openDate),
+                    mood: '',
+                    tag: 'Kapsul Waktu',
+                    photo: '',
+                    htmlContent: l.content,
+                    fontStyle: l.fontStyle || 'hand',
+                    paperStyle: l.paperStyle || 'lined'
+                });
+            }
+
+            // =================================================================
+            // FULL DEARLY HANDBOOK / BUKU PANDUAN LENGKAP + CARA UPDATE GITHUB
+            // =================================================================
+            openFullGuideModal() {
+                this.openModal(`
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-borderwarm pb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-2xl bg-blush flex items-center justify-center text-dusty">
+                                    <i class="ph-fill ph-book-open-text text-xl"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-dusty">BUKU PANDUAN DEARLY</span>
+                                    <h3 class="font-serif text-2xl font-medium text-charcoal">Panduan Fitur & Cara Update GitHub</h3>
+                                </div>
+                            </div>
+                            <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
+                        </div>
+
+                        <div class="space-y-2.5 max-h-[64vh] overflow-y-auto pr-1 text-xs leading-relaxed">
+                            <div class="p-3.5 rounded-2xl bg-blush/35 border border-dusty/30 space-y-1.5">
+                                <div class="font-bold text-charcoal flex items-center gap-1.5 text-[13px]">
+                                    <i class="ph-fill ph-git-branch text-dusty"></i> Cara Update Aplikasi di GitHub Tanpa Kehilangan Data
+                                </div>
+                                <p class="text-charcoal/90">Karena semua tulisan, foto, lagu MP3, font favorit, dan tabungan disimpan di memori perangkat (<em>IndexedDB/LocalStorage</em>) serta Supabase Cloud, <strong>datamu TIDAK akan hilang saat kode di GitHub diperbarui</strong> selama alamat link GitHub Pages-nya tetap sama:</p>
+                                <ol class="list-decimal pl-4 space-y-1 text-muted">
+                                    <li><strong>Cadangkan Dulu (Opsional untuk ekstra aman):</strong> Buka ikon <strong>Profil (<i class="ph ph-user"></i>)</strong> → klik <strong>Unduh (.JSON)</strong>.</li>
+                                    <li><strong>Update Kode di GitHub:</strong> Buka repositori GitHub milikmu → klik file <code>index.html</code> → klik ikon pensil (<em>Edit</em>) → tempel kode versi terbaru → klik <strong>Commit changes</strong>.</li>
+                                    <li><strong>Perbarui Tampilan di HP:</strong> Tunggu ±1 menit hingga GitHub Pages selesai memproses, lalu buka aplikasi <strong>Dearly</strong> di HP dan tarik layar ke bawah untuk <em>refresh</em> (atau tutup lalu buka lagi). Versi terbaru langsung aktif dan seluruh datamu tetap utuh 100%!</li>
+                                </ol>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1">
+                                <div class="font-semibold text-charcoal flex items-center gap-1.5"><i class="ph-fill ph-image text-dusty"></i> 1. Simpan Kartu Gambar Lucu (PNG)</div>
+                                <p class="text-muted">Buka detail lembar <em>Daily Journal</em>, kartu <em>Memory Box</em>, atau <em>Future Letter</em> yang sudah dibuka, lalu tekan tombol <strong>Simpan Gambar PNG ✦</strong>. Kartu bergaya buku harian estetik lengkap dengan <em>washi tape</em> dan foto otomatis terunduh ke galeri HP-mu!</p>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1">
+                                <div class="font-semibold text-charcoal flex items-center gap-1.5"><i class="ph-fill ph-envelope-simple-open text-dusty"></i> 2. Future Letter (Surat Utama & Surat-Surat Kecil)</div>
+                                <p class="text-muted">Kamu punya <strong>1 Amplop Surat Utama</strong> di bagian atas untuk pesan jangka panjang (misal 5–10 tahun lagi) dan <strong>Surat-Surat Kecil</strong> di bawahnya untuk kapsul waktu 1–2 tahun. Surat terkunci otomatis sampai tanggal buka tiba!</p>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1">
+                                <div class="font-semibold text-charcoal flex items-center gap-1.5"><i class="ph-fill ph-text-aa text-dusty"></i> 3. Google Fonts, Stabilo Natural & Mode Fokus</div>
+                                <p class="text-muted">Saat menulis di <em>Daily Journal</em>, <em>Memory Box</em>, <em>Future Letter</em>, atau <em>Notes</em>, ketuk <strong>Font</strong> untuk memilih font atau ketik nama font apa saja dari Google Fonts lalu klik <strong>★ Simpan</strong>. Ketuk <strong>Stabilo</strong> untuk garis stabilo pastel natural, atau <strong>Fokus</strong> untuk layar penuh bebas gangguan.</p>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1">
+                                <div class="font-semibold text-charcoal flex items-center gap-1.5"><i class="ph-fill ph-music-notes text-dusty"></i> 4. Pemutar Playlist MP3 Pribadi & Suasana</div>
+                                <p class="text-muted">Ketuk tombol <strong>Suasana</strong> di pojok kanan bawah → ketuk <strong>+ Lagu</strong> untuk memasukkan file <code>.mp3</code> / <code>.m4a</code> dari perangkatmu. Lagu tersimpan permanen dan berputar penuh di latar belakang saat kamu pindah ruangan.</p>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1">
+                                <div class="font-semibold text-charcoal flex items-center gap-1.5"><i class="ph-fill ph-lock-key text-dusty"></i> 5. Kunci PIN 4-Digit & Cloud Sync Supabase</div>
+                                <p class="text-muted">Buka ikon <strong>Profil (<i class="ph ph-user"></i>)</strong> di pojok kanan atas untuk mengaktifkan kunci PIN 4-digit atau menyambungkan akun gratis <strong>Supabase</strong> agar datamu otomatis tersinkron lintas HP & laptop.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end pt-2 border-t border-borderwarm">
+                            <button onclick="app.closeModal()" class="px-5 py-2 rounded-full text-xs font-semibold bg-dusty text-white">Mengerti ✦</button>
+                        </div>
+                    </div>
+                `, 'max-w-xl');
+            }
+
+            // =================================================================
+            // PERSONAL LOCAL MP3 PLAYER & GUIDE ("HOW?")
+            // =================================================================
+            async initMp3Player() {
+                const audioEl = document.getElementById('dearly-mp3-audio');
+                if (audioEl) {
+                    audioEl.addEventListener('timeupdate', () => this.updateMp3ProgressUI());
+                    audioEl.addEventListener('loadedmetadata', () => this.updateMp3ProgressUI());
+                    audioEl.addEventListener('ended', () => {
+                        if (this.mp3Tracks.length === 0) return;
+                        if (this.currentMp3Index + 1 < this.mp3Tracks.length) {
+                            this.playMp3AtIndex(this.currentMp3Index + 1);
+                        } else if (this.isMp3Loop) {
+                            this.playMp3AtIndex(0);
+                        } else {
+                            this.isMp3Playing = false;
+                            this.updateMp3ControlsUI();
+                        }
+                    });
+                }
+                const savedTracks = await DearlyIDB.get('dearly_mp3_tracks');
+                if (Array.isArray(savedTracks) && savedTracks.length > 0) {
+                    this.mp3Tracks = savedTracks;
+                    this.currentMp3Index = 0;
+                    const titleEl = document.getElementById('mp3-current-title');
+                    if (titleEl) titleEl.textContent = this.mp3Tracks[0].name;
+                }
+                this.renderMp3Playlist();
+            }
+
+            async handleMp3Upload(inputEl) {
+                const files = Array.from(inputEl.files || []);
+                if (files.length === 0) return;
+                let addedCount = 0;
+                for (const file of files) {
+                    if (!file.type.startsWith('audio/') && !/\.(mp3|m4a|wav|ogg|aac)$/i.test(file.name)) {
+                        continue;
+                    }
+                    const cleanName = file.name.replace(/\.[^/.]+$/, '');
+                    this.mp3Tracks.push({
+                        id: 'mp3_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+                        name: cleanName,
+                        blob: file
+                    });
+                    addedCount++;
+                }
+                inputEl.value = '';
+                if (addedCount === 0) {
+                    this.toast('Pilih file audio berformat MP3, M4A, atau WAV.', 'error');
+                    return;
+                }
+                await DearlyIDB.set('dearly_mp3_tracks', this.mp3Tracks);
+                this.renderMp3Playlist();
+                this.toast(`${addedCount} lagu ditambahkan ke Playlist Pribadimu ✦`);
+                if (this.currentMp3Index === -1 || !this.isMp3Playing) {
+                    this.playMp3AtIndex(this.mp3Tracks.length - addedCount);
+                }
+            }
+
+            playMp3AtIndex(index) {
+                if (index < 0 || index >= this.mp3Tracks.length) return;
+                const audioEl = document.getElementById('dearly-mp3-audio');
+                if (!audioEl) return;
+                const track = this.mp3Tracks[index];
+                if (!track || !track.blob) return;
+
+                if (this.currentMp3ObjectUrl) {
+                    URL.revokeObjectURL(this.currentMp3ObjectUrl);
+                }
+                this.currentMp3ObjectUrl = URL.createObjectURL(track.blob);
+                this.currentMp3Index = index;
+                audioEl.src = this.currentMp3ObjectUrl;
+                audioEl.play().then(() => {
+                    this.isMp3Playing = true;
+                    this.updateMp3ControlsUI();
+                    this.renderMp3Playlist();
+                }).catch(() => {
+                    this.isMp3Playing = false;
+                    this.updateMp3ControlsUI();
+                });
+            }
+
+            toggleMp3Play() {
+                const audioEl = document.getElementById('dearly-mp3-audio');
+                if (!audioEl) return;
+                if (this.mp3Tracks.length === 0) {
+                    this.toast('Tambahkan lagu MP3 dulu lewat tombol "+ Lagu" ya!');
+                    return;
+                }
+                if (!audioEl.src || this.currentMp3Index === -1) {
+                    this.playMp3AtIndex(0);
+                    return;
+                }
+                if (audioEl.paused) {
+                    audioEl.play();
+                    this.isMp3Playing = true;
+                } else {
+                    audioEl.pause();
+                    this.isMp3Playing = false;
+                }
+                this.updateMp3ControlsUI();
+                this.renderMp3Playlist();
+            }
+
+            prevMp3Track() {
+                if (this.mp3Tracks.length === 0) return;
+                const prevIdx = (this.currentMp3Index - 1 + this.mp3Tracks.length) % this.mp3Tracks.length;
+                this.playMp3AtIndex(prevIdx);
+            }
+
+            nextMp3Track() {
+                if (this.mp3Tracks.length === 0) return;
+                const nextIdx = (this.currentMp3Index + 1) % this.mp3Tracks.length;
+                this.playMp3AtIndex(nextIdx);
+            }
+
+            toggleMp3Loop() {
+                this.isMp3Loop = !this.isMp3Loop;
+                const btn = document.getElementById('mp3-loop-btn');
+                if (btn) {
+                    btn.className = this.isMp3Loop
+                        ? 'p-1.5 rounded-lg bg-blush/70 text-dusty text-xs transition-colors'
+                        : 'p-1.5 rounded-lg bg-cream text-softgray text-xs transition-colors';
+                }
+                this.toast(this.isMp3Loop ? 'Ulangi playlist aktif' : 'Ulangi playlist dimatikan');
+            }
+
+            seekMp3(val) {
+                const audioEl = document.getElementById('dearly-mp3-audio');
+                if (!audioEl || !audioEl.duration) return;
+                audioEl.currentTime = (Number(val) / 100) * audioEl.duration;
+            }
+
+            formatSeconds(sec) {
+                if (!sec || isNaN(sec)) return '00:00';
+                const m = Math.floor(sec / 60);
+                const s = Math.floor(sec % 60);
+                return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            }
+
+            updateMp3ProgressUI() {
+                const audioEl = document.getElementById('dearly-mp3-audio');
+                const seekEl = document.getElementById('mp3-seek-bar');
+                const timeEl = document.getElementById('mp3-current-time');
+                if (!audioEl) return;
+                const dur = audioEl.duration || 0;
+                const cur = audioEl.currentTime || 0;
+                if (seekEl && dur > 0) {
+                    seekEl.value = Math.round((cur / dur) * 100);
+                }
+                if (timeEl) {
+                    timeEl.textContent = `${this.formatSeconds(cur)} / ${this.formatSeconds(dur)}`;
+                }
+            }
+
+            updateMp3ControlsUI() {
+                const iconEl = document.getElementById('mp3-play-icon');
+                const titleEl = document.getElementById('mp3-current-title');
+                const btnPill = document.getElementById('ambient-sound-btn');
+                const dot = document.getElementById('ambient-sound-dot');
+                const eqBars = document.getElementById('ambient-eq-bars');
+                const waveIcon = document.getElementById('ambient-wave-icon');
+                const label = document.getElementById('ambient-sound-label');
+
+                const currentTrack = this.mp3Tracks[this.currentMp3Index];
+                if (titleEl) {
+                    titleEl.textContent = currentTrack ? currentTrack.name : 'Belum ada lagu diputar';
+                }
+                if (iconEl) {
+                    iconEl.className = this.isMp3Playing ? 'ph-fill ph-pause text-sm' : 'ph-fill ph-play text-sm';
+                }
+
+                const anyAudioActive = this.isMp3Playing || this.currentTrack !== 'off';
+                const ambientLabels = {
+                    off: 'Suasana',
+                    rain: 'Hujan Lembut',
+                    piano: 'Felt Piano',
+                    cafe: 'Kafe Pagi',
+                    nature: 'Alam Pagi'
+                };
+                if (label) {
+                    if (this.isMp3Playing && currentTrack) {
+                        label.textContent = currentTrack.name.slice(0, 14) + (currentTrack.name.length > 14 ? '…' : '');
+                    } else {
+                        label.textContent = ambientLabels[this.currentTrack] || 'Suasana';
+                    }
+                }
+                if (dot) dot.className = anyAudioActive ? 'w-2 h-2 rounded-full bg-dusty animate-ping' : 'w-2 h-2 rounded-full bg-softgray/40';
+                if (eqBars) {
+                    if (anyAudioActive) { eqBars.classList.remove('hidden'); eqBars.classList.add('flex'); }
+                    else { eqBars.classList.add('hidden'); eqBars.classList.remove('flex'); }
+                }
+                if (waveIcon) {
+                    if (anyAudioActive) waveIcon.classList.add('hidden');
+                    else waveIcon.classList.remove('hidden');
+                }
+                if (btnPill) {
+                    if (anyAudioActive) btnPill.classList.add('ambient-playing-pulse');
+                    else btnPill.classList.remove('ambient-playing-pulse');
+                }
+            }
+
+            async deleteMp3Track(index) {
+                if (index < 0 || index >= this.mp3Tracks.length) return;
+                const audioEl = document.getElementById('dearly-mp3-audio');
+                const wasCurrent = index === this.currentMp3Index;
+                this.mp3Tracks.splice(index, 1);
+                await DearlyIDB.set('dearly_mp3_tracks', this.mp3Tracks);
+
+                if (this.mp3Tracks.length === 0) {
+                    if (audioEl) { audioEl.pause(); audioEl.removeAttribute('src'); }
+                    this.currentMp3Index = -1;
+                    this.isMp3Playing = false;
+                } else if (wasCurrent) {
+                    const nextIdx = Math.min(index, this.mp3Tracks.length - 1);
+                    this.playMp3AtIndex(nextIdx);
+                } else if (index < this.currentMp3Index) {
+                    this.currentMp3Index--;
+                }
+                this.updateMp3ControlsUI();
+                this.renderMp3Playlist();
+                this.toast('Lagu dihapus dari playlist.');
+            }
+
+            renderMp3Playlist() {
+                const listEl = document.getElementById('mp3-playlist-list');
+                if (!listEl) return;
+                if (this.mp3Tracks.length === 0) {
+                    listEl.innerHTML = `
+                    <div class="text-center py-2.5 px-2 rounded-xl bg-ivory/70 border border-dashed border-borderwarm text-[11px] text-muted">
+                        Belum ada lagu. Ketuk <strong>+ Lagu</strong> atau <strong>How?</strong> untuk panduan MP3.
+                    </div>`;
+                    return;
+                }
+                listEl.innerHTML = this.mp3Tracks.map((t, idx) => {
+                    const active = idx === this.currentMp3Index;
+                    return `
+                    <div class="flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-xl text-xs transition-colors ${active ? 'bg-blush/70 text-charcoal font-semibold' : 'bg-ivory/80 hover:bg-ivory text-charcoal'}">
+                        <button type="button" onclick="app.playMp3AtIndex(${idx})" class="flex items-center gap-2 min-w-0 flex-1 text-left">
+                            <i class="ph-fill ${active && this.isMp3Playing ? 'ph-speaker-high text-dusty' : 'ph-music-note text-softgray'} shrink-0"></i>
+                            <span class="truncate">${this.escapeHtml(t.name)}</span>
+                        </button>
+                        <button type="button" onclick="app.deleteMp3Track(${idx})" title="Hapus lagu" class="text-softgray hover:text-red-500 p-0.5 shrink-0">
+                            <i class="ph ph-x text-xs"></i>
+                        </button>
+                    </div>`;
+                }).join('');
+            }
+
+            openMp3GuideModal() {
+                const menu = document.getElementById('ambient-menu');
+                if (menu) menu.classList.add('hidden');
+                this.openModal(`
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-borderwarm pb-3">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-10 h-10 rounded-2xl bg-butter flex items-center justify-center text-dusty">
+                                    <i class="ph-fill ph-book-open-text text-xl"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-dusty">BUKU PANDUAN MINI</span>
+                                    <h3 class="font-serif text-2xl font-medium text-charcoal">Cara Memasukkan & Memutar MP3</h3>
+                                </div>
+                            </div>
+                            <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
+                        </div>
+
+                        <div class="space-y-3 text-xs sm:text-sm text-charcoal leading-relaxed">
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blush text-dusty font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                                <div>
+                                    <div class="font-semibold text-charcoal">Siapkan File Lagu di HP / Laptopmu</div>
+                                    <p class="text-xs text-muted mt-0.5">Pastikan lagu favoritmu sudah tersimpan di folder penyimpanan perangkat dalam format audio seperti <strong>.mp3</strong>, <strong>.m4a</strong>, atau <strong>.wav</strong>.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-lavender text-charcoal font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                                <div>
+                                    <div class="font-semibold text-charcoal">Ketuk Tombol “+ Lagu” di Menu Suasana</div>
+                                    <p class="text-xs text-muted mt-0.5">Buka tombol <strong>Suasana</strong> di pojok kanan bawah → ketuk <strong>+ Lagu</strong>. Kamu bisa langsung memilih satu lagu atau menandai banyak lagu sekaligus untuk membuat <em>playlist</em>.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-sage text-charcoal font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                                <div>
+                                    <div class="font-semibold text-charcoal">Tersimpan Permanen & Berputar Penuh</div>
+                                    <p class="text-xs text-muted mt-0.5">Semua lagu yang kamu masukkan otomatis tersimpan aman di memori aplikasi Dearly. Lagu berputar <strong>penuh tanpa terpotong 30 detik</strong>, bebas iklan, dan tetap berjalan saat kamu pindah-pindah ruangan!</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3 rounded-2xl bg-blush/40 border border-dusty/20 text-xs text-muted flex items-center gap-2.5">
+                                <i class="ph-fill ph-sparkle text-dusty text-base shrink-0"></i>
+                                <span><strong>Tips:</strong> Kamu juga bisa memadukan lagu MP3 pelan dengan suara <em>Rintik Hujan Lembut</em> di bagian bawah menu Suasana!</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-2 pt-2 border-t border-borderwarm">
+                            <label class="px-4 py-2 rounded-full bg-blush/80 hover:opacity-90 text-charcoal text-xs font-semibold cursor-pointer inline-flex items-center gap-1.5">
+                                <i class="ph-bold ph-plus text-dusty"></i>
+                                <span>Pilih File MP3 Sekarang</span>
+                                <input type="file" accept="audio/*" multiple class="hidden" onchange="app.handleMp3Upload(this); app.closeModal();">
+                            </label>
+                            <button onclick="app.closeModal()" class="px-5 py-2 rounded-full text-xs font-semibold bg-dusty text-white">Mengerti ✦</button>
+                        </div>
+                    </div>
+                `, 'max-w-lg');
             }
 
             checkPinLockOnStart() {
@@ -1095,6 +1909,8 @@
 
             mergeWithDefault(parsed) {
                 const def = createDefaultState();
+                const mergedData = { ...def.data, ...(parsed.data || {}) };
+                if (!Array.isArray(mergedData.miniLetters)) mergedData.miniLetters = [];
                 return {
                     ...def,
                     ...parsed,
@@ -1102,7 +1918,7 @@
                     theme: parsed.theme || def.theme,
                     homeConfig: { ...def.homeConfig, ...(parsed.homeConfig || {}) },
                     savedGoogleFonts: Array.isArray(parsed.savedGoogleFonts) ? parsed.savedGoogleFonts : [],
-                    data: { ...def.data, ...(parsed.data || {}) }
+                    data: mergedData
                 };
             }
 
@@ -1680,9 +2496,6 @@
                 this.toast(this.state.candlelightMode ? 'Mode Cahaya Lilin (Malam Hangat) aktif.' : 'Mode Pagi Terang aktif.');
             }
 
-            // =================================================================
-            // GALLERY PHOTO UPLOAD & COMPRESSION
-            // =================================================================
             handlePhotoFileSelect(inputEl, previewImgId, hiddenInputId) {
                 const file = inputEl.files && inputEl.files[0];
                 if (!file) return;
@@ -1726,9 +2539,6 @@
                 reader.readAsDataURL(file);
             }
 
-            // =================================================================
-            // EXPRESSIVE WEB AUDIO ENGINE ("SUASANA")
-            // =================================================================
             toggleAmbientMenu() {
                 const menu = document.getElementById('ambient-menu');
                 if (menu) menu.classList.toggle('hidden');
@@ -1797,37 +2607,17 @@
                 this.stopAmbientEngine();
                 this.currentTrack = track;
 
-                const btnPill = document.getElementById('ambient-sound-btn');
-                const dot = document.getElementById('ambient-sound-dot');
-                const eqBars = document.getElementById('ambient-eq-bars');
-                const waveIcon = document.getElementById('ambient-wave-icon');
-                const label = document.getElementById('ambient-sound-label');
-                const menu = document.getElementById('ambient-menu');
-                if (menu) menu.classList.add('hidden');
-
                 ['off', 'rain', 'piano', 'cafe', 'nature'].forEach(t => {
                     const btn = document.getElementById('track-btn-' + t);
                     if (btn) {
                         btn.className = t === track
-                            ? 'w-full text-left px-3 py-2 rounded-xl text-xs font-bold bg-blush/60 flex items-center justify-between text-charcoal'
-                            : 'w-full text-left px-3 py-2 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal';
+                            ? 'w-full text-left px-3 py-1.5 rounded-xl text-xs font-bold bg-blush/60 flex items-center justify-between text-charcoal'
+                            : 'w-full text-left px-3 py-1.5 rounded-xl text-xs font-medium hover:bg-cream flex items-center justify-between text-charcoal';
                     }
                 });
 
-                const labels = {
-                    off: 'Suasana',
-                    rain: 'Hujan Lembut',
-                    piano: 'Felt Piano',
-                    cafe: 'Kafe Pagi',
-                    nature: 'Alam Pagi'
-                };
-                if (label) label.textContent = labels[track] || 'Suasana';
-
                 if (track === 'off') {
-                    if (dot) dot.className = 'w-2 h-2 rounded-full bg-softgray/40';
-                    if (eqBars) { eqBars.classList.add('hidden'); eqBars.classList.remove('flex'); }
-                    if (waveIcon) waveIcon.classList.remove('hidden');
-                    if (btnPill) btnPill.classList.remove('ambient-playing-pulse');
+                    this.updateMp3ControlsUI();
                     return;
                 }
 
@@ -1966,18 +2756,12 @@
                     }
 
                     this.ambientEngine = engine;
-                    if (dot) dot.className = 'w-2 h-2 rounded-full bg-dusty animate-ping';
-                    if (eqBars) { eqBars.classList.remove('hidden'); eqBars.classList.add('flex'); }
-                    if (waveIcon) waveIcon.classList.add('hidden');
-                    if (btnPill) btnPill.classList.add('ambient-playing-pulse');
+                    this.updateMp3ControlsUI();
                 } catch (e) {
                     this.toast('Perangkat tidak mendukung pemutaran audio.', 'error');
                 }
             }
 
-            // =================================================================
-            // BACKUP & RESTORE JSON
-            // =================================================================
             exportBackupData() {
                 try {
                     const payload = JSON.stringify(this.state, null, 2);
@@ -2021,9 +2805,6 @@
                 reader.readAsText(file);
             }
 
-            // =================================================================
-            // NAVIGATION & ROUTING
-            // =================================================================
             navigate(route, params = {}) {
                 this.currentRoute = route;
                 this.routeParams = params;
@@ -2070,9 +2851,6 @@
                 }
             }
 
-            // =================================================================
-            // BERANDA
-            // =================================================================
             nextReflectionPrompt() {
                 this.state.reflectionIndex = ((this.state.reflectionIndex || 0) + 1) % DAILY_REFLECTIONS.length;
                 this.saveState();
@@ -2352,9 +3130,6 @@
                 </div>`;
             }
 
-            // =================================================================
-            // JELAJAHI SEMUA RUANG
-            // =================================================================
             renderAllFeaturesView() {
                 return `
                 <div class="space-y-7 animate-enter">
@@ -2390,7 +3165,7 @@
                 switch(id) {
                     case 'journal': return d.journal.length;
                     case 'memories': return d.memories.length;
-                    case 'letter': return d.letter && d.letter.content ? 1 : 0;
+                    case 'letter': return (d.letter && d.letter.content ? 1 : 0) + (Array.isArray(d.miniLetters) ? d.miniLetters.length : 0);
                     case 'habits': return d.habits.length;
                     case 'goals': return d.goals.length;
                     case 'finance': return d.finance.transactions.length + d.finance.savingsGoals.length;
@@ -2403,9 +3178,6 @@
                 }
             }
 
-            // =================================================================
-            // NUANSA KERTAS & HOME CUSTOMIZER
-            // =================================================================
             renderTemplateGalleryView() {
                 return `
                 <div class="space-y-6 animate-enter">
@@ -2511,9 +3283,6 @@
                 this.toast('Pengaturan Beranda dikembalikan ke awal.');
             }
 
-            // =================================================================
-            // 6A. DAILY JOURNAL
-            // =================================================================
             renderJournalView() {
                 const q = (this.routeParams.search || '').toLowerCase();
                 const items = this.state.data.journal.filter(j =>
@@ -2566,6 +3335,7 @@
                                 <div class="flex items-center justify-between pt-3 border-t border-borderwarm">
                                     <button onclick="app.openJournalDetail('${j.id}')" class="text-xs font-semibold text-dusty hover:underline">Baca selengkapnya →</button>
                                     <div class="flex items-center gap-1">
+                                        <button onclick="app.exportJournalPng('${j.id}')" title="Simpan Kartu Gambar PNG" class="p-2 rounded-full hover:bg-cream text-dusty"><i class="ph ph-image"></i></button>
                                         <button onclick="app.openJournalForm('${j.id}')" class="p-2 rounded-full hover:bg-cream text-muted"><i class="ph ph-pencil-simple"></i></button>
                                         <button onclick="app.deleteJournal('${j.id}')" class="p-2 rounded-full hover:bg-red-50 text-red-600"><i class="ph ph-trash"></i></button>
                                     </div>
@@ -2768,16 +3538,16 @@
                         <h2 class="font-serif text-3xl font-medium text-charcoal">${this.escapeHtml(j.title)}</h2>
                         ${j.photo ? `<img src="${this.escapeHtml(j.photo)}" class="w-full max-h-72 object-cover rounded-2xl border border-borderwarm">` : ''}
                         <div class="dearly-rich-content ${fClass} text-lg leading-[28px] text-charcoal/90 pt-2" style="${fStyle}">${this.sanitizeRichHtml(j.content)}</div>
-                        <div class="flex justify-end pt-4 border-t border-borderwarm">
+                        <div class="flex items-center justify-between pt-4 border-t border-borderwarm">
+                            <button onclick="app.exportJournalPng('${j.id}')" class="px-4 py-2 rounded-full text-xs font-semibold bg-blush/80 hover:opacity-90 text-charcoal inline-flex items-center gap-1.5">
+                                <i class="ph-bold ph-image text-dusty"></i> Simpan Gambar PNG ✦
+                            </button>
                             <button onclick="app.closeModal()" class="px-5 py-2 rounded-full text-xs font-semibold bg-dusty text-white">Tutup</button>
                         </div>
                     </div>
                 `, 'max-w-2xl');
             }
 
-            // =================================================================
-            // 6B. MEMORY BOX
-            // =================================================================
             renderMemoriesView() {
                 const viewMode = this.routeParams.viewMode || 'gallery';
                 const q = (this.routeParams.search || '').toLowerCase();
@@ -2838,6 +3608,7 @@
                                         </div>
                                     </div>
                                     <div class="flex justify-end gap-1 pt-2 border-t border-borderwarm">
+                                        <button onclick="event.stopPropagation(); app.exportMemoryPng('${m.id}')" title="Simpan Kartu Gambar PNG" class="p-1.5 rounded-full hover:bg-cream text-dusty"><i class="ph ph-image"></i></button>
                                         <button onclick="event.stopPropagation(); app.openMemoryForm('${m.id}')" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-pencil-simple"></i></button>
                                         <button onclick="event.stopPropagation(); app.deleteMemory('${m.id}')" class="p-1.5 rounded-full hover:bg-red-50 text-softgray hover:text-red-600"><i class="ph ph-trash"></i></button>
                                     </div>
@@ -2855,7 +3626,10 @@
                                     <div class="flex flex-col sm:flex-row gap-4">
                                         ${m.photo ? `<img src="${this.escapeHtml(m.photo)}" onerror="this.style.display='none'" class="w-full sm:w-44 h-36 object-cover rounded-2xl shrink-0 border border-borderwarm">` : ''}
                                         <div class="flex-1 space-y-1.5">
-                                            <div class="font-hand text-lg font-semibold text-dusty">${this.formatDate(m.date)} ${m.category ? '• ' + this.escapeHtml(m.category) : ''}</div>
+                                            <div class="flex items-center justify-between">
+                                                <div class="font-hand text-lg font-semibold text-dusty">${this.formatDate(m.date)} ${m.category ? '• ' + this.escapeHtml(m.category) : ''}</div>
+                                                <button onclick="app.exportMemoryPng('${m.id}')" title="Simpan Kartu Gambar PNG" class="p-1.5 rounded-full hover:bg-cream text-dusty"><i class="ph ph-image"></i></button>
+                                            </div>
                                             <h3 class="font-serif text-2xl font-medium text-charcoal">${this.escapeHtml(m.title)}</h3>
                                             <div class="dearly-rich-content ${fClass} text-sm text-muted leading-relaxed" style="${fStyle}">${this.sanitizeRichHtml(m.story)}</div>
                                         </div>
@@ -2982,7 +3756,7 @@
             }
 
             // =================================================================
-            // 6C. FUTURE LETTER
+            // 6C. FUTURE LETTER (SURAT UTAMA 3D ENVELOPE + SURAT-SURAT KECIL)
             // =================================================================
             unfoldFutureEnvelope() {
                 const env = document.getElementById('future-envelope-box');
@@ -2999,6 +3773,7 @@
 
             renderLetterView() {
                 const letter = this.state.data.letter;
+                const miniLetters = Array.isArray(this.state.data.miniLetters) ? this.state.data.miniLetters : [];
                 const todayStr = new Date().toISOString().slice(0, 10);
                 const minDate = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
                 const canOpen = letter && letter.openDate && letter.openDate <= todayStr;
@@ -3008,85 +3783,276 @@
                 if (!this.activeEditorPapers['fl-content']) this.activeEditorPapers['fl-content'] = 'lined';
 
                 return `
-                <div class="space-y-6 animate-enter max-w-3xl mx-auto">
-                    ${!letter || (!letter.content && !letter.subject) ? `
-                    <div class="dearly-card p-7 sm:p-9 space-y-5">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-borderwarm pb-5">
-                            <div class="flex items-center gap-3.5">
-                                <div class="w-12 h-12 rounded-2xl bg-blush flex items-center justify-center shrink-0">${SPACE_ICONS.letter}</div>
+                <div class="space-y-8 animate-enter max-w-3xl mx-auto">
+                    <!-- SURAT UTAMA (Kapsul Waktu Jangka Panjang - Amplop Besar) -->
+                    <section class="space-y-3">
+                        <div class="flex items-center justify-between px-1">
+                            <span class="text-[11px] font-bold uppercase tracking-[0.18em] text-dusty flex items-center gap-1.5">
+                                <i class="ph-fill ph-envelope-simple-open"></i> Surat Utama (Jangka Panjang)
+                            </span>
+                            <span class="text-xs text-softgray">Untuk dirimu 5–10 tahun lagi</span>
+                        </div>
+
+                        ${!letter || (!letter.content && !letter.subject) ? `
+                        <div class="dearly-card p-7 sm:p-9 space-y-5">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-borderwarm pb-5">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-12 h-12 rounded-2xl bg-blush flex items-center justify-center shrink-0">${SPACE_ICONS.letter}</div>
+                                    <div>
+                                        <h1 class="font-serif text-3xl font-medium text-charcoal">Future Letter Utama</h1>
+                                        <p class="text-xs sm:text-sm text-muted">Amplop kapsul waktu istimewa untuk dirimu di masa depan.</p>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="app.cycleEditorPaper('fl-content', 'fl-paper-btn')" id="fl-paper-btn" class="px-3.5 py-1.5 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal self-start sm:self-auto">
+                                    Kertas: Bergaris
+                                </button>
+                            </div>
+                            <div class="space-y-4 pt-1">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="text-xs font-semibold text-muted block mb-1">Judul Surat Utama</label>
+                                        <input id="fl-subject" type="text" placeholder="Untuk diriku di 10 tahun lagi..." class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="text-xs font-semibold text-muted block mb-1">Tanggal Pembukaan Surat *</label>
+                                        <input id="fl-date" type="date" min="${minDate}" value="${minDate}" class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
+                                    </div>
+                                </div>
                                 <div>
-                                    <h1 class="font-serif text-3xl font-medium text-charcoal">Future Letter</h1>
-                                    <p class="text-xs sm:text-sm text-muted">Kapsul waktu terkunci untuk dirimu di masa depan.</p>
+                                    <label class="text-xs font-semibold text-muted block mb-1">Isi Surat Utama *</label>
+                                    ${this.renderRichToolbar('fl-content', 'hand')}
+                                    <div id="fl-content" contenteditable="true" data-placeholder="Tuliskan pesan terbesarmu untuk dirimu di masa depan..." class="dearly-rich-editor dearly-font-hand paper-style-lined w-full px-4 py-3.5 rounded-2xl bg-cream border border-borderwarm text-lg leading-[28px] focus:outline-none focus:border-dusty" style="min-height:220px;"></div>
+                                </div>
+                                <div class="flex justify-end pt-2">
+                                    <button onclick="app.saveFutureLetter()" class="px-6 py-2.5 rounded-full bg-dusty text-white text-xs sm:text-sm font-semibold shadow-md">Kunci Amplop Utama ✦</button>
                                 </div>
                             </div>
-                            <button type="button" onclick="app.cycleEditorPaper('fl-content', 'fl-paper-btn')" id="fl-paper-btn" class="px-3.5 py-1.5 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal self-start sm:self-auto">
+                        </div>` : (
+                            !letter.isOpened ? `
+                            <div class="dearly-card p-10 sm:p-12 text-center space-y-6 envelope-stage">
+                                <div id="future-envelope-box" class="relative w-56 h-36 mx-auto bg-blush/80 rounded-2xl border border-borderwarm shadow-md flex items-center justify-center overflow-visible">
+                                    <div class="envelope-letter-sheet w-48 h-28 bg-ivory rounded-xl border border-borderwarm p-3 text-left shadow-xs">
+                                        <div class="w-16 h-2 rounded-full bg-dusty/40 mb-2"></div>
+                                        <div class="w-32 h-1.5 rounded-full bg-borderwarm mb-1.5"></div>
+                                        <div class="w-28 h-1.5 rounded-full bg-borderwarm"></div>
+                                    </div>
+                                    <div class="envelope-flap absolute inset-x-0 top-0 h-20 bg-blush border-b border-dusty/30 rounded-t-2xl flex items-end justify-center pb-2 shadow-xs">
+                                        <span class="w-7 h-7 rounded-full bg-dusty text-white text-xs flex items-center justify-center shadow-sm">✦</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-dusty">${canOpen ? 'WAKTUNYA TELAH TIBA' : 'AMPLOP UTAMA TERKUNCI'}</span>
+                                    <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">${this.escapeHtml(letter.subject || 'Future Letter')}</h1>
+                                    <p class="text-sm text-muted">${canOpen ? 'Amplop kapsul waktumu sudah siap dibuka!' : 'Surat utama ini sedang dijaga dengan tenang hingga waktunya tiba.'}</p>
+                                </div>
+                                ${canOpen ? `
+                                <div>
+                                    <button onclick="app.unfoldFutureEnvelope()" class="px-6 py-3 rounded-full bg-dusty text-white text-sm font-semibold shadow-md hover:opacity-95 transition-transform active:scale-95">
+                                        Buka Amplop Surat ✦
+                                    </button>
+                                </div>` : `
+                                <div class="p-4 rounded-2xl bg-cream border border-borderwarm max-w-xs mx-auto space-y-1">
+                                    <div class="text-xs text-softgray">Dapat dibuka pada:</div>
+                                    <div class="font-serif text-xl font-semibold text-dusty">${this.formatDate(letter.openDate)}</div>
+                                </div>`}
+                                <div class="flex items-center justify-center gap-3 pt-2">
+                                    <button onclick="app.resetFutureLetter()" class="text-xs text-softgray hover:text-red-600 underline">Batalkan & Tulis Ulang</button>
+                                </div>
+                            </div>` : `
+                            <div class="dearly-card ${letterPaperClass} p-7 sm:p-9 space-y-6 animate-page-turn">
+                                <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-borderwarm">
+                                    <div>
+                                        <span class="text-[11px] font-bold text-dusty uppercase tracking-wider">SURAT UTAMA DIBUKA</span>
+                                        <h1 class="font-serif text-3xl font-medium text-charcoal mt-1">${this.escapeHtml(letter.subject || 'Future Letter')}</h1>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button onclick="app.exportFutureLetterPng('main')" class="px-3.5 py-2 rounded-full bg-blush/80 text-charcoal text-xs font-semibold hover:opacity-90 inline-flex items-center gap-1">
+                                            <i class="ph-bold ph-image text-dusty"></i> Simpan PNG
+                                        </button>
+                                        <button onclick="app.resetFutureLetter()" class="px-4 py-2 rounded-full bg-cream border border-borderwarm text-charcoal text-xs font-semibold hover:opacity-85">Arsipkan & Tulis Baru</button>
+                                    </div>
+                                </div>
+                                <div class="dearly-rich-content ${letterFontClass} text-lg leading-[28px] text-charcoal/90" style="${letterFontStyle}">${this.sanitizeRichHtml(letter.content)}</div>
+                            </div>`
+                        )}
+                    </section>
+
+                    <!-- SURAT-SURAT KECIL (Mini Time Capsules 1–2 Tahun) -->
+                    <section class="space-y-4 pt-3 border-t border-borderwarm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                                <h2 class="font-serif text-2xl font-medium text-charcoal flex items-center gap-2">
+                                    <span>Surat-Surat Kecil</span>
+                                    <span class="text-xs font-sans font-semibold px-2.5 py-0.5 rounded-full bg-lavender text-charcoal">${miniLetters.length}</span>
+                                </h2>
+                                <p class="text-xs text-muted mt-0.5">Kapsul waktu mungil untuk 6 bulan, 1 tahun, atau 2 tahun ke depan.</p>
+                            </div>
+                            <button onclick="app.openMiniLetterForm()" class="px-4 py-2 rounded-full bg-blush/85 hover:opacity-90 text-charcoal text-xs font-semibold shadow-2xs inline-flex items-center gap-1.5 self-start sm:self-auto">
+                                <i class="ph-bold ph-plus text-dusty"></i> Tulis Surat Kecil
+                            </button>
+                        </div>
+
+                        ${miniLetters.length === 0 ? `
+                        <div class="dearly-card p-6 text-center space-y-2 bg-cream/60">
+                            <p class="font-serif text-lg text-charcoal">Belum ada surat-surat kecil.</p>
+                            <p class="text-xs text-muted max-w-md mx-auto">Simpan catatan-catatan manis beramplop mini untuk dibaca ulang setahun atau dua tahun lagi.</p>
+                        </div>` : `
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            ${miniLetters.map((ml, idx) => {
+                                const mlCanOpen = ml.openDate && ml.openDate <= todayStr;
+                                const ribbonColors = ['#F7DDE0', '#E9E3F5', '#E4EFD9', '#FFF0C7', '#E2EEF8'];
+                                const flapColor = ribbonColors[idx % ribbonColors.length];
+                                return `
+                                <div class="dearly-card dearly-card-hover overflow-hidden flex flex-col justify-between">
+                                    <!-- Mini Envelope Top Flap -->
+                                    <div class="px-4 py-2.5 border-b border-borderwarm/70 flex items-center justify-between" style="background-color:${flapColor}">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-charcoal inline-flex items-center gap-1">
+                                            <i class="ph-fill ${ml.isOpened ? 'ph-envelope-open' : (mlCanOpen ? 'ph-sparkle' : 'ph-lock-simple')}"></i>
+                                            ${ml.isOpened ? 'Sudah Dibuka' : (mlCanOpen ? 'Siap Dibuka!' : 'Terkunci')}
+                                        </span>
+                                        <span class="text-[11px] font-semibold text-charcoal/80">${this.formatDate(ml.openDate)}</span>
+                                    </div>
+                                    <div class="p-4 space-y-2">
+                                        <h3 class="font-serif text-lg font-medium text-charcoal truncate">${this.escapeHtml(ml.subject || 'Surat Kecil')}</h3>
+                                        <p class="text-xs text-muted line-clamp-2">
+                                            ${ml.isOpened
+                                                ? this.escapeHtml(this.stripHtml(ml.content))
+                                                : (mlCanOpen ? 'Amplop kecil ini sudah siap kamu buka sekarang ✦' : 'Tersimpan rapi dalam amplop kecil hingga tanggal pembukaan.')}
+                                        </p>
+                                    </div>
+                                    <div class="px-4 py-2.5 bg-cream/60 border-t border-borderwarm flex items-center justify-between gap-2">
+                                        ${ml.isOpened || mlCanOpen ? `
+                                        <button onclick="app.openMiniLetterDetail('${ml.id}')" class="text-xs font-semibold text-dusty hover:underline">
+                                            ${ml.isOpened ? 'Baca Surat →' : 'Buka Amplop Kecil ✦'}
+                                        </button>` : `
+                                        <span class="text-[11px] text-softgray italic">Menunggu waktu tiba...</span>`}
+                                        <button onclick="app.deleteMiniLetter('${ml.id}')" title="Hapus surat kecil" class="text-softgray hover:text-red-600 text-xs p-1">
+                                            <i class="ph ph-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>`;
+                            }).join('')}
+                        </div>`}
+                    </section>
+                </div>`;
+            }
+
+            openMiniLetterForm() {
+                const minDate = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+                const oneYearLater = new Date(Date.now() + 365 * 86400000).toISOString().slice(0, 10);
+                this.activeEditorPapers['ml-content'] = 'lined';
+                this.openModal(`
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="w-8 h-8 rounded-xl bg-blush flex items-center justify-center text-dusty"><i class="ph-fill ph-envelope"></i></span>
+                                <h3 class="font-serif text-2xl font-medium text-charcoal">Tulis Surat Kecil</h3>
+                            </div>
+                            <button type="button" onclick="app.cycleEditorPaper('ml-content', 'ml-paper-btn')" id="ml-paper-btn" class="px-3 py-1 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal">
                                 Kertas: Bergaris
                             </button>
                         </div>
-                        <div class="space-y-4 pt-1">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                <div>
-                                    <label class="text-xs font-semibold text-muted block mb-1">Judul Surat</label>
-                                    <input id="fl-subject" type="text" placeholder="Untuk diriku di tahun depan..." class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
-                                </div>
-                                <div>
-                                    <label class="text-xs font-semibold text-muted block mb-1">Tanggal Pembukaan Surat *</label>
-                                    <input id="fl-date" type="date" min="${minDate}" value="${minDate}" class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
-                                </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-xs font-semibold text-muted block mb-1">Judul Surat Kecil *</label>
+                                <input id="ml-subject" type="text" placeholder="Untuk diriku setahun lagi..." class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
                             </div>
                             <div>
-                                <label class="text-xs font-semibold text-muted block mb-1">Isi Surat *</label>
-                                ${this.renderRichToolbar('fl-content', 'hand')}
-                                <div id="fl-content" contenteditable="true" data-placeholder="Apa harapan dan impianmu saat surat ini dibuka nanti?" class="dearly-rich-editor dearly-font-hand paper-style-lined w-full px-4 py-3.5 rounded-2xl bg-cream border border-borderwarm text-lg leading-[28px] focus:outline-none focus:border-dusty" style="min-height:240px;"></div>
-                            </div>
-                            <div class="flex justify-end pt-2">
-                                <button onclick="app.saveFutureLetter()" class="px-6 py-2.5 rounded-full bg-dusty text-white text-xs sm:text-sm font-semibold shadow-md">Kunci Surat Ini</button>
+                                <label class="text-xs font-semibold text-muted block mb-1">Tanggal Dibuka *</label>
+                                <input id="ml-date" type="date" min="${minDate}" value="${oneYearLater}" class="w-full px-4 py-2.5 rounded-2xl bg-cream border border-borderwarm text-sm">
                             </div>
                         </div>
-                    </div>` : (
-                        !letter.isOpened ? `
-                        <div class="dearly-card p-10 sm:p-12 text-center space-y-6 envelope-stage">
-                            <div id="future-envelope-box" class="relative w-56 h-36 mx-auto bg-blush/80 rounded-2xl border border-borderwarm shadow-md flex items-center justify-center overflow-visible">
-                                <div class="envelope-letter-sheet w-48 h-28 bg-ivory rounded-xl border border-borderwarm p-3 text-left shadow-xs">
-                                    <div class="w-16 h-2 rounded-full bg-dusty/40 mb-2"></div>
-                                    <div class="w-32 h-1.5 rounded-full bg-borderwarm mb-1.5"></div>
-                                    <div class="w-28 h-1.5 rounded-full bg-borderwarm"></div>
-                                </div>
-                                <div class="envelope-flap absolute inset-x-0 top-0 h-20 bg-blush border-b border-dusty/30 rounded-t-2xl flex items-end justify-center pb-2 shadow-xs">
-                                    <span class="w-7 h-7 rounded-full bg-dusty text-white text-xs flex items-center justify-center shadow-sm">✦</span>
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-dusty">${canOpen ? 'WAKTUNYA TELAH TIBA' : 'KAPSUL WAKTU TERKUNCI'}</span>
-                                <h1 class="font-serif text-3xl sm:text-4xl font-medium text-charcoal">${this.escapeHtml(letter.subject || 'Future Letter')}</h1>
-                                <p class="text-sm text-muted">${canOpen ? 'Amplop kapsul waktumu sudah siap dibuka!' : 'Surat ini sedang dijaga dengan tenang hingga waktunya tiba.'}</p>
-                            </div>
-                            ${canOpen ? `
-                            <div>
-                                <button onclick="app.unfoldFutureEnvelope()" class="px-6 py-3 rounded-full bg-dusty text-white text-sm font-semibold shadow-md hover:opacity-95 transition-transform active:scale-95">
-                                    Buka Amplop Surat ✦
-                                </button>
-                            </div>` : `
-                            <div class="p-4 rounded-2xl bg-cream border border-borderwarm max-w-xs mx-auto space-y-1">
-                                <div class="text-xs text-softgray">Dapat dibuka pada:</div>
-                                <div class="font-serif text-xl font-semibold text-dusty">${this.formatDate(letter.openDate)}</div>
-                            </div>`}
-                            <div class="flex items-center justify-center gap-3 pt-2">
-                                <button onclick="app.resetFutureLetter()" class="text-xs text-softgray hover:text-red-600 underline">Batalkan & Tulis Ulang</button>
-                            </div>
-                        </div>` : `
-                        <div class="dearly-card ${letterPaperClass} p-7 sm:p-9 space-y-6 animate-page-turn">
-                            <div class="flex items-center justify-between pb-4 border-b border-borderwarm">
-                                <div>
-                                    <span class="text-[11px] font-bold text-dusty uppercase tracking-wider">SURAT MASA DEPAN DIBUKA</span>
-                                    <h1 class="font-serif text-3xl font-medium text-charcoal mt-1">${this.escapeHtml(letter.subject || 'Future Letter')}</h1>
-                                </div>
-                                <button onclick="app.resetFutureLetter()" class="px-4 py-2 rounded-full bg-cream border border-borderwarm text-charcoal text-xs font-semibold hover:opacity-85">Arsipkan & Tulis Baru</button>
-                            </div>
-                            <div class="dearly-rich-content ${letterFontClass} text-lg leading-[28px] text-charcoal/90" style="${letterFontStyle}">${this.sanitizeRichHtml(letter.content)}</div>
-                        </div>`
-                    )}
-                </div>`;
+                        <div>
+                            <label class="text-xs font-semibold text-muted block mb-1">Isi Surat Kecil *</label>
+                            ${this.renderRichToolbar('ml-content', 'hand')}
+                            <div id="ml-content" contenteditable="true" data-placeholder="Tulis pesan manis singkat untuk dirimu kelak..." class="dearly-rich-editor dearly-font-hand paper-style-lined w-full px-4 py-3 rounded-2xl bg-cream border border-borderwarm text-lg leading-[28px] focus:outline-none focus:border-dusty" style="min-height:175px;"></div>
+                        </div>
+                        <div class="flex justify-end gap-2 pt-2">
+                            <button onclick="app.closeModal()" class="px-4 py-2 rounded-full text-xs font-medium bg-cream border border-borderwarm text-charcoal">Batal</button>
+                            <button onclick="app.saveMiniLetter()" class="px-5 py-2.5 rounded-full text-xs font-semibold bg-dusty text-white">Kunci Surat Kecil ✦</button>
+                        </div>
+                    </div>
+                `, 'max-w-xl');
+            }
+
+            saveMiniLetter() {
+                const subject = document.getElementById('ml-subject').value.trim();
+                const openDate = document.getElementById('ml-date').value;
+                const editorEl = document.getElementById('ml-content');
+                const rawHtml = editorEl ? editorEl.innerHTML : '';
+                const plainText = this.stripHtml(rawHtml).trim();
+                const content = this.sanitizeRichHtml(rawHtml);
+                const fontStyle = this.activeEditorFonts['ml-content'] || 'hand';
+                const paperStyle = this.activeEditorPapers['ml-content'] || 'lined';
+
+                if (!plainText || !openDate) {
+                    this.toast('Tanggal buka dan isi surat kecil wajib diisi.', 'error');
+                    return;
+                }
+
+                if (!Array.isArray(this.state.data.miniLetters)) {
+                    this.state.data.miniLetters = [];
+                }
+
+                this.state.data.miniLetters.unshift({
+                    id: 'ml_' + Date.now(),
+                    subject: subject || 'Surat Kecil',
+                    openDate,
+                    content,
+                    fontStyle,
+                    paperStyle,
+                    isOpened: false
+                });
+                this.logActivity('letter', 'Mengunci surat kecil', subject || 'Surat Kecil');
+                this.saveState();
+                this.closeModal();
+                this.render();
+                this.triggerSparkleBurst();
+                this.toast('Surat kecil berhasil dikunci dalam amplop mini ✦');
+            }
+
+            openMiniLetterDetail(id) {
+                const ml = (this.state.data.miniLetters || []).find(x => x.id === id);
+                if (!ml) return;
+                const todayStr = new Date().toISOString().slice(0, 10);
+                if (!ml.isOpened && ml.openDate > todayStr) {
+                    this.toast('Surat kecil ini masih terkunci hingga ' + this.formatDate(ml.openDate));
+                    return;
+                }
+                if (!ml.isOpened) {
+                    ml.isOpened = true;
+                    this.saveState();
+                    this.triggerSparkleBurst();
+                    this.render();
+                }
+                const fClass = this.getFontClass(ml.fontStyle || 'hand');
+                const fStyle = this.getDynamicFontStyleAttr(ml.fontStyle);
+                const pClass = ml.paperStyle === 'dotted' ? 'paper-style-dotted' : (ml.paperStyle === 'lined' ? 'paper-style-lined' : '');
+                this.openModal(`
+                    <div class="space-y-4 ${pClass} rounded-2xl p-2 animate-page-turn">
+                        <div class="flex items-center justify-between text-xs text-softgray">
+                            <span class="px-2.5 py-0.5 rounded-full bg-blush text-charcoal font-bold uppercase tracking-wider text-[10px]">Surat Kecil Dibuka</span>
+                            <span>Dibuka: ${this.formatDate(ml.openDate)}</span>
+                        </div>
+                        <h2 class="font-serif text-3xl font-medium text-charcoal">${this.escapeHtml(ml.subject || 'Surat Kecil')}</h2>
+                        <div class="dearly-rich-content ${fClass} text-lg leading-[28px] text-charcoal/90 pt-1" style="${fStyle}">${this.sanitizeRichHtml(ml.content)}</div>
+                        <div class="flex items-center justify-between pt-4 border-t border-borderwarm">
+                            <button onclick="app.exportFutureLetterPng('mini', '${ml.id}')" class="px-4 py-2 rounded-full text-xs font-semibold bg-blush/80 hover:opacity-90 text-charcoal inline-flex items-center gap-1.5">
+                                <i class="ph-bold ph-image text-dusty"></i> Simpan Gambar PNG ✦
+                            </button>
+                            <button onclick="app.closeModal()" class="px-5 py-2 rounded-full text-xs font-semibold bg-dusty text-white">Tutup</button>
+                        </div>
+                    </div>
+                `, 'max-w-xl');
+            }
+
+            deleteMiniLetter(id) {
+                this.confirmAction('Hapus surat kecil ini?', () => {
+                    this.state.data.miniLetters = (this.state.data.miniLetters || []).filter(x => x.id !== id);
+                    this.saveState();
+                    this.render();
+                    this.toast('Surat kecil dihapus.');
+                });
             }
 
             saveFutureLetter() {
@@ -3127,9 +4093,6 @@
                 });
             }
 
-            // =================================================================
-            // 6D. HABIT TRACKER
-            // =================================================================
             renderHabitsView() {
                 const habits = this.state.data.habits;
                 const todayStr = new Date().toISOString().slice(0, 10);
@@ -3250,9 +4213,6 @@
                 });
             }
 
-            // =================================================================
-            // 6E. PERSONAL GOALS
-            // =================================================================
             renderGoalsView() {
                 const goals = this.state.data.goals;
                 return `
@@ -3378,9 +4338,6 @@
                 });
             }
 
-            // =================================================================
-            // 6F. FINANCE & SAVINGS
-            // =================================================================
             renderFinanceView() {
                 const fin = this.state.data.finance;
                 const totalIncome = fin.transactions.filter(t => t.type === 'income').reduce((sum, t) => sum + Number(t.amount), 0);
@@ -3630,9 +4587,6 @@
                 });
             }
 
-            // =================================================================
-            // 6G. WATCHLIST
-            // =================================================================
             renderWatchlistView() {
                 const items = this.state.data.watchlist;
                 return `
@@ -3817,9 +4771,6 @@
                 });
             }
 
-            // =================================================================
-            // 6H. WISHLIST
-            // =================================================================
             renderWishlistView() {
                 const items = this.state.data.wishlist;
                 return `
@@ -3976,9 +4927,6 @@
                 });
             }
 
-            // =================================================================
-            // 6I. RECIPE BOOK
-            // =================================================================
             renderRecipesView() {
                 const items = this.state.data.recipes;
                 return `
@@ -4126,9 +5074,6 @@
                 });
             }
 
-            // =================================================================
-            // 6J. ACTIVITY LIST
-            // =================================================================
             renderActivitiesView() {
                 const items = this.state.data.activities;
                 return `
@@ -4268,9 +5213,6 @@
                 });
             }
 
-            // =================================================================
-            // 6K. NOTES & IDEAS
-            // =================================================================
             renderNotesView() {
                 const q = (this.routeParams.search || '').toLowerCase();
                 const items = this.state.data.notes.filter(n =>
@@ -4401,9 +5343,6 @@
                 });
             }
 
-            // =================================================================
-            // GLOBAL SEARCH, MULTI-TYPE QUICK CAPTURE & PROFILE
-            // =================================================================
             openGlobalSearch() {
                 this.openModal(`
                     <div class="space-y-4">
@@ -4563,7 +5502,12 @@
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <h3 class="font-serif text-2xl font-medium text-charcoal">Profil, PIN & Cloud Sync</h3>
-                            <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
+                            <div class="flex items-center gap-1.5">
+                                <button type="button" onclick="app.openFullGuideModal()" class="px-3 py-1 rounded-full bg-butter text-charcoal text-xs font-bold inline-flex items-center gap-1 hover:opacity-90">
+                                    <i class="ph-bold ph-book-open-text text-dusty"></i> Panduan & Update
+                                </button>
+                                <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
+                            </div>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -4854,4 +5798,3 @@
     </script>
 </body>
 </html>
-```
