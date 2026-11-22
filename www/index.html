@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -970,7 +971,6 @@
                 const INNER_X = CARD_X + 64;
                 const INNER_W = CARD_W - 128;
 
-                // Resolve font family for Canvas
                 let bodyFontFamily = '"Plus Jakarta Sans", sans-serif';
                 let bodyFontSize = 30;
                 let lineHeight = 48;
@@ -992,7 +992,6 @@
                     lineHeight = 52;
                 }
 
-                // Extract clean paragraphs from HTML
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = this.sanitizeRichHtml(htmlContent)
                     .replace(/<br\s*\/?>/gi, '\n')
@@ -1054,7 +1053,6 @@
                     canvas.height = H;
                     const ctx = canvas.getContext('2d');
 
-                    // 1. Dreamy Pastel Gradient Background
                     const bgGrad = ctx.createLinearGradient(0, 0, W, H);
                     bgGrad.addColorStop(0, '#FFF7E6');
                     bgGrad.addColorStop(0.5, '#FDECEF');
@@ -1062,7 +1060,6 @@
                     ctx.fillStyle = bgGrad;
                     ctx.fillRect(0, 0, W, H);
 
-                    // Soft decorative pastel circles
                     ctx.save();
                     ctx.globalAlpha = 0.38;
                     ctx.fillStyle = '#F7C8D3';
@@ -1075,7 +1072,6 @@
                     ctx.fill();
                     ctx.restore();
 
-                    // Helper: Rounded Rectangle
                     const roundRect = (x, y, w, h, r) => {
                         ctx.beginPath();
                         ctx.moveTo(x + r, y);
@@ -1090,7 +1086,6 @@
                         ctx.closePath();
                     };
 
-                    // 2. Main Scrapbook Paper Card with Soft Shadow
                     ctx.save();
                     ctx.shadowColor = 'rgba(201, 130, 136, 0.22)';
                     ctx.shadowBlur = 38;
@@ -1105,7 +1100,6 @@
                     ctx.strokeStyle = '#F4D7DC';
                     ctx.stroke();
 
-                    // Paper texture lines/dots
                     ctx.save();
                     roundRect(CARD_X, CARD_Y, CARD_W, CARD_H, 42);
                     ctx.clip();
@@ -1130,7 +1124,6 @@
                     }
                     ctx.restore();
 
-                    // 3. Cute Washi Tape at Top Center
                     ctx.save();
                     ctx.translate(W / 2, CARD_Y);
                     ctx.rotate(-0.035);
@@ -1141,7 +1134,6 @@
                     ctx.fillRect(-115, -18, 230, 36);
                     ctx.restore();
 
-                    // 4. Header Badge, Mood, Tag & Date
                     let curY = CARD_Y + 62;
                     ctx.font = '700 18px "Plus Jakarta Sans", sans-serif';
                     const badgeLabel = `✦  ${badge.toUpperCase()}`;
@@ -1168,7 +1160,6 @@
                     const dateW = ctx.measureText(date).width;
                     ctx.fillText(date, INNER_X + INNER_W - dateW, curY + 26);
 
-                    // Dashed divider
                     curY += 64;
                     ctx.save();
                     ctx.setLineDash([8, 8]);
@@ -1180,7 +1171,6 @@
                     ctx.stroke();
                     ctx.restore();
 
-                    // 5. Title
                     curY += 54;
                     ctx.font = '600 48px "Fraunces", Georgia, serif';
                     ctx.fillStyle = '#23201E';
@@ -1195,7 +1185,6 @@
                         curY += 20;
                     }
 
-                    // 6. Polaroid Photo Frame (if available)
                     if (loadedImg && drawImgW > 0) {
                         curY += 12;
                         const frameW = drawImgW + 36;
@@ -1222,7 +1211,6 @@
                         ctx.drawImage(loadedImg, frameX + 18, curY + 18, drawImgW, drawImgH);
                         ctx.restore();
 
-                        // Mini Washi Tape on Polaroid
                         ctx.save();
                         ctx.translate(W / 2, curY);
                         ctx.rotate(0.03);
@@ -1241,7 +1229,6 @@
                         curY += 14;
                     }
 
-                    // 7. Body Paragraphs
                     ctx.font = `400 ${bodyFontSize}px ${bodyFontFamily}`;
                     ctx.fillStyle = '#383330';
                     bodyLines.forEach(line => {
@@ -1253,7 +1240,6 @@
                         }
                     });
 
-                    // 8. Cute Footer Stamp
                     const footY = CARD_Y + CARD_H - 44;
                     ctx.save();
                     ctx.setLineDash([6, 6]);
@@ -1275,7 +1261,6 @@
                     const authW = ctx.measureText(authorStamp).width;
                     ctx.fillText(authorStamp, INNER_X + INNER_W - authW, footY);
 
-                    // Download / Share / Preview PNG for Mobile & PWA Gallery
                     canvas.toBlob((blob) => {
                         if (!blob) {
                             this.toast('Gagal membuat file gambar PNG.', 'error');
@@ -1285,7 +1270,6 @@
                         const fileName = `dearly-${safeSlug}.png`;
                         const blobUrl = URL.createObjectURL(blob);
 
-                        // Trigger automatic download attempt first
                         try {
                             const link = document.createElement('a');
                             link.download = fileName;
@@ -1295,7 +1279,6 @@
                             link.remove();
                         } catch (e) {}
 
-                        // Show cute PNG preview modal so mobile/PWA users can Share or Long-Press Save to Gallery
                         this._lastPngBlob = blob;
                         this._lastPngFileName = fileName;
                         this._lastPngUrl = blobUrl;
@@ -1415,7 +1398,7 @@
             }
 
             // =================================================================
-            // FULL DEARLY HANDBOOK / BUKU PANDUAN LENGKAP + CARA UPDATE GITHUB
+            // FULL DEARLY HANDBOOK / BUKU PANDUAN LENGKAP + CARA UPDATE GITHUB & APK
             // =================================================================
             openFullGuideModal() {
                 this.openModal(`
@@ -1427,28 +1410,38 @@
                                 </div>
                                 <div>
                                     <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-dusty">BUKU PANDUAN DEARLY</span>
-                                    <h3 class="font-serif text-2xl font-medium text-charcoal">Panduan Fitur & Cara Update GitHub</h3>
+                                    <h3 class="font-serif text-2xl font-medium text-charcoal">Panduan Fitur & Cara Update Tanpa Hilang Data</h3>
                                 </div>
                             </div>
                             <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
                         </div>
 
                         <div class="space-y-2.5 max-h-[64vh] overflow-y-auto pr-1 text-xs leading-relaxed">
+                            <!-- Panduan Update Versi APK -->
                             <div class="p-3.5 rounded-2xl bg-blush/35 border border-dusty/30 space-y-1.5">
                                 <div class="font-bold text-charcoal flex items-center gap-1.5 text-[13px]">
-                                    <i class="ph-fill ph-git-branch text-dusty"></i> Cara Update Aplikasi di GitHub Tanpa Kehilangan Data
+                                    <i class="ph-fill ph-device-mobile text-dusty"></i> Cara Update Jika Memakai File APK (Android / Tablet)
                                 </div>
-                                <p class="text-charcoal/90">Karena semua tulisan, foto, lagu MP3, font favorit, dan tabungan disimpan di memori perangkat (<em>IndexedDB/LocalStorage</em>) serta Supabase Cloud, <strong>datamu TIDAK akan hilang saat kode di GitHub diperbarui</strong> selama alamat link GitHub Pages-nya tetap sama:</p>
+                                <p class="text-charcoal/90">Jika kamu membungkus kode GitHub menjadi file <strong>.APK</strong>, aplikasi lama harus di-<em>uninstall</em> dulu sebelum memasang APK baru. Agar <strong>0% data hilang</strong>, ikuti urutan ini:</p>
                                 <ol class="list-decimal pl-4 space-y-1 text-muted">
-                                    <li><strong>Cadangkan Dulu (Opsional untuk ekstra aman):</strong> Buka ikon <strong>Profil (<i class="ph ph-user"></i>)</strong> → klik <strong>Unduh (.JSON)</strong>.</li>
-                                    <li><strong>Update Kode di GitHub:</strong> Buka repositori GitHub milikmu → klik file <code>index.html</code> → klik ikon pensil (<em>Edit</em>) → tempel kode versi terbaru → klik <strong>Commit changes</strong>.</li>
-                                    <li><strong>Perbarui Tampilan di HP:</strong> Tunggu ±1 menit hingga GitHub Pages selesai memproses, lalu buka aplikasi <strong>Dearly</strong> di HP dan tarik layar ke bawah untuk <em>refresh</em> (atau tutup lalu buka lagi). Versi terbaru langsung aktif dan seluruh datamu tetap utuh 100%!</li>
+                                    <li><strong>Simpan Cadangan Dulu:</strong> Di aplikasi Dearly yang lama, ketuk ikon <strong>Profil (<i class="ph ph-user"></i>)</strong> → pilih <strong>Bagikan / Salin Cadangan</strong> (simpan teksnya di Catatan HP / Google Keep / WhatsApp Pribadi) atau aktifkan <strong>Cloud Sync Supabase</strong>.</li>
+                                    <li><strong>Update Kode di GitHub & Buat APK Baru:</strong> Perbarui file <code>index.html</code> di repositori GitHub-mu, lalu <em>build</em> ulang file APK-nya.</li>
+                                    <li><strong>Ganti Aplikasi:</strong> Hapus (<em>Uninstall</em>) aplikasi Dearly lama dari perangkat, lalu instal file <strong>.APK</strong> yang baru.</li>
+                                    <li><strong>Kembalikan Semua Data:</strong> Buka aplikasi Dearly yang baru → masuk ke <strong>Profil (<i class="ph ph-user"></i>)</strong> → ketuk <strong>Tempel & Pulihkan</strong> lalu tempel teks cadangan tadi (atau ketuk <strong>Tarik Data dari Cloud</strong>). Seluruh tulisan, foto, font favorit, dan tabungan langsung kembali utuh!</li>
                                 </ol>
+                            </div>
+
+                            <!-- Panduan Update Versi Web / PWA GitHub Pages -->
+                            <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1.5">
+                                <div class="font-bold text-charcoal flex items-center gap-1.5 text-[13px]">
+                                    <i class="ph-fill ph-git-branch text-dusty"></i> Cara Update Jika Dibuka Lewat Link GitHub Pages (PWA)
+                                </div>
+                                <p class="text-muted">Jika kamu membuka Dearly langsung lewat alamat link <code>username.github.io</code> (atau menginstalnya lewat Chrome/Safari <em>Add to Home Screen</em>), kamu <strong>tidak perlu menghapus aplikasi</strong>: cukup tempel kode baru ke <code>index.html</code> di GitHub → klik <strong>Commit changes</strong> → tunggu ±1 menit lalu <em>refresh</em> halaman. Datamu tetap utuh otomatis!</p>
                             </div>
 
                             <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1">
                                 <div class="font-semibold text-charcoal flex items-center gap-1.5"><i class="ph-fill ph-image text-dusty"></i> 1. Simpan Kartu Gambar Lucu (PNG)</div>
-                                <p class="text-muted">Buka detail lembar <em>Daily Journal</em>, kartu <em>Memory Box</em>, atau <em>Future Letter</em> yang sudah dibuka, lalu tekan tombol <strong>Simpan Gambar PNG ✦</strong>. Kartu bergaya buku harian estetik lengkap dengan <em>washi tape</em> dan foto otomatis terunduh ke galeri HP-mu!</p>
+                                <p class="text-muted">Buka detail lembar <em>Daily Journal</em>, kartu <em>Memory Box</em>, atau <em>Future Letter</em> yang sudah dibuka, lalu tekan tombol <strong>Simpan Gambar PNG ✦</strong>. Ketuk <strong>Simpan / Bagikan ke Galeri</strong> (atau tahan gambarnya lalu pilih <em>Simpan Foto</em>) untuk menyimpannya ke galeri perangkatmu.</p>
                             </div>
 
                             <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1">
@@ -1468,7 +1461,7 @@
 
                             <div class="p-3.5 rounded-2xl bg-cream border border-borderwarm space-y-1">
                                 <div class="font-semibold text-charcoal flex items-center gap-1.5"><i class="ph-fill ph-lock-key text-dusty"></i> 5. Kunci PIN 4-Digit & Cloud Sync Supabase</div>
-                                <p class="text-muted">Buka ikon <strong>Profil (<i class="ph ph-user"></i>)</strong> di pojok kanan atas untuk mengaktifkan kunci PIN 4-digit atau menyambungkan akun gratis <strong>Supabase</strong> agar datamu otomatis tersinkron lintas HP & laptop.</p>
+                                <p class="text-muted">Buka ikon <strong>Profil (<i class="ph ph-user"></i>)</strong> di pojok kanan atas untuk mengaktifkan kunci PIN 4-digit atau menyambungkan akun gratis <strong>Supabase</strong> agar datamu otomatis tersinkron lintas HP & tablet.</p>
                             </div>
                         </div>
 
@@ -2801,7 +2794,6 @@
                         }
                     }
 
-                    // Fallback: copy JSON text to clipboard & show copyable modal (100% works in APK WebView)
                     const ta = document.createElement('textarea');
                     ta.value = payload;
                     ta.style.position = 'fixed';
@@ -3998,7 +3990,6 @@
                                 const flapColor = ribbonColors[idx % ribbonColors.length];
                                 return `
                                 <div class="dearly-card dearly-card-hover overflow-hidden flex flex-col justify-between">
-                                    <!-- Mini Envelope Top Flap -->
                                     <div class="px-4 py-2.5 border-b border-borderwarm/70 flex items-center justify-between" style="background-color:${flapColor}">
                                         <span class="text-[10px] font-bold uppercase tracking-wider text-charcoal inline-flex items-center gap-1">
                                             <i class="ph-fill ${ml.isOpened ? 'ph-envelope-open' : (mlCanOpen ? 'ph-sparkle' : 'ph-lock-simple')}"></i>
@@ -5638,7 +5629,7 @@
                                     <span>Aktifkan</span>
                                 </label>
                             </div>
-                            <p class="leading-relaxed">Hubungkan ke proyek gratis <strong>Supabase</strong> agar seluruh jurnal, foto, dan tabungan otomatis tersimpan & sinkron lintas perangkat saat diinstal dari GitHub Pages.</p>
+                            <p class="leading-relaxed">Hubungkan ke proyek gratis <strong>Supabase</strong> agar seluruh jurnal, foto, dan tabungan otomatis tersimpan & sinkron lintas perangkat.</p>
                             
                             <div class="space-y-2">
                                 <input id="cloud-url" type="url" value="${this.escapeHtml(cfg.url || '')}" placeholder="Supabase Project URL (https://xxx.supabase.co)" class="w-full px-3.5 py-2 rounded-xl bg-ivory border border-borderwarm text-xs text-charcoal">
@@ -5650,6 +5641,17 @@
                                 <summary class="cursor-pointer font-semibold text-charcoal text-[11px]">Lihat 1x Perintah SQL Setup di Supabase</summary>
                                 <pre class="mt-2 p-2 rounded-lg bg-cream text-[10px] overflow-x-auto text-charcoal select-all">${sqlSnippet}</pre>
                             </details>
+
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <button type="button" onclick="app.saveCloudSettingsAndSync('push')" class="px-3.5 py-1.5 rounded-full bg-dusty text-white font-semibold inline-flex items-center gap-1">
+                                    <i class="ph ph-cloud-arrow-up"></i> Simpan & Unggah ke Cloud
+                                </button>
+                                <button type="button" onclick="app.saveCloudSettingsAndSync('pull')" class="px-3.5 py-1.5 rounded-full bg-ivory border border-borderwarm text-charcoal font-semibold inline-flex items-center gap-1 hover:opacity-85">
+                                    <i class="ph ph-cloud-arrow-down"></i> Tarik Data dari Cloud
+                                </button>
+                            </div>
+                        </div>
+
                         <div class="p-3.5 rounded-2xl bg-cream/60 border border-borderwarm text-xs text-muted space-y-2.5">
                             <div class="flex items-center justify-between">
                                 <span class="font-semibold text-charcoal flex items-center gap-1.5">
@@ -5892,3 +5894,4 @@
     </script>
 </body>
 </html>
+```
