@@ -2781,6 +2781,100 @@
                 }
             }
 
+            async shareOrCopyBackupText() {
+                try {
+                    const payload = JSON.stringify(this.state);
+                    const dateStr = new Date().toISOString().slice(0, 10);
+                    const file = new File([payload], `dearly-backup-${dateStr}.json`, { type: 'application/json' });
+
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        try {
+                            await navigator.share({
+                                files: [file],
+                                title: 'Cadangan Data Dearly',
+                                text: `Cadangan data Dearly (${dateStr})`
+                            });
+                            this.toast('Berkas cadangan berhasil dibagikan / disimpan ✦');
+                            return;
+                        } catch (err) {
+                            if (err && err.name === 'AbortError') return;
+                        }
+                    }
+
+                    // Fallback: copy JSON text to clipboard & show copyable modal (100% works in APK WebView)
+                    const ta = document.createElement('textarea');
+                    ta.value = payload;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    ta.remove();
+
+                    this.openModal(`
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between border-b border-borderwarm pb-2.5">
+                                <h3 class="font-serif text-xl font-medium text-charcoal">Kode Cadangan Data Dearly ✦</h3>
+                                <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
+                            </div>
+                            <p class="text-xs text-muted leading-relaxed">
+                                Kode cadangan sudah <strong>otomatis disalin</strong>! Tempel & simpan teks ini di <strong>Catatan HP / Google Keep / WhatsApp Pribadi</strong> agar bisa dipulihkan kapan saja setelah ganti APK.
+                            </p>
+                            <textarea id="backup-export-box" readonly rows="6" onclick="this.select()" class="w-full p-3 rounded-2xl bg-cream border border-borderwarm text-[11px] font-mono text-charcoal focus:outline-none">${this.escapeHtml(payload)}</textarea>
+                            <div class="flex justify-end gap-2">
+                                <button type="button" onclick="const b=document.getElementById('backup-export-box'); b.select(); document.execCommand('copy'); app.toast('Kode cadangan disalin ulang!');" class="px-4 py-2 rounded-full bg-cream border border-borderwarm text-xs font-semibold text-charcoal">Salin Ulang</button>
+                                <button type="button" onclick="app.closeModal()" class="px-5 py-2 rounded-full bg-dusty text-white text-xs font-semibold">Selesai</button>
+                            </div>
+                        </div>
+                    `, 'max-w-lg');
+                } catch (e) {
+                    this.toast('Gagal menyiapkan cadangan data.', 'error');
+                }
+            }
+
+            openPasteRestoreModal() {
+                this.openModal(`
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-borderwarm pb-2.5">
+                            <h3 class="font-serif text-xl font-medium text-charcoal">Pulihkan dari Kode Cadangan</h3>
+                            <button onclick="app.closeModal()" class="p-1.5 rounded-full hover:bg-cream text-muted"><i class="ph ph-x"></i></button>
+                        </div>
+                        <p class="text-xs text-muted leading-relaxed">
+                            Tempel (<em>Paste</em>) teks cadangan Dearly yang sebelumnya kamu simpan di Catatan HP / Google Keep / WhatsApp di bawah ini:
+                        </p>
+                        <textarea id="backup-import-box" rows="6" placeholder='Tempel teks cadangan yang diawali {"profile":...' class="w-full p-3 rounded-2xl bg-cream border border-borderwarm text-[11px] font-mono text-charcoal focus:outline-none focus:border-dusty"></textarea>
+                        <div class="flex justify-end gap-2">
+                            <button type="button" onclick="app.closeModal()" class="px-4 py-2 rounded-full bg-cream border border-borderwarm text-xs font-medium text-charcoal">Batal</button>
+                            <button type="button" onclick="app.restoreFromPastedText()" class="px-5 py-2 rounded-full bg-dusty text-white text-xs font-semibold">Pulihkan Semua Data ✦</button>
+                        </div>
+                    </div>
+                `, 'max-w-lg');
+            }
+
+            restoreFromPastedText() {
+                const raw = (document.getElementById('backup-import-box')?.value || '').trim();
+                if (!raw) {
+                    this.toast('Tempel teks cadangan terlebih dahulu.', 'error');
+                    return;
+                }
+                try {
+                    const parsed = JSON.parse(raw);
+                    if (!parsed || !parsed.data) {
+                        this.toast('Format kode cadangan Dearly tidak valid.', 'error');
+                        return;
+                    }
+                    this.state = this.mergeWithDefault(parsed);
+                    this.applyThemeVariables();
+                    this.saveState();
+                    this.closeModal();
+                    this.render();
+                    this.triggerSparkleBurst();
+                    this.toast('Seluruh data Dearly berhasil dipulihkan ✦');
+                } catch (err) {
+                    this.toast('Kode cadangan tidak lengkap atau rusak.', 'error');
+                }
+            }
+
             importBackupData(inputEl) {
                 const file = inputEl.files && inputEl.files[0];
                 if (!file) return;
@@ -5556,25 +5650,25 @@
                                 <summary class="cursor-pointer font-semibold text-charcoal text-[11px]">Lihat 1x Perintah SQL Setup di Supabase</summary>
                                 <pre class="mt-2 p-2 rounded-lg bg-cream text-[10px] overflow-x-auto text-charcoal select-all">${sqlSnippet}</pre>
                             </details>
-
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                <button type="button" onclick="app.saveCloudSettingsAndSync('push')" class="px-3.5 py-1.5 rounded-full bg-dusty text-white font-semibold inline-flex items-center gap-1">
-                                    <i class="ph ph-cloud-arrow-up"></i> Simpan & Unggah ke Cloud
-                                </button>
-                                <button type="button" onclick="app.saveCloudSettingsAndSync('pull')" class="px-3.5 py-1.5 rounded-full bg-ivory border border-borderwarm text-charcoal font-semibold inline-flex items-center gap-1 hover:opacity-85">
-                                    <i class="ph ph-cloud-arrow-down"></i> Tarik Data dari Cloud
-                                </button>
+                        <div class="p-3.5 rounded-2xl bg-cream/60 border border-borderwarm text-xs text-muted space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-charcoal flex items-center gap-1.5">
+                                    <i class="ph-fill ph-archive-box text-dusty text-base"></i> Cadangan & Pulihkan Semua Data (APK-Friendly)
+                                </span>
                             </div>
-                        </div>
-
-                        <div class="p-3.5 rounded-2xl bg-cream/60 border border-borderwarm text-xs text-muted flex flex-wrap items-center justify-between gap-2">
-                            <span class="font-medium text-charcoal">Cadangan Offline Manual (.JSON)</span>
-                            <div class="flex items-center gap-2">
-                                <button type="button" onclick="app.exportBackupData()" class="px-3 py-1.5 rounded-full bg-ivory border border-borderwarm text-charcoal font-semibold inline-flex items-center gap-1">
-                                    <i class="ph ph-download-simple"></i> Unduh
+                            <p class="text-[11px] leading-relaxed">Simpan seluruh jurnal, foto, font favorit, dan tabunganmu sebelum ganti APK, lalu pulihkan semuanya dalam sekali ketuk:</p>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <button type="button" onclick="app.shareOrCopyBackupText()" class="px-3.5 py-1.5 rounded-full bg-dusty text-white font-semibold inline-flex items-center gap-1 shadow-2xs">
+                                    <i class="ph-bold ph-export"></i> Bagikan / Salin Cadangan
                                 </button>
-                                <label class="px-3 py-1.5 rounded-full bg-ivory border border-borderwarm text-charcoal font-semibold cursor-pointer inline-flex items-center gap-1 hover:opacity-85">
-                                    <i class="ph ph-upload-simple"></i> Pulihkan
+                                <button type="button" onclick="app.openPasteRestoreModal()" class="px-3.5 py-1.5 rounded-full bg-blush/80 text-charcoal font-semibold inline-flex items-center gap-1">
+                                    <i class="ph-bold ph-clipboard-text text-dusty"></i> Tempel & Pulihkan
+                                </button>
+                                <button type="button" onclick="app.exportBackupData()" class="px-3 py-1.5 rounded-full bg-ivory border border-borderwarm text-charcoal font-medium inline-flex items-center gap-1">
+                                    <i class="ph ph-download-simple"></i> File .JSON
+                                </button>
+                                <label class="px-3 py-1.5 rounded-full bg-ivory border border-borderwarm text-charcoal font-medium cursor-pointer inline-flex items-center gap-1 hover:opacity-85">
+                                    <i class="ph ph-upload-simple"></i> Unggah .JSON
                                     <input type="file" accept=".json,application/json" class="hidden" onchange="app.importBackupData(this)">
                                 </label>
                             </div>
